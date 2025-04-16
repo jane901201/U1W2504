@@ -10,7 +10,10 @@ public class EnemyState_RunAway : EnemyState
     }
     public override void OnEnter()
     {
-
+        Vector3 tragetPos= stateMachine.hateAIController.escape.GetEscapeTargetLocation(stateMachine.hateAIController.transform.position,
+            stateMachine.hateAIController.target.position);
+      
+        stateMachine.hateAIController.agent.SetDestination(tragetPos, delegate{stateMachine.SwitchState((int)EnemyStateEnum.Idle); });
     }
     public override void OnPhysicsUpdate()
     {
@@ -19,6 +22,11 @@ public class EnemyState_RunAway : EnemyState
     public override void OnUpdate()
     {
 
+    }
+    
+    public override void OnExit()
+    {
+            
     }
 
 }

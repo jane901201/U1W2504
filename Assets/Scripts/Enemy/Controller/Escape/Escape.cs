@@ -70,12 +70,12 @@ public class Escape : MonoBehaviour
 
     private static MapInfo _mapInfo;
 
-    private BoxCollider2D _tilemapCollider;  // 用于获取Tilemap大小
+    public BoxCollider2D tilemapCollider;  // 用于获取Tilemap大小
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialize();
     }
 
     // Update is called once per frame
@@ -91,10 +91,10 @@ public class Escape : MonoBehaviour
 
     public void Initialize(int partitions = 9)
     {
-        _tilemapCollider = GameObject.Find("Tilemap").GetComponent<BoxCollider2D>();
-        if (_tilemapCollider != null)
+        tilemapCollider = GameObject.Find("Tilemap").GetComponent<BoxCollider2D>();
+        if (tilemapCollider != null)
         {
-            Vector2 mapSize = _tilemapCollider.size;
+            Vector2 mapSize = tilemapCollider.size;
             Initialize(mapSize, partitions);
         }
     }
@@ -128,6 +128,7 @@ public class Escape : MonoBehaviour
 
         Vector2 result = _mapInfo.GetRandomPointInPartition(farthestPartition);
         
+        Debug.Log(result);
         return new Vector3(result.x, result.y, 0f);
     }
     
