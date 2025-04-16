@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9845d80b2252ebc4a8a4950c459207e5
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/Scripts/Runtime/Heap.cs
+  uploadId: 650776
