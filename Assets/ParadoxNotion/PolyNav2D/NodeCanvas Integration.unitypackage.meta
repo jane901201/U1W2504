@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a4adcdce20f2ee44cac10ef071645623
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/NodeCanvas Integration.unitypackage
+  uploadId: 650776

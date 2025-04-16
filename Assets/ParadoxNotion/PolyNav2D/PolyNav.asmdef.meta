@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9ae99374875009f419971cfee33d0e9c
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/PolyNav.asmdef
+  uploadId: 650776

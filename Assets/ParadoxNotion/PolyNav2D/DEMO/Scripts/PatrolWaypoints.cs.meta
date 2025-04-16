@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1962c4e8ffeb9fa4298781b77837a33e
+timeCreated: 1434726410
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/DEMO/Scripts/PatrolWaypoints.cs
+  uploadId: 650776

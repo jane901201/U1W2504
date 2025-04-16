@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 310f074f16afba9409478277a9a2196f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/Scripts/Editor/PolyNavObstacleInspector.cs
+  uploadId: 650776
