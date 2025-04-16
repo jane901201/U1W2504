@@ -8,8 +8,10 @@ public class Player : MonoBehaviour
     private Vector3Int playerPos;
     [SerializeField] private CharacterState characterState;
     [SerializeField] private Tilemap tilemap;
+    [SerializeField] private int hp = 3;
+    [SerializeField] private List<IItem> items = new List<IItem>();
 
-    private float moveCooldown = 0.2f; // ˆÚ“®ŠÔŠui•bj
+    private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
 
     public float moveSpeed = 5f;
@@ -27,15 +29,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // “ü—Íæ“¾
-        float h = Input.GetAxisRaw("Horizontal"); // A‚ÆD
-        float v = Input.GetAxisRaw("Vertical");   // W‚ÆS
+        float h = Input.GetAxisRaw("Horizontal"); 
+        float v = Input.GetAxisRaw("Vertical");   
         movement = new Vector2(h, v).normalized;
     }
 
     private void FixedUpdate()
     {
-        // ÀÛ‚ÌˆÚ“®ˆ—
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
         Vector3 worldPos = tilemap.CellToWorld(cellPos) + tilemap.cellSize / 2;
         transform.position = worldPos;
     }
+    
+    
 
     private void TileMapMove()
     {
