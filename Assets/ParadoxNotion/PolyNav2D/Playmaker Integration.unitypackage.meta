@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9844a676323428641a62367234f0266d
+timeCreated: 1509031043
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/Playmaker Integration.unitypackage
+  uploadId: 650776

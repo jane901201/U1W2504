@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6b334c93c95660a4e900a15c6cf2a87a
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14718
+  packageName: PolyNav - 2D Pathfinding
+  packageVersion: 1.7.8
+  assetPath: Assets/ParadoxNotion/PolyNav2D/Scripts/Editor/PolyNavMapInspector.cs
+  uploadId: 650776
