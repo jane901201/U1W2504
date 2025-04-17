@@ -48,12 +48,15 @@ public class HateAIController : MonoBehaviour
 
     void Update() {
         StateMachine.Update();
-        if(IsNeedToRunAway()) StateMachine.SwitchState((int)EnemyStateEnum.RunAway);
+        if (StateMachine.CurEid != (int)EnemyStateEnum.RunAway)
+        {
+            if (IsNeedToRunAway()) StateMachine.SwitchState((int)EnemyStateEnum.RunAway);
+        }
 
     }
 
 
-
+public Transform playerPos;
     /** test begin */
     private bool _bNeedToFollow;
     

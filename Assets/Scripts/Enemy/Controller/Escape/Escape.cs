@@ -1,140 +1,85 @@
 using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Escape : MonoBehaviour
 {
-    // 先暂时把地图参数作为类变量缓存，如果可以的话希望后期缓存到别的地方
-    private class MapInfo
+    [Header("Tilemap 相关")]
+    public Tilemap groundTilemap;        // 地面或可通行的Tilemap
+    public Tilemap obstacleTilemap;      // 障碍物Tilemap
+    public int minRange = 3;          //最小逃跑搜索半径
+    public int maxRange = 5;          //最大逃跑搜索半径
+    public Vector3 MoveToFarthestTileInRange(Vector3 AIPosition,Vector3 targetPosition)
     {
+        // 获取AI当前位置对应的Tile坐标
+        Vector3Int aiCellPos = groundTilemap.WorldToCell(AIPosition);
 
-        private float XSize;
-        private float YSize;
-        private int Length;
-
-        // 默认分成9个区域
-        public MapInfo(Vector2 mapSize, int partitions = 9)
+        // 获取PL当前位置对应的Tile坐标
+        Vector3Int targetCellPos = obstacleTilemap.WorldToCell(targetPosition);
+        // 找到“最远的”且非障碍的Tile坐标
+        Vector3Int bestCellPos = FindFarthestFromEnemyButWithinRangeOfAI(aiCellPos,targetCellPos, minRange, maxRange);
+        
+        if (bestCellPos != aiCellPos)
         {
-            double dLen = Math.Sqrt(partitions);
-            int len = (int) dLen;
+            return groundTilemap.GetCellCenterWorld(bestCellPos);
+        }
 
-            if (partitions <= 0 || len != dLen)
+        Debug.Log("Error");
+        return Vector3.zero;
+    }
+
+    /// <summary>
+    /// 返回在[minRange, maxRange]内，且非障碍物、距离最远的Tile坐标
+    /// </summary>
+    private Vector3Int FindFarthestFromEnemyButWithinRangeOfAI(
+        Vector3Int aiCellPos, 
+        Vector3 playerPos, 
+        int minRange, 
+        int maxRange
+    )
+    {
+        Vector3Int bestCellPos = aiCellPos;
+        float bestDistToEnemy = float.MinValue;
+
+        for (int x = -maxRange; x <= maxRange; x++)
+        {
+            for (int y = -maxRange; y <= maxRange; y++)
             {
-                throw new Exception("Partitions must be a perfect square.");
-            }
+                Vector3Int checkPos = aiCellPos + new Vector3Int(x, y, 0);
+                
+                float distAi = Vector2Int.Distance(
+                    new Vector2Int(aiCellPos.x, aiCellPos.y),
+                    new Vector2Int(checkPos.x, checkPos.y)
+                );
+                if (distAi < minRange || distAi > maxRange)
+                    continue; // 超过范围就跳过
 
-            XSize = mapSize.x;
-            YSize = mapSize.y;
-            Length = len;
-        }
+                // 2) 是否障碍物
+                if (IsObstacle(checkPos))
+                    continue;
 
-        // 工具函数：查找坐标所在分区
-        public int GetPartition(Vector3 position)
-        {
-            int xPartition = Mathf.FloorToInt(position.x / (XSize / Length));
-            int yPartition = Mathf.FloorToInt(position.y / (YSize / Length));
-
-            return yPartition * Length + xPartition;
-        }
-
-        // 工具函数：返回所在分区的相邻分区
-        public int[] GetNearPartitions(int partition)
-        {
-            int x = partition % Length;
-            int y = partition / Length;
-            int[] neighbors = new int[4];  // 左、右、上、下相邻分区
-
-            // 上
-            if (y > 0) neighbors[0] = (y - 1) * Length + x;
-            // 下
-            if (y < Length - 1) neighbors[1] = (y + 1) * Length + x;
-            // 左
-            if (x > 0) neighbors[2] = y * Length + (x - 1);
-            // 右
-            if (x < Length - 1) neighbors[3] = y * Length + (x + 1);
-
-            return neighbors;
-        }
-        
-        // 工具函数：获取分区内随机点
-        public Vector2 GetRandomPointInPartition(int partition)
-        {
-            int xPartition = partition % Length;
-            int yPartition = partition / Length;
-
-            float xPosition = (xPartition + UnityEngine.Random.Range(0f, 1f)) * (XSize / Length);
-            float yPosition = (yPartition + UnityEngine.Random.Range(0f, 1f)) * (YSize / Length);
-            
-            return new Vector2(xPosition, yPosition);
-        }
-    }
-
-    private static MapInfo _mapInfo;
-
-    public BoxCollider2D tilemapCollider;  // 用于获取Tilemap大小
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Initialize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Initialize(Vector2 mapSize, int partitions = 9)
-    {
-        _mapInfo = new MapInfo(mapSize);
-    }
-
-    public void Initialize(int partitions = 9)
-    {
-        tilemapCollider = GameObject.Find("Tilemap").GetComponent<BoxCollider2D>();
-        if (tilemapCollider != null)
-        {
-            Vector2 mapSize = tilemapCollider.size;
-            Initialize(mapSize, partitions);
-        }
-    }
-
-    // 返回逃离目标坐标
-    public Vector3 GetEscapeTargetLocation(Vector3 playerPosition, Vector3 myPosition)
-    {
-        int playerPartition = _mapInfo.GetPartition(playerPosition);
-        // 获取自己的分区
-        int myPartition = _mapInfo.GetPartition(myPosition);
-        int[] nearbyPartitions = _mapInfo.GetNearPartitions(playerPartition);
-
-        // 选择一个最远的分区
-        int farthestPartition = -1;
-        int maxDistance = -1;
-
-        foreach (var partition in nearbyPartitions)
-        {
-            if (partition == -1 || partition == myPartition) {
-                continue;  // 跳过无效的分区
-            }
-            // if (partition == -1 || partition == myPartition) {continue;}
-
-            int dist = Math.Abs(playerPartition - partition);
-            if (dist > maxDistance)
-            {
-                farthestPartition = partition;
-                maxDistance = dist;
+                // 3) 计算到敌人的距离
+                float distPlayer = Vector2.Distance(
+                    new Vector2(playerPos.x, playerPos.y),
+                    new Vector2Int(checkPos.x, checkPos.y)
+                );
+                // 4) 如果到敌人的距离更大，就更新
+                if (distPlayer > bestDistToEnemy)
+                {
+                    bestDistToEnemy = distPlayer;
+                    bestCellPos = checkPos;
+                }
             }
         }
 
-        Vector2 result = _mapInfo.GetRandomPointInPartition(farthestPartition);
-        
-        Debug.Log(result);
-        return new Vector3(result.x, result.y, 0f);
+        return bestCellPos;
     }
-    
-    // Test method
-    public int GetPartition(Vector3 position)
+    /// 根据Tilemap或Tile类型判定此坐标是否障碍
+    private bool IsObstacle(Vector3Int cellPos)
     {
-        return _mapInfo.GetPartition(position);
+        // 如果obstacleTilemap上有Tile，就视为障碍
+        TileBase obstacleTile = obstacleTilemap.GetTile(cellPos);
+        return obstacleTile != null;
     }
+
 }
