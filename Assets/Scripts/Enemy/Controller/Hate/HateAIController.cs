@@ -7,36 +7,58 @@ using U1w.FSM;
 
 public class HateAIController : MonoBehaviour
 {
-    public EnemyStateMachine StateMachine;
+    public EnemyStateMachine LoveStateMachine;
+    public EnemyStateMachine HateStateMachine;
+    public EnemyStateMachine CurrentStateMachine;
     
     public EnemyStateEnum CurrentState;
 
     private void Start()
     {
-        StateMachine = new(this);
-        StateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(StateMachine));
-        StateMachine.AddState((int)EnemyStateEnum.Follow, new EnemyState_Follow(StateMachine));
-        StateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(StateMachine));
-        StateMachine.Begin((int)CurrentState);
+        CurrentStateMachine=LoveStateMachine;
+        //Love
+        LoveStateMachine = new(this);
+        LoveStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
+        LoveStateMachine.AddState((int)EnemyStateEnum.Follow, new EnemyState_Follow(LoveStateMachine));
+
+        LoveStateMachine.Begin((int)CurrentState);
+        //Hate
+        HateStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
+        HateStateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(LoveStateMachine));
+    }
+    void Update() {
+        CurrentStateMachine.Update();
+        if (LoveStateMachine.CurEid != (int)EnemyStateEnum.RunAway)
+        {
+            if (IsNeedToRunAway()) LoveStateMachine.SwitchState((int)EnemyStateEnum.RunAway);
+        }
+
+    }
+
+
+    public void ChangeStateMachine()
+    {
+        if (true)
+        {
+            //To DO ChangeState
+            // CurrentStateMachine =
+        }
     }
     
     public void FixedUpdate()
     {
-        StateMachine.FixedUpdate();
+        CurrentStateMachine.FixedUpdate();
     }
-    //Follow
-    public Transform target;
-
-    
     //Map
     private PolyNavAgent _agent;
     public PolyNavAgent agent {
         get { return _agent != null ? _agent : _agent = GetComponent<PolyNavAgent>(); }
     }
+    //Follow
+    public Transform target;
     //Run Away
     public Escape escape;
-    
-    public bool IsNeedToRunAway()
+    private bool IsNeedToRunAway()
     {
         if (Vector2.Distance(this.transform.position, target.position) < 5f)
         {
@@ -44,34 +66,16 @@ public class HateAIController : MonoBehaviour
         }
         return false;
     }
+    //
     
 
-    void Update() {
-        StateMachine.Update();
-        if (StateMachine.CurEid != (int)EnemyStateEnum.RunAway)
-        {
-            if (IsNeedToRunAway()) StateMachine.SwitchState((int)EnemyStateEnum.RunAway);
-        }
 
-    }
-
-
-public Transform playerPos;
-    /** test begin */
-    private bool _bNeedToFollow;
-    
-    public bool needToFollow{get{return _bNeedToFollow;}set
-    {
-        if (value == true) StateMachine.SwitchState((int)EnemyStateEnum.Follow);else StateMachine.SwitchState((int)EnemyStateEnum.RunAway);}
-    
-    }
     
     
     
 }
 public enum EnemyStateEnum
 {
-    None,
     Idle,
     Follow,
     RunAway
