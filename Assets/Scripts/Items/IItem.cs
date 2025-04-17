@@ -4,10 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "MyGame/Item")]
-public class IItem : ScriptableObject
+public abstract class IItem : ScriptableObject
 {
-    public void Use(Player player)
-    {
-        
-    }
+    public abstract void Use(Player player);
 }

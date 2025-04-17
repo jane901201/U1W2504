@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private int hp = 3;
     [SerializeField] private List<IItem> items = new List<IItem>();
+    [SerializeField] private Animator animator;
 
     private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
@@ -18,6 +19,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    public CharacterState CharacterState { get => characterState; set => characterState = value; }
+    public Animator Animator{ get => animator; set => animator = value; }
+
+    public int Hp { get => hp; set => hp = value; }
 
     private void Start()
     {
@@ -43,6 +48,20 @@ public class Player : MonoBehaviour
     {
         Vector3 worldPos = tilemap.CellToWorld(cellPos) + tilemap.cellSize / 2;
         transform.position = worldPos;
+    }
+
+    public void AddItem(IItem item)
+    {
+        if (items.Count < 2)
+        {
+            items.Add(item);
+        }
+    }
+
+    public void UseItem()
+    {
+        items[0].Use(this);
+        items.RemoveAt(0);
     }
     
     
@@ -81,6 +100,6 @@ public class Player : MonoBehaviour
 
 public enum CharacterState
 {
-    Love,
-    Hate
+    Love = 0,
+    Sad = 1 
 }
