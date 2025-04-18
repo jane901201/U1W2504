@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private List<IItem> items = new List<IItem>();
     [SerializeField] private Animator animator;
 
+    public Action PlayerStateChangEvent;
+    
     private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
 
