@@ -741,7 +741,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3880725769747102268, guid: 4bcbe7fb2c90008418ae816722fd4b3e, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 2137189951}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9012227948751385684, guid: 4bcbe7fb2c90008418ae816722fd4b3e, type: 3}
@@ -11578,6 +11578,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7986e1ef0137ed42a62497fd1067b52, type: 3}
+--- !u!114 &1398178566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 999378103368409350, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
+  m_PrefabInstance: {fileID: 239979841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dde01ed7b94ee5b2e73b7abeb19712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1410226941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11630,6 +11641,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 522363967}
+    - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
+      propertyPath: gameUI
+      value: 
+      objectReference: {fileID: 1398178566}
     - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: player
       value: 
@@ -15377,10 +15392,6 @@ PrefabInstance:
     - target: {fileID: 4223653349431074538, guid: 179e5527d573d204da554529f1a10216, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8719365069673971788, guid: 179e5527d573d204da554529f1a10216, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 9063242297363749679, guid: 179e5527d573d204da554529f1a10216, type: 3}
       propertyPath: m_Name
