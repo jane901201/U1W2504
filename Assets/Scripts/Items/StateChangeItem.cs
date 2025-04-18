@@ -7,7 +7,13 @@ namespace DefaultNamespace
     {
         public override void Use(Player player)
         {
-            player.CharacterState = player.CharacterState == CharacterState.Love ? CharacterState.Sad : CharacterState.Love;
+            player.PlayerStateChangEvent?.Invoke();
+            //player.CharacterState = player.CharacterState == CharacterState.Love ? CharacterState.Sad : CharacterState.Love;
+        }
+
+        public override void Use(ICharacter character)
+        {
+            
         }
     }
 }
