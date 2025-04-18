@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using NUnit.Framework.Constraints;
 using PolyNav;
 using UnityEngine;
 using U1w.FSM;
@@ -13,11 +15,13 @@ public class AIController : MonoBehaviour
     [HideInInspector] public EnemyStateMachine LoveStateMachine;
     [HideInInspector] public EnemyStateMachine HateStateMachine;
     [HideInInspector] public EnemyStateMachine CurrentStateMachine;
-    
+    [HideInInspector] public GameSystem GameSystem;
+    private GameState oldGameState;
     public EnemyStateEnum CurrentState;
 
     private void Start()
     {
+        GameSystem=GameObject.Find("GameSystem").GetComponent<GameSystem>();
 
         //Love
         LoveStateMachine = new(this);
@@ -35,6 +39,15 @@ public class AIController : MonoBehaviour
         CurrentStateMachine=LoveStateMachine;
     }
     void Update() {
+
+        if (GameSystem.GameState != null)
+        {
+            if (GameSystem.GameState != oldGameState)
+            {
+                oldGameState = GameSystem.GameState;
+                ChangeAIState(GameSystem.GameState);
+            }
+        }
         CurrentStateMachine.Update();
         //Hate
         //RunAway
@@ -52,14 +65,14 @@ public class AIController : MonoBehaviour
         if (HateStateMachine.CurEid != (int)EnemyStateEnum.Item)
         {
             if (IsNeedToGoToItemWhenRunAway()) 
-                LoveStateMachine.SwitchState((int)EnemyStateEnum.Item);
+                HateStateMachine.SwitchState((int)EnemyStateEnum.Item);
         }
         
 
     }
-    public void ChangeAIState()
+    public void ChangeAIState(GameState newGameState)
     {
-        if (target.GetComponent<Player>().CharacterState == CharacterState.Love)
+        if (newGameState==GameState.Love)
         {
             CurrentStateMachine = LoveStateMachine;
         }
@@ -83,15 +96,22 @@ public class AIController : MonoBehaviour
     //Follow
     public Transform target;
     //Item
-    [HideInInspector] public IItem Item;
+    public ItemTrigger Item;
     [Header("Get Item Parameter When Follow")] public float DisttoPlayer=3f;
     public float DistToItem = 3f;
     private bool IsNeedToGoToItem()
     {
-        if (Vector2.Distance(this.transform.position, target.position) > DisttoPlayer&&
-            Vector2.Distance(this.transform.position, Item.GetComponent<Transform>().position)<DistToItem)
+        try
         {
-            return true;
+            if (Vector2.Distance(this.transform.position, target.position) > DisttoPlayer &&
+                Vector2.Distance(this.transform.position, Item.GetComponent<Transform>().position) < DistToItem)
+            {
+                return true;
+            }
+        }
+        catch
+        {
+            return false;
         }
 
         return false;

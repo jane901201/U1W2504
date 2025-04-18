@@ -18,6 +18,7 @@ public class EnemyState_Follow : EnemyState
     }
     public override void OnUpdate()
     {
+        Debug.Log("Follow");
         if ( stateMachine.aIController
                 .target != null ) {
             stateMachine.aIController.agent.SetDestination(stateMachine.aIController.target.position);

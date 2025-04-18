@@ -14,7 +14,7 @@ namespace DefaultNamespace
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
-        public GameState GameState => gameState;
+        public GameState GameState { get => gameState; set => gameState = value; }
         
         private void Start()
         {

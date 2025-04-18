@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3880725769747102268}
   - component: {fileID: 2590784663677640210}
   - component: {fileID: 4423424058651020852}
-  - component: {fileID: 4304837273181796954}
   - component: {fileID: 8937785110969866356}
+  - component: {fileID: 4316668552096392792}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -102,12 +102,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 0}
-  maxSpeed: 5
-  maxForce: 10
-  stoppingDistance: 0.1
-  slowingDistance: 1
+  maxSpeed: 2
+  maxForce: 5
+  stoppingDistance: 0.2
+  slowingDistance: 0.2
   lookAheadDistance: 1
-  avoidRadius: 5
+  avoidRadius: 0.5
   avoidanceConsiderStuckedTime: 3
   avoidanceConsiderReachedDistance: 1
   rotateTransform: 0
@@ -117,19 +117,6 @@ MonoBehaviour:
   restrict: 0
   closerPointOnInvalid: 1
   debugPath: 1
---- !u!114 &4304837273181796954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9012227948751385684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae49387b59ffee643a7598de336640ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!61 &8937785110969866356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +163,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4316668552096392792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012227948751385684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f3a99b9a5291b4789d62abba63adba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  target: {fileID: 0}
+  Item: {fileID: 0}
+  DisttoPlayer: 3
+  DistToItem: 3
+  escape: {fileID: 0}
+  runAwayFromPlayer: 3
+  AwayFormPlayer: 4
