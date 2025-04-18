@@ -68,14 +68,14 @@ namespace DefaultNamespace
 
             if (gameState == GameState.PlayerChaseEnemy)
             {
-                player.CharacterState = CharacterState.Love;
-                player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
+                player.CharacterState.Emotion = CharacterState.EmotionType.Love;
+                player.Animator.SetInteger("CharacterState.Emotion", (int)player.CharacterState.Emotion);
             }
 
             if (gameState == GameState.EnemyChasePlayer)
             {
-                player.CharacterState = CharacterState.Sad;
-                player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
+                player.CharacterState.Emotion = CharacterState.EmotionType.Sad;
+                player.Animator.SetInteger("CharacterState.Emotion", (int)player.CharacterState.Emotion);
             }
             // if (player.CharacterState == CharacterState.Love)
             // {
