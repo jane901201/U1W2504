@@ -15,7 +15,7 @@ namespace DefaultNamespace
         [SerializeField] private GameObject[] objectsToSpawn; 
 
         
-        
+        public CharacterState PlayerState => player.CharacterState;
         
         private void Start()
         {
