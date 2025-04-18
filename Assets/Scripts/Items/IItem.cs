@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 
@@ -7,4 +8,9 @@ using UnityEngine;
 public abstract class IItem : ScriptableObject
 {
     public abstract void Use(Player player);
+
+    public virtual void Use(ICharacter character)
+    {
+        
+    }
 }
