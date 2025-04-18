@@ -8,6 +8,7 @@ namespace DefaultNamespace
     public class GameSystem : MonoBehaviour
     {
         [SerializeField] private Player player;
+        [SerializeField] private Enemy enemy;
         [SerializeField] private GameUI gameUI;
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private float spawnInterval = 5f;
@@ -69,23 +70,18 @@ namespace DefaultNamespace
             if (gameState == GameState.PlayerChaseEnemy)
             {
                 player.CharacterState.Emotion = CharacterState.EmotionType.Love;
-                player.Animator.SetInteger("CharacterState.Emotion", (int)player.CharacterState.Emotion);
+                enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
+                player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
+                enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
             }
 
             if (gameState == GameState.EnemyChasePlayer)
             {
                 player.CharacterState.Emotion = CharacterState.EmotionType.Sad;
-                player.Animator.SetInteger("CharacterState.Emotion", (int)player.CharacterState.Emotion);
+                enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;
+                player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
+                enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
             }
-            // if (player.CharacterState == CharacterState.Love)
-            // {
-            //     gameState = GameState.PlayerChaseEnemy;
-            // }
-            //
-            // if (player.CharacterState == CharacterState.Sad)
-            // {
-            //     gameState = GameState.EnemyChasePlayer;
-            // }
         }
 
         private void PlayerStateChangEvent()

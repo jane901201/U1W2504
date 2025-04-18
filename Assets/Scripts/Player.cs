@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Player : MonoBehaviour
+public class Player : ICharacter
 {
     private Vector3Int playerPos;
-    [SerializeField] private CharacterState characterState;
-    [SerializeField] private int hp = 3;
     [SerializeField] private List<IItem> items = new List<IItem>();
-    [SerializeField] private Animator animator;
 
     public Action PlayerStateChangEvent;
     
@@ -20,12 +18,8 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
-
-    public CharacterState CharacterState { get => characterState; set => characterState = value; }
-    public Animator Animator{ get => animator; set => animator = value; }
-
-    public int Hp { get => hp; set => hp = value; }
-
+    
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,7 +49,7 @@ public class Player : MonoBehaviour
     public void UseItem()
     {
         if(items.Count == 0) return;
-        items[0].Use(this);
+        items[0].Use(this, null); //TODO:後調整
         items.RemoveAt(0);
     } 
 }
