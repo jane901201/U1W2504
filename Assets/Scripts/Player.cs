@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
     public void UseItem()
     {
+        if(items.Count == 0) return;
         items[0].Use(this);
         items.RemoveAt(0);
     } 

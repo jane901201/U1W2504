@@ -65,11 +65,13 @@ namespace DefaultNamespace
             }
             if (player.CharacterState == CharacterState.Love)
             {
+                gameState = GameState.PlayerChaseEnemy;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
             }
 
             if (player.CharacterState == CharacterState.Sad)
             {
+                gameState = GameState.EnemyChasePlayer;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
                 //Enemy AI　change
             }
