@@ -1,0 +1,664 @@
+fileFormatVersion: 2
+guid: fb171d4018d69e8468fef837d83412a0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boy_Sad_Front_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2033
+        width: 261
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131626116bb04624c9721186c70d73a2
+      internalID: -704425141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_1
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 2033
+        width: 260
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda323fb5fd7bc5428b4134fc54c38b9
+      internalID: 1630985882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_2
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 2033
+        width: 261
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42d8eb1ecccce24aa39a00183373377
+      internalID: -1882602632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_3
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 2033
+        width: 260
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db647829f19fb054fabe7e45d6edd030
+      internalID: 592781952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_4
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 2033
+        width: 260
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d450596131957ec4e8c8677fc55c5bb4
+      internalID: -240888624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_5
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1533
+        width: 261
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2b30bc059a29d498094e51cc3b39d9
+      internalID: -222235671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1533
+        width: 260
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e6c24e990322a4a806fa7410e70dc8
+      internalID: -519371821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_7
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1533
+        width: 261
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ac08d2753cc824aa9c4076e49ee78a
+      internalID: 2090024142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_8
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 1533
+        width: 260
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5ad73ae130fa143a119622b58d5037
+      internalID: 2015257322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_9
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 1533
+        width: 260
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24d76b15c55bb9449ee210f3f8d4b2e
+      internalID: -136954994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1033
+        width: 261
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81047c04397531346935114569d96ae2
+      internalID: 1688093555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_11
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1033
+        width: 260
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334f449b79eb00c49887ef023a9088c8
+      internalID: -1390005930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_12
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1033
+        width: 261
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640018dfddf681f4e9ac9ed2c3adf89d
+      internalID: -51572055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_13
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 1033
+        width: 260
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a29a05939d019843a7b071971679397
+      internalID: -1653447245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_14
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 1033
+        width: 260
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfd2c231e2998d40bea79853a8a8de2
+      internalID: -437190343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_15
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 533
+        width: 261
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5d295129a96c24aab72a85db715208
+      internalID: 1320702459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_16
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 533
+        width: 260
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325b6a3b731003d43be14c5e2172994d
+      internalID: 1186931381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_17
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 533
+        width: 261
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f19a904a3ffb1148874ed041193b4c7
+      internalID: -1264908313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_18
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 533
+        width: 260
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a403da184d597439e5559744d183b1
+      internalID: 1609413963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_19
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 533
+        width: 260
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd56862f21fc0642a47ed65f1046dc2
+      internalID: -1613934955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_20
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 32
+        width: 261
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e2f91ae8f92b047b5f5c4a30ea4476
+      internalID: -2119917479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_21
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 32
+        width: 260
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf27286c0f2f9d4c85b00f6f3b30e59
+      internalID: 1255114123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_22
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 32
+        width: 261
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ac8d82ff92e064eb413ad60a7e89a3
+      internalID: 1462357366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_23
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 32
+        width: 260
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd29cdef91c8b44186c97922f07a30f
+      internalID: 1076155445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Sad_Front_24
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 32
+        width: 260
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3474985e339962840889775546c55251
+      internalID: 1927462928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 93b678c5b4c94764eb93e0e3ea27a462
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boy_Sad_Front_0: -704425141
+      Boy_Sad_Front_1: 1630985882
+      Boy_Sad_Front_10: 1688093555
+      Boy_Sad_Front_11: -1390005930
+      Boy_Sad_Front_12: -51572055
+      Boy_Sad_Front_13: -1653447245
+      Boy_Sad_Front_14: -437190343
+      Boy_Sad_Front_15: 1320702459
+      Boy_Sad_Front_16: 1186931381
+      Boy_Sad_Front_17: -1264908313
+      Boy_Sad_Front_18: 1609413963
+      Boy_Sad_Front_19: -1613934955
+      Boy_Sad_Front_2: -1882602632
+      Boy_Sad_Front_20: -2119917479
+      Boy_Sad_Front_21: 1255114123
+      Boy_Sad_Front_22: 1462357366
+      Boy_Sad_Front_23: 1076155445
+      Boy_Sad_Front_24: 1927462928
+      Boy_Sad_Front_3: 592781952
+      Boy_Sad_Front_4: -240888624
+      Boy_Sad_Front_5: -222235671
+      Boy_Sad_Front_6: -519371821
+      Boy_Sad_Front_7: 2090024142
+      Boy_Sad_Front_8: 2015257322
+      Boy_Sad_Front_9: -136954994
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

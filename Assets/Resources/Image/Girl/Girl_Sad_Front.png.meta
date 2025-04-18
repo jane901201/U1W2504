@@ -1,0 +1,664 @@
+fileFormatVersion: 2
+guid: e188fe98bba7b1442a72a362ee4fefce
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Girl_Sad_Front_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 2029
+        width: 307
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1448c6f1913e7ed4f8907a90d76537fe
+      internalID: -714539982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_1
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 2029
+        width: 307
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2227081a98cf2fb41820f3f8aa389690
+      internalID: 1716081716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_2
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 2029
+        width: 307
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f806d0728e4d34daa583d36fcf606f
+      internalID: 1524153953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_3
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 2029
+        width: 305
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65c66ea512d6a7449bdd3cb1a9eeb82
+      internalID: 809489283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_4
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 2029
+        width: 306
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4046ef3517af6e0468fb769ca8d31836
+      internalID: -1989113647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1530
+        width: 307
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1248f4f073c0f6941858ef180ab3467b
+      internalID: 486738583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_6
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1530
+        width: 307
+        height: 421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146b8a09a60bc9b45ac268ce2ca0e299
+      internalID: 707812100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_7
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1530
+        width: 307
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cedbcc8efaf8194a865b8ff5e906945
+      internalID: 1246936038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_8
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 1530
+        width: 305
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d79ef64ef427e4bb635387e928381b
+      internalID: -798125813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_9
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 1530
+        width: 306
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f890dc2a6fec94b84202ec6dfcfaed
+      internalID: 1214990248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_10
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1030
+        width: 307
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e61e6acab081c48b58aacd63f0117b
+      internalID: 190993093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_11
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1030
+        width: 307
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a87ee859549fa4f9c81f57c696d67c
+      internalID: 203472806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_12
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1030
+        width: 307
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea898654fcf68244eb380722ceba015d
+      internalID: -754145709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_13
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 1030
+        width: 305
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2778343451d103041bd9bcb17506fa61
+      internalID: 143464877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_14
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 1030
+        width: 306
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f45121b3e7efdd4da48edd33c4b0352
+      internalID: -1343810627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_15
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 529
+        width: 307
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad0ac6b344c6bd4d8f20fc5545f9860
+      internalID: -1111746739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_16
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 529
+        width: 307
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cd5e77812c4b24399ca51d9758e9af
+      internalID: 1645151461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_17
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 529
+        width: 307
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0907a47eb606f3e4e9862fb4450b75af
+      internalID: -1584182599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_18
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 529
+        width: 305
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3520c0d2810268a43853c5fd80e397d0
+      internalID: -839696024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_19
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 529
+        width: 306
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a273214b069dc0e47a6fa48aa53246b1
+      internalID: -1792150013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 30
+        width: 307
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f198a94d9936bc49a5c66e549164a91
+      internalID: 864159429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_21
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 30
+        width: 307
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d2bd24e0c554b46a80e181bb23f943
+      internalID: -522500893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_22
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 30
+        width: 307
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802989aefb27c3f478d2dc631b6271ad
+      internalID: 745738061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_23
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 30
+        width: 305
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29505f3ee85eb5d4ab53cb7abd0d984d
+      internalID: -457668211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girl_Sad_Front_24
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 30
+        width: 306
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dcb1544872eda545b8ee70e518282ee
+      internalID: -1812443766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 26dcbb9ce00575d4db85e96e8fa65928
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Girl_Sad_Front_0: -714539982
+      Girl_Sad_Front_1: 1716081716
+      Girl_Sad_Front_10: 190993093
+      Girl_Sad_Front_11: 203472806
+      Girl_Sad_Front_12: -754145709
+      Girl_Sad_Front_13: 143464877
+      Girl_Sad_Front_14: -1343810627
+      Girl_Sad_Front_15: -1111746739
+      Girl_Sad_Front_16: 1645151461
+      Girl_Sad_Front_17: -1584182599
+      Girl_Sad_Front_18: -839696024
+      Girl_Sad_Front_19: -1792150013
+      Girl_Sad_Front_2: 1524153953
+      Girl_Sad_Front_20: 864159429
+      Girl_Sad_Front_21: -522500893
+      Girl_Sad_Front_22: 745738061
+      Girl_Sad_Front_23: -457668211
+      Girl_Sad_Front_24: -1812443766
+      Girl_Sad_Front_3: 809489283
+      Girl_Sad_Front_4: -1989113647
+      Girl_Sad_Front_5: 486738583
+      Girl_Sad_Front_6: 707812100
+      Girl_Sad_Front_7: 1246936038
+      Girl_Sad_Front_8: -798125813
+      Girl_Sad_Front_9: 1214990248
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

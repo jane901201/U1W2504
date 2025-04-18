@@ -1,0 +1,664 @@
+fileFormatVersion: 2
+guid: f3c3ee40c18dffb4980d7019ab15a8e9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boy_Love_Front_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 2031
+        width: 384
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456db26c92ba4d14e92c7a46979593f1
+      internalID: -1723923118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_1
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 2031
+        width: 385
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82baf5cba6c3d14bb0ac6af7c58fee7
+      internalID: -438596848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_2
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 2031
+        width: 385
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15509b9d3ac6d7a43a21f9e59857032c
+      internalID: 483193800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_3
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2031
+        width: 384
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5afec1f62d90a0e40903e818bceafad3
+      internalID: 1938975120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_4
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 2031
+        width: 385
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b78da8ba66dff428a1df065a36b7bb
+      internalID: 1970850100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1531
+        width: 384
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e981fb72b121c42be4b27e343cbdba
+      internalID: -612961350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_6
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1531
+        width: 385
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a481747502d41d24285d1e7cd1a109b9
+      internalID: -708295035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_7
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 1531
+        width: 385
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad48b1ff19adac4ca157f33022385e3
+      internalID: 1080740559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_8
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1531
+        width: 384
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36eadd6c77386d45922baccb8b143a9
+      internalID: 1647423312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_9
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 1531
+        width: 385
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46455a94b3f115f48acbf478ae373004
+      internalID: 559279013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1031
+        width: 384
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b271da1570e3c4478ee1ffad9d6dc75
+      internalID: -982577162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_11
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1031
+        width: 385
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4b8bf3fb8936f46a57376b90a1407b
+      internalID: -1903237946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_12
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 1031
+        width: 385
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a2a6b563f01294a9301d32ba37cd4e
+      internalID: -869027436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_13
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1031
+        width: 384
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13abb95122bb28946826d049b28f0c7d
+      internalID: -989266694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_14
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 1031
+        width: 385
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff377b03afcc5545b8a199b5ebcdfba
+      internalID: -1868025151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_15
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 530
+        width: 384
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb1ad7195036d740b8adc10254c6fd1
+      internalID: -1903300241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_16
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 530
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec516719f5dcf4498a097056dbb0b22
+      internalID: -978829441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_17
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 530
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39788290438602a4baae5234386bb6f2
+      internalID: -1594630945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_18
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 530
+        width: 384
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0db222e870a6724ea17b2c5e807e340
+      internalID: -1776802157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_19
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 530
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ee0bbe36766ab44bb9c66c74053b5f
+      internalID: 566306559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 31
+        width: 384
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6667c751be71f6745b9f7d56e8396142
+      internalID: 1399399978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_21
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 31
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1884c232fbb05345b340967ab28ec94
+      internalID: 1677170422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_22
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 31
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b61656ad47f884faf0f05118d3ad26
+      internalID: -1702867196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_23
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 31
+        width: 384
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee171a8782f3b941ad7049cc1cddc92
+      internalID: -1604271228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boy_Love_Front_24
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 31
+        width: 385
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e937c84024b5774f9c894dccb9806d8
+      internalID: 548333994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 23ec92d78a2a244409ca62ba70bbcb47
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boy_Love_Front_0: -1723923118
+      Boy_Love_Front_1: -438596848
+      Boy_Love_Front_10: -982577162
+      Boy_Love_Front_11: -1903237946
+      Boy_Love_Front_12: -869027436
+      Boy_Love_Front_13: -989266694
+      Boy_Love_Front_14: -1868025151
+      Boy_Love_Front_15: -1903300241
+      Boy_Love_Front_16: -978829441
+      Boy_Love_Front_17: -1594630945
+      Boy_Love_Front_18: -1776802157
+      Boy_Love_Front_19: 566306559
+      Boy_Love_Front_2: 483193800
+      Boy_Love_Front_20: 1399399978
+      Boy_Love_Front_21: 1677170422
+      Boy_Love_Front_22: -1702867196
+      Boy_Love_Front_23: -1604271228
+      Boy_Love_Front_24: 548333994
+      Boy_Love_Front_3: 1938975120
+      Boy_Love_Front_4: 1970850100
+      Boy_Love_Front_5: -612961350
+      Boy_Love_Front_6: -708295035
+      Boy_Love_Front_7: 1080740559
+      Boy_Love_Front_8: 1647423312
+      Boy_Love_Front_9: 559279013
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
