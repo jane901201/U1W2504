@@ -7,15 +7,12 @@ namespace DefaultNamespace
     // あいの鏡
     public class Mirror : IItem
     {
-        public float stopDuration = 2f;      // 鬼役用
-        public float invincibleDuration = 5f; // 人役用
-
-        public override void Use(Player player)
+        public override void Use(ICharacter self, ICharacter[] target)
         {
-            あいの鏡(player);
+            あいの鏡(self);
         }
 
-        private void あいの鏡(Player player)
+        private void あいの鏡(ICharacter self)
         {
             
         }
