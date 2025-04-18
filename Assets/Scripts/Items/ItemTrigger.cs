@@ -12,11 +12,11 @@ public class ItemTrigger : MonoBehaviour
         {
             Player player = other.GetComponent<Player>();
             player.AddItem(item);
+            Destroy(gameObject);
         }
         if (other.tag == "Enemy")
         {
-            //TODO: add item to enemy
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
