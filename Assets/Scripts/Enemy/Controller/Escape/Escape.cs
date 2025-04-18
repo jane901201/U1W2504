@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class Escape : MonoBehaviour
 {
-    [Header("Tilemap 相关")]
+    [Header("Tilemap")]
     public Tilemap groundTilemap;        // 地面或可通行的Tilemap
     public Tilemap obstacleTilemap;      // 障碍物Tilemap
     public int minRange = 3;          //最小逃跑搜索半径

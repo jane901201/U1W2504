@@ -9,9 +9,10 @@ using UnityEditor;
 
 public class HateAIController : MonoBehaviour
 {
-    public EnemyStateMachine LoveStateMachine;
-    public EnemyStateMachine HateStateMachine;
-    public EnemyStateMachine CurrentStateMachine;
+    
+    [HideInInspector] public EnemyStateMachine LoveStateMachine;
+    [HideInInspector] public EnemyStateMachine HateStateMachine;
+    [HideInInspector] public EnemyStateMachine CurrentStateMachine;
     
     public EnemyStateEnum CurrentState;
 
@@ -26,8 +27,10 @@ public class HateAIController : MonoBehaviour
 
         LoveStateMachine.Begin((int)CurrentState);
         //Hate
+        HateStateMachine = new(this);
         HateStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
         HateStateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(LoveStateMachine));
+        HateStateMachine.Begin((int)CurrentState);
     }
     void Update() {
         CurrentStateMachine.Update();
@@ -38,17 +41,20 @@ public class HateAIController : MonoBehaviour
             if (IsNeedToRunAway()) 
                 HateStateMachine.SwitchState((int)EnemyStateEnum.RunAway);
         }
-        //Love
         if (HateStateMachine.CurEid != (int)EnemyStateEnum.Item)
         {
             if (IsNeedToGoToItem()) 
                 LoveStateMachine.SwitchState((int)EnemyStateEnum.Item);
         }
+        //Love
+        if (HateStateMachine.CurEid != (int)EnemyStateEnum.Item)
+        {
+            if (IsNeedToGoToItemWhenRunAway()) 
+                LoveStateMachine.SwitchState((int)EnemyStateEnum.Item);
+        }
         
 
     }
-
-
     public void ChangeStateMachine()
     {
         if (true)
@@ -62,6 +68,8 @@ public class HateAIController : MonoBehaviour
     {
         CurrentStateMachine.FixedUpdate();
     }
+    
+    
     //Map
     private PolyNavAgent _agent;
     public PolyNavAgent agent {
@@ -70,11 +78,13 @@ public class HateAIController : MonoBehaviour
     //Follow
     public Transform target;
     //Item
-    public IItem Item;
+    [HideInInspector] public IItem Item;
+    [Header("Get Item Parameter When Follow")] public float DisttoPlayer=3f;
+    public float DistToItem = 3f;
     private bool IsNeedToGoToItem()
     {
-        if (Vector2.Distance(this.transform.position, target.position) > 3f&&
-            Vector2.Distance(this.transform.position, Item.GetComponent<Transform>().position)<3f)
+        if (Vector2.Distance(this.transform.position, target.position) > DisttoPlayer&&
+            Vector2.Distance(this.transform.position, Item.GetComponent<Transform>().position)<DistToItem)
         {
             return true;
         }
@@ -83,10 +93,21 @@ public class HateAIController : MonoBehaviour
     }
     //Run Away
     public Escape escape;
-
+    [Header("Run Away Parameter")]
+    public float runAwayFromPlayer = 3f;
     private bool IsNeedToRunAway()
     {
-        if (Vector2.Distance(this.transform.position, target.position) < 3f)
+        if (Vector2.Distance(this.transform.position, target.position) < runAwayFromPlayer)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    [Header("Get Item Parameter When Follow")] public float AwayFormPlayer=4f;
+    private bool IsNeedToGoToItemWhenRunAway()
+    {
+        if (Vector2.Distance(this.transform.position, target.position) > AwayFormPlayer)
         {
             return true;
         }
