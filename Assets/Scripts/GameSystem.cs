@@ -12,10 +12,9 @@ namespace DefaultNamespace
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private float spawnInterval = 5f;
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
-        [SerializeField] private GameObject[] objectsToSpawn; 
-
-        
-        public CharacterState PlayerState => player.CharacterState;
+        [SerializeField] private GameObject[] objectsToSpawn;
+        [SerializeField] private GameState gameState;
+        public GameState GameState => gameState;
         
         private void Start()
         {
@@ -77,4 +76,10 @@ namespace DefaultNamespace
         }
         
     }
+
+    public enum GameState
+    {
+        Love = 0,
+        Hate = 1
+    } 
 }
