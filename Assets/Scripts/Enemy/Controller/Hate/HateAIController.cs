@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using PolyNav;
 using UnityEngine;
 using U1w.FSM;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class HateAIController : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class HateAIController : MonoBehaviour
         LoveStateMachine = new(this);
         LoveStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
         LoveStateMachine.AddState((int)EnemyStateEnum.Follow, new EnemyState_Follow(LoveStateMachine));
+        LoveStateMachine.AddState((int)EnemyStateEnum.Item, new EnemyState_Item(LoveStateMachine));
 
         LoveStateMachine.Begin((int)CurrentState);
         //Hate
@@ -28,10 +31,20 @@ public class HateAIController : MonoBehaviour
     }
     void Update() {
         CurrentStateMachine.Update();
-        if (LoveStateMachine.CurEid != (int)EnemyStateEnum.RunAway)
+        //Hate
+        //RunAway
+        if (HateStateMachine.CurEid != (int)EnemyStateEnum.RunAway)
         {
-            if (IsNeedToRunAway()) LoveStateMachine.SwitchState((int)EnemyStateEnum.RunAway);
+            if (IsNeedToRunAway()) 
+                HateStateMachine.SwitchState((int)EnemyStateEnum.RunAway);
         }
+        //Love
+        if (HateStateMachine.CurEid != (int)EnemyStateEnum.Item)
+        {
+            if (IsNeedToGoToItem()) 
+                LoveStateMachine.SwitchState((int)EnemyStateEnum.Item);
+        }
+        
 
     }
 
@@ -56,27 +69,41 @@ public class HateAIController : MonoBehaviour
     }
     //Follow
     public Transform target;
-    //Run Away
-    public Escape escape;
-    private bool IsNeedToRunAway()
+    //Item
+    public IItem Item;
+    private bool IsNeedToGoToItem()
     {
-        if (Vector2.Distance(this.transform.position, target.position) < 5f)
+        if (Vector2.Distance(this.transform.position, target.position) > 3f&&
+            Vector2.Distance(this.transform.position, Item.GetComponent<Transform>().position)<3f)
         {
             return true;
         }
+
         return false;
     }
-    //
-    
+    //Run Away
+    public Escape escape;
+
+    private bool IsNeedToRunAway()
+    {
+        if (Vector2.Distance(this.transform.position, target.position) < 3f)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
 
-    
-    
-    
+
+
+
+
 }
 public enum EnemyStateEnum
 {
     Idle,
     Follow,
-    RunAway
+    RunAway,
+    Item
 }
