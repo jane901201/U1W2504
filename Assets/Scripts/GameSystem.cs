@@ -79,7 +79,7 @@ namespace DefaultNamespace
 
     public enum GameState
     {
-        Love = 0,
-        Hate = 1
+        EnemyChasePlayer = 0,
+        PlayerChaseEnemy = 1
     } 
 }

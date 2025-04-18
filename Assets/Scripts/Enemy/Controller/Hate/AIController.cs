@@ -72,7 +72,7 @@ public class AIController : MonoBehaviour
     }
     public void ChangeAIState(GameState newGameState)
     {
-        if (newGameState==GameState.Love)
+        if (newGameState==GameState.EnemyChasePlayer)
         {
             CurrentStateMachine = LoveStateMachine;
         }
