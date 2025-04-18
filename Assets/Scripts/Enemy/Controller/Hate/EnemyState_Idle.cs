@@ -10,8 +10,7 @@ namespace U1w.FSM {
         }
         public override void OnEnter()
         {
-
-           
+            stateMachine.SwitchState((int)EnemyStateEnum.Follow);
         }
         public override void OnPhysicsUpdate()
         {

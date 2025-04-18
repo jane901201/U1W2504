@@ -13623,7 +13623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &821463529
 Transform:
   m_ObjectHideFlags: 0
@@ -25423,10 +25423,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f3a99b9a5291b4789d62abba63adba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: 2
+  CurrentState: 0
   target: {fileID: 375064637}
+  Item: {fileID: 0}
+  DisttoPlayer: 3
+  DistToItem: 3
   escape: {fileID: 821463534}
-  playerPos: {fileID: 375064637}
+  runAwayFromPlayer: 3
+  AwayFormPlayer: 4
 --- !u!1001 &1367720439
 PrefabInstance:
   m_ObjectHideFlags: 0

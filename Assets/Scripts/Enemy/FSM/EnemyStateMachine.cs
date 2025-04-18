@@ -5,10 +5,10 @@ namespace U1w.FSM
 {
     public class EnemyStateMachine : FSM
     {
-        public HateAIController hateAIController;
-        public EnemyStateMachine(HateAIController hateAIController)
+        public AIController aIController;
+        public EnemyStateMachine(AIController aIController)
         {
-            this.hateAIController = hateAIController;
+            this.aIController = aIController;
         }
     }
 }

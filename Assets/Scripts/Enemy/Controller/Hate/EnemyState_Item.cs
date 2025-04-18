@@ -12,9 +12,9 @@ namespace U1w.FSM
         }
         public override void OnEnter()
         {
-            if (stateMachine.hateAIController.Item != null)
+            if (stateMachine.aIController.Item != null)
             {
-                stateMachine.hateAIController.agent.SetDestination(stateMachine.hateAIController.Item.GetComponent<Transform>().position, 
+                stateMachine.aIController.agent.SetDestination(stateMachine.aIController.Item.GetComponent<Transform>().position, 
                     delegate{stateMachine.SwitchState((int)EnemyStateEnum.Idle); });
             }
         }

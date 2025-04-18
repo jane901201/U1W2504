@@ -7,7 +7,7 @@ using U1w.FSM;
 using Unity.VisualScripting;
 using UnityEditor;
 
-public class HateAIController : MonoBehaviour
+public class AIController : MonoBehaviour
 {
     
     [HideInInspector] public EnemyStateMachine LoveStateMachine;
@@ -18,7 +18,7 @@ public class HateAIController : MonoBehaviour
 
     private void Start()
     {
-        CurrentStateMachine=LoveStateMachine;
+
         //Love
         LoveStateMachine = new(this);
         LoveStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
@@ -31,6 +31,8 @@ public class HateAIController : MonoBehaviour
         HateStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
         HateStateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(LoveStateMachine));
         HateStateMachine.Begin((int)CurrentState);
+        
+        CurrentStateMachine=LoveStateMachine;
     }
     void Update() {
         CurrentStateMachine.Update();
@@ -55,12 +57,15 @@ public class HateAIController : MonoBehaviour
         
 
     }
-    public void ChangeStateMachine()
+    public void ChangeAIState()
     {
-        if (true)
+        if (target.GetComponent<Player>().CharacterState == CharacterState.Love)
         {
-            //To DO ChangeState
-            // CurrentStateMachine =
+            CurrentStateMachine = LoveStateMachine;
+        }
+        else
+        {
+            CurrentStateMachine = HateStateMachine;
         }
     }
     
@@ -114,11 +119,6 @@ public class HateAIController : MonoBehaviour
 
         return false;
     }
-
-
-
-
-
 
 }
 public enum EnemyStateEnum

@@ -10,10 +10,10 @@ public class EnemyState_RunAway : EnemyState
     }
     public override void OnEnter()
     {
-        Vector3 tragetPos= stateMachine.hateAIController.escape.MoveToFarthestTileInRange(stateMachine.hateAIController.transform.position,
-            stateMachine.hateAIController.target.position);
+        Vector3 tragetPos= stateMachine.aIController.escape.MoveToFarthestTileInRange(stateMachine.aIController.transform.position,
+            stateMachine.aIController.target.position);
       
-        stateMachine.hateAIController.agent.SetDestination(tragetPos, delegate{stateMachine.SwitchState((int)EnemyStateEnum.Idle); });
+        stateMachine.aIController.agent.SetDestination(tragetPos, delegate{stateMachine.SwitchState((int)EnemyStateEnum.Idle); });
     }
     public override void OnPhysicsUpdate()
     {

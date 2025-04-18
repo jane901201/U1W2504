@@ -18,9 +18,9 @@ public class EnemyState_Follow : EnemyState
     }
     public override void OnUpdate()
     {
-        if ( stateMachine.hateAIController
+        if ( stateMachine.aIController
                 .target != null ) {
-            stateMachine.hateAIController.agent.SetDestination(stateMachine.hateAIController.target.position);
+            stateMachine.aIController.agent.SetDestination(stateMachine.aIController.target.position);
         }
     }
     

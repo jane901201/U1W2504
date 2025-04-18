@@ -8,7 +8,7 @@ public class EnemyIteTrigger : MonoBehaviour
     {
         if (other.tag == "Item")
         {
-            this.GetComponent<HateAIController>().Item = other.gameObject.GetComponent<IItem>();
+            this.GetComponent<AIController>().Item = other.gameObject.GetComponent<IItem>();
         }
 
     }
