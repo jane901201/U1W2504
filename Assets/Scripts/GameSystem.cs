@@ -18,6 +18,8 @@ namespace DefaultNamespace
         
         private void Start()
         {
+            gameState = GameState.PlayerChaseEnemy;
+            player.PlayerStateChangEvent += PlayerStateChangEvent;
             // タイルがある座標をリストアップ
             BoundsInt bounds = tilemap.cellBounds;
             for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -63,19 +65,40 @@ namespace DefaultNamespace
             {
                 player.UseItem();
             }
-            if (player.CharacterState == CharacterState.Love)
+
+            if (gameState == GameState.PlayerChaseEnemy)
             {
-                gameState = GameState.PlayerChaseEnemy;
+                player.CharacterState = CharacterState.Love;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
             }
 
-            if (player.CharacterState == CharacterState.Sad)
+            if (gameState == GameState.EnemyChasePlayer)
+            {
+                player.CharacterState = CharacterState.Sad;
+                player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
+            }
+            // if (player.CharacterState == CharacterState.Love)
+            // {
+            //     gameState = GameState.PlayerChaseEnemy;
+            // }
+            //
+            // if (player.CharacterState == CharacterState.Sad)
+            // {
+            //     gameState = GameState.EnemyChasePlayer;
+            // }
+        }
+
+        private void PlayerStateChangEvent()
+        {
+            if (gameState == GameState.PlayerChaseEnemy)
             {
                 gameState = GameState.EnemyChasePlayer;
-                player.Animator.SetInteger("CharacterState", (int)player.CharacterState);
-                //Enemy AI　change
             }
-        }
+            else if(gameState == GameState.EnemyChasePlayer)
+            {
+                gameState = GameState.PlayerChaseEnemy;
+            }
+        } 
         
     }
 
