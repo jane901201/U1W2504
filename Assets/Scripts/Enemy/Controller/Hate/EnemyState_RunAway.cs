@@ -21,6 +21,11 @@ public class EnemyState_RunAway : EnemyState
     }
     public override void OnUpdate()
     {
+        Debug.Log("Run Away");
+        if (!stateMachine.aIController.agent.hasPath)
+        {
+            stateMachine.SwitchState((int)EnemyStateEnum.Idle);
+        }
 
     }
     

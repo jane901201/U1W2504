@@ -32,8 +32,8 @@ public class AIController : MonoBehaviour
         LoveStateMachine.Begin((int)CurrentState);
         //Hate
         HateStateMachine = new(this);
-        HateStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(LoveStateMachine));
-        HateStateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(LoveStateMachine));
+        HateStateMachine.AddState((int)EnemyStateEnum.Idle, new EnemyState_Idle(HateStateMachine));
+        HateStateMachine.AddState((int)EnemyStateEnum.RunAway, new EnemyState_RunAway(HateStateMachine));
         HateStateMachine.Begin((int)CurrentState);
         
         CurrentStateMachine=LoveStateMachine;
