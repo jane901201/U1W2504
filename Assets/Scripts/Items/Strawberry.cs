@@ -9,39 +9,51 @@ namespace DefaultNamespace
     // イチゴ
     public class Strawberry : IItem
     {
+        [Header("持续时间")]
         private static float _stopDuration = 2f;      // 鬼役用
         private static float _invincibleDuration = 5f; // 人役用
+        
+        [Header("提示文字（UI表示用）")]
+        [SerializeField] private string oniHintMessage = "2秒間足止め成功！";
+        [SerializeField] private string humanHintMessage = "5秒間無敵になった！";
 
-        public override void Use(ICharacter self, ICharacter[] targets)
+        
+        protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
-            if (self.CharacterState.Role == CharacterState.RoleType.Oni)
-            {
-                イチゴジャム(targets);
-            }
-            else if (self.CharacterState.Role == CharacterState.RoleType.Human)
-            {
-                イチゴ邪夢(self);
-            }
+            イチゴジャム(targets);
+        }
+
+        protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
+        {
+            イチゴ邪夢(self);
         }
 
         private void イチゴジャム(ICharacter[] targets)
         {
+            if (targets == null || targets.Length == 0)
+            {
+                return;
+            }
+            
             foreach (var target in targets)
             {
-                if (TimerManager.Instance.HasTask("イチゴジャム" + target.Id))
+                string taskId = $"イチゴジャム_{target.Id}";
+                if (TimerManager.Instance.HasTask(taskId))
                 {
                     // Reset or do nothing.
-                    TimerManager.Instance.ResetTask("イチゴジャム" + target.Id);
+                    TimerManager.Instance.ResetTask(taskId);
                     continue;
                 }
                 else
                 {
                     // Enemy freeze function
                     // target.Stop = true;
-                    TimerManager.Instance.AddTask("イチゴジャム" + target.Id, _stopDuration, () =>
+                    ((Player) target).SetFrozen(true);
+                    TimerManager.Instance.AddTask(taskId, _stopDuration, () =>
                     {
                         // Unfreeze
                         // target.Stop = false;
+                        ((Player) target).SetFrozen(false);
                     });
                 }
             }
@@ -50,19 +62,22 @@ namespace DefaultNamespace
 
         private void イチゴ邪夢(ICharacter self)
         {
-            if (TimerManager.Instance.HasTask("イチゴ邪夢" + self.Id))
+            string taskId = $"イチゴ邪夢_{self.Id}";
+            if (TimerManager.Instance.HasTask(taskId))
             {
-                TimerManager.Instance.ResetTask("イチゴ邪夢" + self.Id);
+                TimerManager.Instance.ResetTask(taskId);
             }
             else
             {
                 // Player attack damage 0 function
                 // int tempDamage = self.Damage;
                 // self.Damage = 0;
-                TimerManager.Instance.AddTask("イチゴ邪夢" + self.Id, _invincibleDuration, () =>
+                ((Player) self).IsInvincible = true;
+                TimerManager.Instance.AddTask(taskId, _invincibleDuration, () =>
                 {
                     // Restore
                     // self.Damage = tempDamage;
+                    ((Player) self).IsInvincible = false;
                 });
             }
         }

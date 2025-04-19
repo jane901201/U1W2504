@@ -10,5 +10,15 @@ namespace DefaultNamespace
             //self.PlayerStateChangEvent?.Invoke();
             //player.CharacterState = player.CharacterState == CharacterState.Love ? CharacterState.Sad : CharacterState.Love;
         }
+
+        protected override void UseAsOni(ICharacter self, ICharacter[] targets)
+        {
+            
+        }
+
+        protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
+        {
+            
+        }
     }
 }
