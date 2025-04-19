@@ -72,8 +72,10 @@ namespace DefaultNamespace
             int index = Random.Range(0, tilePositions.Count);
             Vector3Int cellPos = tilePositions[index];
             Vector3 worldPos = tilemap.CellToWorld(cellPos) + tilemap.cellSize / 2; // 中心に合わせるため
+            
+            int itemNum = Random.Range(0, objectsToSpawn.Length);
 
-            Instantiate(objectsToSpawn[0], worldPos, Quaternion.identity);
+            Instantiate(objectsToSpawn[itemNum], worldPos, Quaternion.identity);
         }
 
         
