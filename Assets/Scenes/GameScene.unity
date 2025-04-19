@@ -1348,6 +1348,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 656799433}
+    - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
+      propertyPath: obstacleTilemap
+      value: 
+      objectReference: {fileID: 1227687499}
     - target: {fileID: 7234103600705508083, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: m_Name
       value: GameSystem
@@ -3938,6 +3942,10 @@ PrefabInstance:
     - target: {fileID: 6233486848424334469, guid: e01a5ac3dc06d384780df5fcd44fb619, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195731926911679741, guid: e01a5ac3dc06d384780df5fcd44fb619, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

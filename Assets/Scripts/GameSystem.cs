@@ -13,17 +13,23 @@ namespace DefaultNamespace
         [SerializeField] private Enemy enemy;
         [SerializeField] private GameUI gameUI;
         [SerializeField] private Tilemap tilemap;
+        [SerializeField] private Tilemap obstacleTilemap;
         [SerializeField] private float spawnInterval = 5f;
-        private List<Vector3Int> tilePositions = new List<Vector3Int>();
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
+        
+        
+        private List<Vector3Int> tilePositions = new List<Vector3Int>();
+        private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
+        
         
         public GameState GameState { get => gameState; set => gameState = value; }
 
         private void Awake()
         {
             gameUI =GameObject.Find("Canvas").GetComponent<GameUI>();
+            obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
         }
 
         private void Start()
@@ -39,7 +45,7 @@ namespace DefaultNamespace
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
                 {
                     Vector3Int pos = new Vector3Int(x, y, 0);
-                    if (tilemap.HasTile(pos))
+                    if (tilemap.HasTile(pos) && !obstacleTilemap.HasTile(pos))
                     {
                         tilePositions.Add(pos);
                     }
