@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e288086100f4e746acb503ff567b31b, type: 3}
+  m_Name: AduioMag
+  m_EditorClassIdentifier: 
+  Voice:
+  - {fileID: 8300000, guid: 3a76d88b495b1a3459b297590a34d5fd, type: 3}
+  - {fileID: 8300000, guid: a82eab76426c2a54a896c1cefe0c8a0e, type: 3}
+  - {fileID: 8300000, guid: 6f3121c4e23c1184e8bee00d96cf821a, type: 3}
+  - {fileID: 8300000, guid: 868d3bad746b0ed4dbacb654f8a6b6d5, type: 3}
+  - {fileID: 8300000, guid: 8546fdc8b902b214a8cdc5bd414cc3e2, type: 3}
+  - {fileID: 8300000, guid: 538fd5e54cc32a944871c3861890aad3, type: 3}
+  - {fileID: 8300000, guid: fb17f8bffe0eae545b7816e0b805d7ed, type: 3}
+  - {fileID: 8300000, guid: 1bd333a2916e88345a9a72fccfb7cef6, type: 3}
+  - {fileID: 8300000, guid: 9e4f248f18489774ea43fe2329e31d83, type: 3}
+  - {fileID: 8300000, guid: ebe68d7d9f26c9543ba8cf821e55dd57, type: 3}
+  - {fileID: 8300000, guid: 554aaee53869f714a8c0c1c8cc00902d, type: 3}
