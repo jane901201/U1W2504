@@ -14,8 +14,6 @@ public class Player : ICharacter
     
     private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
-
-    public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
     
@@ -25,6 +23,7 @@ public class Player : ICharacter
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
     }
+    
 
     private void Update()
     {
