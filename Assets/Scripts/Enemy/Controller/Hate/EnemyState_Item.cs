@@ -24,7 +24,7 @@ namespace U1w.FSM
         }
         public override void OnUpdate()
         {
-            Debug.Log("Item");
+            //Debug.Log("Item");
             if (stateMachine.aIController.Item == null)
             {
                 stateMachine.SwitchState((int)EnemyStateEnum.Idle);

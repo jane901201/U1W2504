@@ -19,11 +19,9 @@ public class Player : ICharacter
     
     // Strawberry
     public bool IsInvincible { get; set; } = false;
-    private bool isFrozen = false;
     
     // Mirror
     public bool IsControlReversed { get; set; } = false;
-    
     // CD
     private Vector2 lastInputDir = Vector2.zero;
     public Vector2 GetLastInputDirection() => lastInputDir;
@@ -87,7 +85,16 @@ public class Player : ICharacter
         if (isFrozen) return;
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    public override void TakeDamage(ICharacter attackedCharacter)
+    {
+        base.TakeDamage(attackedCharacter);
+        StateChangEvent?.Invoke();
+        //TODO:aiController.ChangeAIState(); 需要在這裡有一段讓 Enemy 等待玩家逃跑的時間
+    }
     
+
+
     public void AddItem(IItem item)
     {
         if (items.Count < 2)

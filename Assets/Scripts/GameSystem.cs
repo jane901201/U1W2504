@@ -20,7 +20,9 @@ namespace DefaultNamespace
         private void Start()
         {
             gameState = GameState.PlayerChaseEnemy;
-            player.PlayerStateChangEvent += PlayerStateChangEvent;
+            player.PlayerStateChangEvent += StateChangEvent;
+            player.StateChangEvent += StateChangEvent;
+            enemy.StateChangEvent += StateChangEvent;
             // タイルがある座標をリストアップ
             BoundsInt bounds = tilemap.cellBounds;
             for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -84,7 +86,7 @@ namespace DefaultNamespace
             }
         }
 
-        private void PlayerStateChangEvent()
+        private void StateChangEvent()
         {
             if (gameState == GameState.PlayerChaseEnemy)
             {
