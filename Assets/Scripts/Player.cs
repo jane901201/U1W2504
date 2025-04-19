@@ -91,9 +91,9 @@ public class Player : ICharacter
         base.TakeDamage(attackedCharacter);
         StateChangEvent?.Invoke();
         //TODO:aiController.ChangeAIState(); 需要在這裡有一段讓 Enemy 等待玩家逃跑的時間
+        StartCoroutine(MoveSpeedUp());
     }
     
-
 
     public void AddItem(IItem item)
     {

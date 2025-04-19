@@ -11,6 +11,7 @@ namespace DefaultNamespace
         [SerializeField] private CharacterState characterState;
         [SerializeField] private Animator animator;
         public float moveSpeed = 5f;
+        public float escapeSpeedMultiplier = 2f;
         // ID could be any string, for item timer task
         [SerializeField] private string id;
         
@@ -40,6 +41,13 @@ namespace DefaultNamespace
             yield return new WaitForSeconds(3f); // 3秒待つ
             isFrozen = false;
             Debug.Log("3秒経過、isReady = true");
+        }
+
+        public IEnumerator MoveSpeedUp()
+        {
+            moveSpeed *= escapeSpeedMultiplier;
+            yield return new WaitForSeconds(3f); // 3秒待つ
+            moveSpeed /= escapeSpeedMultiplier;
         }
 
     }
