@@ -101,12 +101,25 @@ public class Player : ICharacter
         {
             items.Add(item);
         }
+        // 显示图标
+        GameUI.Instance?.SetPlayerItemIcon(item.Icon);
     }
 
     public void UseItem()
     {
         if(items.Count == 0) return;
-        items[0].Use(this, null); //TODO:後調整
+        var item = items[0];
+        item.Use(this, FindTargets());
         items.RemoveAt(0);
+
+        GameUI.Instance?.ClearPlayerItemIcon(); // 清除图标
+
     } 
+    
+    // TODO: 锁敌功能
+    private ICharacter[] FindTargets()
+    {
+        return new ICharacter[] {};
+    }
+
 }
