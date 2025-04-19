@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d34907b1f04dfda1f224df3a9735b3, type: 3}
+  m_Name: CD
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  groundTilemap: {fileID: 0}
+  obstacleTilemap: {fileID: 0}
+  hintText: "\u969C\u5BB3\u7269\u3092\u4E00\u3064\u4E57\u308A\u8D8A\u3048\u305F\uFF01"

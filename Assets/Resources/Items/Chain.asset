@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc8bf3274f54f78b786f6b1343a3208, type: 3}
+  m_Name: Chain
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  groundTilemap: {fileID: 0}
+  obstacleTilemap: {fileID: 0}
+  oniRange: 3
+  humanRange: 6
+  oniHint: "\u76F8\u624B\u3092\u8FD1\u304F\u306B\u5F15\u304D\u5BC4\u305B\u305F\uFF01"
+  humanHint: "\u76F8\u624B\u3092\u9060\u304F\u306B\u62BC\u3057\u51FA\u3057\u305F\uFF01"

@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
     public class GameUI : MonoBehaviour
     {
+        public static GameUI Instance;
         [Header("PlayerHPPanel")]
         [SerializeField] private GameObject playerHPPanel;
         [Header("EnemyHPPanel")]
@@ -13,8 +15,26 @@ namespace DefaultNamespace
         [Header("EnemyItem")]
         [SerializeField] private GameObject enemyItemPanel;
 
-        [SerializeField] private GameObject playerIcon;
-        [SerializeField] private GameObject enemyIcon;
+        [Header("Icon")]
+        [SerializeField] private Image playerIcon;
+        [SerializeField] private Image enemyIcon;
+        
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        public void SetPlayerItemIcon(Sprite sprite)
+        {
+            playerIcon.sprite = sprite;
+            playerIcon.enabled = sprite != null;
+        }
+
+        public void ClearPlayerItemIcon()
+        {
+            playerIcon.sprite = null;
+            playerIcon.enabled = false;
+        }
 
     }
 }
