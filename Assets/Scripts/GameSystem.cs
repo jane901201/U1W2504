@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
@@ -15,8 +17,15 @@ namespace DefaultNamespace
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
-        public GameState GameState { get => gameState; set => gameState = value; }
+        [SerializeField] private SceneManager sceneManager;
         
+        public GameState GameState { get => gameState; set => gameState = value; }
+
+        private void Awake()
+        {
+            gameUI =GameObject.Find("Canvas").GetComponent<GameUI>();
+        }
+
         private void Start()
         {
             gameState = GameState.PlayerChaseEnemy;
@@ -64,6 +73,16 @@ namespace DefaultNamespace
         
         private void Update()
         {
+            if (player.Hp == 0)
+            {
+                GameOver();
+            }
+
+            if (enemy.Hp == 0)
+            {
+                Victory();
+            }
+            
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 player.UseItem();
@@ -96,7 +115,17 @@ namespace DefaultNamespace
             {
                 gameState = GameState.PlayerChaseEnemy;
             }
-        } 
+        }
+
+        private void Victory()
+        {
+            sceneManager.LoadScene("VictoryScene");
+        }
+
+        private void GameOver()
+        {
+            sceneManager.LoadScene("GameOverScene");
+        }
         
     }
 
