@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Mirror
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 958fee85a5c1048f0bcbed42612e5794, type: 3}
-  groundTilemap: {fileID: 0}
-  obstacleTilemap: {fileID: 0}
+  isDurationItem: 1
+  oniEffectIcon: {fileID: 21300000, guid: 75edde47bed0343af9b51c974e33fca4, type: 3}
+  humanEffectIcon: {fileID: 21300000, guid: 75edde47bed0343af9b51c974e33fca4, type: 3}
   reverseDuration: 5
   hintMessage: "\u64CD\u4F5C\u304C5\u79D2\u9593\u53CD\u8EE2\u3059\u308B\uFF01"

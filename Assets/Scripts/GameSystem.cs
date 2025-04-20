@@ -19,7 +19,6 @@ namespace DefaultNamespace
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
-        [SerializeField] private AudioSource audioSource;
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
@@ -41,9 +40,11 @@ namespace DefaultNamespace
         private void Start()
         {
             gameState = GameState.PlayerChaseEnemy;
+            gameUI.SetPlayerChaseEnemyIcon();
             player.PlayerStateChangEvent += StateChangEvent;
             player.StateChangEvent += StateChangEvent;
             enemy.StateChangEvent += StateChangEvent;
+            player.ItemEffectEvent += PlayerItemEffectEvent;
             // タイルがある座標をリストアップ
             BoundsInt bounds = tilemap.cellBounds;
             for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -83,11 +84,13 @@ namespace DefaultNamespace
             {
                 GameOver();
             }
-
-            if (enemy.Hp == 0)
+            else if (enemy.Hp == 0)
             {
                 Victory();
             }
+            
+            gameUI.SetPlayerHPIcon(player.Hp);
+            gameUI.SetEnemyHPIcon(enemy.Hp);
             
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -100,6 +103,8 @@ namespace DefaultNamespace
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
+                gameUI.SetPlayerIcon(player);
+                gameUI.SetEnemyIcon(enemy);
             }
 
             if (gameState == GameState.EnemyChasePlayer)
@@ -108,6 +113,9 @@ namespace DefaultNamespace
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
+                gameUI.SetPlayerIcon(player);
+                gameUI.SetEnemyIcon(enemy);
+                
             }
         }
 
@@ -116,11 +124,18 @@ namespace DefaultNamespace
             if (gameState == GameState.PlayerChaseEnemy)
             {
                 gameState = GameState.EnemyChasePlayer;
+                gameUI.SetEnemyChasePlayerIcon();
             }
             else if(gameState == GameState.EnemyChasePlayer)
             {
                 gameState = GameState.PlayerChaseEnemy;
+                gameUI.SetPlayerChaseEnemyIcon();
             }
+        }
+
+        private void PlayerItemEffectEvent(Sprite sprite, float duration)
+        {
+            gameUI.SetPlayerEffectImage(sprite, duration);
         }
 
         private void Victory()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6262560035691919088}
   - component: {fileID: 5502021028092267001}
-  - component: {fileID: 4644749868742985581}
+  - component: {fileID: 5515080436450690591}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4644749868742985581
+--- !u!95 &5515080436450690591
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 9189205759104364579}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d07bb99ffba5b546a5fb3d3a9bf149f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 59d4d8778d1b3714faa7fa37870d6bb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

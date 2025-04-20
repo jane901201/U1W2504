@@ -43,5 +43,13 @@ namespace DefaultNamespace
                 player.SyringeHealTaskId = taskId;
             }
         }
+        
+        public override float GetDuration(ICharacter self)
+        {
+            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
+                return duration;
+            else
+                return duration;
+        }
     }
 }

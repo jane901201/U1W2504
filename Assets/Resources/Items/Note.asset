@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Note
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 292f7ffb37b7b485ba99ec1632b3a1bd, type: 3}
-  groundTilemap: {fileID: 0}
-  obstacleTilemap: {fileID: 0}
+  isDurationItem: 1
+  oniEffectIcon: {fileID: 21300000, guid: 644979c2f89224067af6bbf50639a292, type: 3}
+  humanEffectIcon: {fileID: 21300000, guid: 644979c2f89224067af6bbf50639a292, type: 3}
   duration: 5
   speedUpFactor: 1.5
   slowDownFactor: 0.75
