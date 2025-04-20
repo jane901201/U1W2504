@@ -1,14 +1,19 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using TimerFrame;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class Player : ICharacter
 {
     private Vector3Int playerPos;
     [SerializeField] private List<IItem> items = new List<IItem>();
+
+    [Header("角色随机变鬼人时间配置")] 
+    [SerializeField] private float minSwitchTime = 2f;
+    [SerializeField] private float maxSwitchTime = 10f;
+    private const string SwitchTaskId = "PlayerRandomSwitchRole";
 
     public Action PlayerStateChangEvent;
     
@@ -55,10 +60,36 @@ public class Player : ICharacter
         isFrozen = frozen;
     }
     
+    private void ScheduleNextRoleSwitch()
+    {
+        if (TimerManager.Instance.HasTask(SwitchTaskId))
+            TimerManager.Instance.RemoveTask(SwitchTaskId);
+
+        float nextTime = Random.Range(minSwitchTime, maxSwitchTime);
+        TimerManager.Instance.AddTask(SwitchTaskId, nextTime, () =>
+        {
+            SwitchRole();              // 切换身份
+            ScheduleNextRoleSwitch();  // 再次安排下一轮
+        });
+    }
+    
+    private void SwitchRole()
+    {
+        if (CharacterState.Role == CharacterState.RoleType.Human)
+            CharacterState.Role = CharacterState.RoleType.Oni;
+        else
+            CharacterState.Role = CharacterState.RoleType.Human;
+        PlayerStateChangEvent?.Invoke();
+    }
+
+
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
+        // TimerManager.Instance.AddTask("PlayerRandomSwitchRoleRandomTimer", );
+        ScheduleNextRoleSwitch();
     }
     
 
