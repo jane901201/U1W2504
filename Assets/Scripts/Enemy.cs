@@ -1,3 +1,4 @@
+using PolyNav;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -11,6 +12,7 @@ namespace DefaultNamespace
             base.Awake();
             aiController = GetComponent<AIController>();
         }
+        
 
         public override void TakeDamage(ICharacter character)
         {

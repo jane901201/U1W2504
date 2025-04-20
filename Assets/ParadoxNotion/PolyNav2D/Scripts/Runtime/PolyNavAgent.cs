@@ -250,7 +250,6 @@ namespace PolyNav
 
         //main loop
         void LateUpdate() {
-
             if ( map == null ) {
                 return;
             }
