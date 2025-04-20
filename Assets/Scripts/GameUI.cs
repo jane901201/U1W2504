@@ -44,5 +44,15 @@ namespace DefaultNamespace
             playerItemImage.sprite = null;
         }
 
+        public void SetPlayerHPIcon(int hp)
+        {
+            
+        }
+
+        public void SetEnemyHPIcon(int hp)
+        {
+            
+        }
+
     }
 }
