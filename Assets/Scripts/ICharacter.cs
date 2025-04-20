@@ -36,14 +36,14 @@ namespace DefaultNamespace
             attackedCharacter.Hp -= 1;
         }
         
-        public IEnumerator WaitAndSetFalse()
+        public virtual IEnumerator WaitAndSetFalse()
         {
             yield return new WaitForSeconds(3f); // 3秒待つ
             isFrozen = false;
             Debug.Log("3秒経過、isReady = true");
         }
 
-        public IEnumerator MoveSpeedUp()
+        public virtual IEnumerator MoveSpeedUp()
         {
             moveSpeed *= escapeSpeedMultiplier;
             yield return new WaitForSeconds(3f); // 3秒待つ
