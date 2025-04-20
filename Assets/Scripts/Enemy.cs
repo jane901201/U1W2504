@@ -22,12 +22,15 @@ namespace DefaultNamespace
 
         public override void TakeDamage(ICharacter character)
         {
+            if (IsInvincible)
+            {
+                return;
+            }
             base.TakeDamage(character);
             StateChangEvent?.Invoke();
-            character.IsForzen = true;
+            character.IsFrozen = true;
             StartCoroutine(character.WaitAndSetFalse());
             StartCoroutine(MoveSpeedUp());
-
         }
 
         public override IEnumerator MoveSpeedUp()
@@ -43,7 +46,7 @@ namespace DefaultNamespace
         {
             PolyNavAgent.maxSpeed = 0f;
             yield return new WaitForSeconds(3f); // 3秒待つ
-            isFrozen = false;
+            IsFrozen = false;
             PolyNavAgent.maxSpeed = moveSpeed;
             Debug.Log("3秒経過、isReady = true");
 

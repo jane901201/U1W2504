@@ -24,9 +24,6 @@ public class Player : ICharacter
     private Rigidbody2D rb;
     private Vector2 movement;
     
-    // Strawberry
-    public bool IsInvincible { get; set; } = false;
-    
     // Mirror
     public bool IsControlReversed { get; set; } = false;
     // CD
@@ -54,13 +51,6 @@ public class Player : ICharacter
     // }
     public bool PreventRoleChange { get; set; } = false;
     public string SyringeHealTaskId { get; set; }
-
-
-
-    public void SetFrozen(bool frozen)
-    {
-        isFrozen = frozen;
-    }
     
     private void ScheduleNextRoleSwitch()
     {
@@ -75,7 +65,7 @@ public class Player : ICharacter
         });
     }
     
-    private void SwitchRole()
+    public void SwitchRole()
     {
         if (CharacterState.Role == CharacterState.RoleType.Human)
             CharacterState.Role = CharacterState.RoleType.Oni;
@@ -114,12 +104,13 @@ public class Player : ICharacter
 
     private void FixedUpdate()
     {
-        if (isFrozen) return;
+        if (IsFrozen) return;
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     public override void TakeDamage(ICharacter attackedCharacter)
     {
+        if (IsInvincible) return;
         base.TakeDamage(attackedCharacter);
         StateChangEvent?.Invoke();
         StartCoroutine(attackedCharacter.WaitAndSetFalse());
@@ -168,10 +159,9 @@ public class Player : ICharacter
 
     }
     
-    // TODO: 锁敌功能
     private ICharacter[] FindTargets()
     {
-        return new ICharacter[] {};
+        return new ICharacter[] { GameSystem.Instance.GetEnemy(this) };
     }
 
 }

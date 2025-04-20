@@ -23,10 +23,12 @@ namespace DefaultNamespace
         public Action StateChangEvent;
         public Action<Sprite, float> ItemEffectEvent;
         
-        protected bool isFrozen = false;
-        public bool IsForzen { get => isFrozen; set => isFrozen = value; }
-        
-        
+        // Strawberry
+        public bool IsFrozen { get; set; }
+        public bool IsInvincible { get; set; } = false;
+
+
+
 
         public int Hp { get => hp; set => hp = value; }
         public string Id { get => id; set => id = value; }
@@ -47,7 +49,7 @@ namespace DefaultNamespace
         public virtual IEnumerator WaitAndSetFalse()
         {
             yield return new WaitForSeconds(3f); // 3秒待つ
-            isFrozen = false;
+            IsFrozen = false;
             Debug.Log("3秒経過、isReady = true");
         }
 

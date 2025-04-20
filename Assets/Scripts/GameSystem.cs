@@ -28,6 +28,11 @@ namespace DefaultNamespace
         public Tilemap GetObstacleTilemap() => obstacleTilemap;
         
         public GameState GameState { get => gameState; set => gameState = value; }
+        
+        public ICharacter GetEnemy(Player self)
+        {
+            return self == player ? enemy : player;
+        }
 
         private void Awake()
         {
@@ -95,6 +100,12 @@ namespace DefaultNamespace
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 player.UseItem();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // TODO: for test only
+                player.SwitchRole();
             }
 
             if (gameState == GameState.PlayerChaseEnemy)

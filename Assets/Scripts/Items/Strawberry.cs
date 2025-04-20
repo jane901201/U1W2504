@@ -47,12 +47,14 @@ namespace DefaultNamespace
                 {
                     // Enemy freeze function
                     // target.Stop = true;
-                    ((Player) target).SetFrozen(true);
+                    Debug.Log("冻结敌人");
+                    target.IsFrozen = true;
                     TimerManager.Instance.AddTask(taskId, _stopDuration, () =>
                     {
                         // Unfreeze
                         // target.Stop = false;
-                        ((Player) target).SetFrozen(false);
+                        Debug.Log("解冻敌人");
+                        target.IsFrozen = false;
                     });
                 }
             }
@@ -71,12 +73,14 @@ namespace DefaultNamespace
                 // Player attack damage 0 function
                 // int tempDamage = self.Damage;
                 // self.Damage = 0;
-                ((Player) self).IsInvincible = true;
+                Debug.Log("无敌开始");
+                self.IsInvincible = true;
                 TimerManager.Instance.AddTask(taskId, _invincibleDuration, () =>
                 {
                     // Restore
                     // self.Damage = tempDamage;
-                    ((Player) self).IsInvincible = false;
+                    Debug.Log("无敌结束");
+                    self.IsInvincible = false;
                 });
             }
         }
