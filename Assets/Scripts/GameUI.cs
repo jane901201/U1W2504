@@ -87,7 +87,6 @@ namespace DefaultNamespace
             }
             for (int i = hp - 1; i >= 0; i--)
             {
-                Debug.Log(i);
                 enemyHpImages[i].SetActive(true);
             }
         }

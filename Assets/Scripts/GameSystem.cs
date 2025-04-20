@@ -82,8 +82,7 @@ namespace DefaultNamespace
             {
                 GameOver();
             }
-
-            if (enemy.Hp == 0)
+            else if (enemy.Hp == 0)
             {
                 Victory();
             }
