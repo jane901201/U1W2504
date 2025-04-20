@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 771293125}
   - component: {fileID: 771293124}
   m_Layer: 0
-  m_Name: bgm_menu
+  m_Name: game_fail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
