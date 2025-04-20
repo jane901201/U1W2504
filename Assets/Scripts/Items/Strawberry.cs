@@ -10,7 +10,7 @@ namespace DefaultNamespace
     {
         [Header("持续时间")]
         private static float _stopDuration = 2f;      // 鬼役用
-        private static float _invincibleDuration = 5f; // 人役用
+        private static float _invincibleDuration = 50f; // 人役用
         
         [Header("提示文字")]
         [SerializeField] private string oniHintMessage = "2秒間足止め成功！";

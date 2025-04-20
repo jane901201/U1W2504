@@ -8,13 +8,15 @@ namespace DefaultNamespace
     public class ICharacter : MonoBehaviour
     {
         [SerializeField] private int hp = 3;
-        
+
         [SerializeField] private Animator animator;
-        public float moveSpeed = 5f;
+        public float MoveSpeed { get; set; } = 5f;
+
         public float escapeSpeedMultiplier = 2f;
-        // ID could be any string, for item timer task
-        [SerializeField] private string id;
         [SerializeField] protected SpriteRenderer effectIcon; 
+        
+        // Mirror
+        public bool IsControlReversed { get; set; } = false;
         
         
         protected float effectShowTime = 0;
@@ -30,7 +32,7 @@ namespace DefaultNamespace
 
 
         public int Hp { get => hp; set => hp = value; }
-        public string Id { get => id; set => id = value; }
+        public string Id { get; set; }
         public CharacterState CharacterState { get; set; }
         public Animator Animator{ get => animator; set => animator = value; }
         public SpriteRenderer EffectIcon { get => effectIcon; set => effectIcon = value; } 
@@ -62,9 +64,9 @@ namespace DefaultNamespace
 
         public virtual IEnumerator MoveSpeedUp()
         {
-            moveSpeed *= escapeSpeedMultiplier;
+            MoveSpeed *= escapeSpeedMultiplier;
             yield return new WaitForSeconds(3f); // 3秒待つ
-            moveSpeed /= escapeSpeedMultiplier;
+            MoveSpeed /= escapeSpeedMultiplier;
         }
         
         public IEnumerator ShowEffect(Sprite sprite)

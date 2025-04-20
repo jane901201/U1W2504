@@ -17,7 +17,6 @@ namespace DefaultNamespace
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
-            var player = (Player)self;
 
             string taskId = "Note_SpeedUp_" + self.Id;
 
@@ -27,12 +26,14 @@ namespace DefaultNamespace
             }
             else
             {
-                float originalSpeed = player.moveSpeed;
-                player.moveSpeed *= speedUpFactor;
+                float originalSpeed = self.MoveSpeed;
+                self.MoveSpeed *= speedUpFactor;
+                self.StateChangEvent?.Invoke();
 
                 TimerManager.Instance.AddTask(taskId, duration, () =>
                 {
-                    player.moveSpeed = originalSpeed;
+                    self.MoveSpeed = originalSpeed;
+                    self.StateChangEvent?.Invoke();
                 });
             }
         }
@@ -43,24 +44,23 @@ namespace DefaultNamespace
 
             foreach (var target in targets)
             {
-                // TODO: Replace to Enemy
-                // var enemy = (Enemy) target;
-                var enemy = (Player) target;
 
-                string taskId = "Note_SlowDown_" + enemy.Id;
-
+                string taskId = "Note_SlowDown_" + target.Id;
+                
                 if (TimerManager.Instance.HasTask(taskId))
                 {
                     TimerManager.Instance.ResetTask(taskId);
                 }
                 else
                 {
-                    float originalSpeed = enemy.moveSpeed;
-                    enemy.moveSpeed *= slowDownFactor;
+                    float originalSpeed = target.MoveSpeed;
+                    target.MoveSpeed *= slowDownFactor;
+                    self.StateChangEvent?.Invoke();
 
                     TimerManager.Instance.AddTask(taskId, duration, () =>
                     {
-                        enemy.moveSpeed = originalSpeed;
+                        target.MoveSpeed = originalSpeed;
+                        self.StateChangEvent?.Invoke();
                     });
                 }
             }

@@ -15,6 +15,7 @@ namespace DefaultNamespace
         protected override void Awake()
         {
             base.Awake();
+            Id = name;
             aiController = GetComponent<AIController>();
             PolyNavAgent = GetComponent<PolyNavAgent>();
         }
@@ -35,11 +36,11 @@ namespace DefaultNamespace
 
         public override IEnumerator MoveSpeedUp()
         {
-            moveSpeed *= escapeSpeedMultiplier;
-            PolyNavAgent.maxSpeed = moveSpeed;
+            MoveSpeed *= escapeSpeedMultiplier;
+            PolyNavAgent.maxSpeed = MoveSpeed;
             yield return new WaitForSeconds(3f); // 3秒待つ
-            moveSpeed /= escapeSpeedMultiplier;
-            PolyNavAgent.maxSpeed = moveSpeed;
+            MoveSpeed /= escapeSpeedMultiplier;
+            PolyNavAgent.maxSpeed = MoveSpeed;
         }
         
         public override IEnumerator WaitAndSetFalse()
@@ -47,7 +48,7 @@ namespace DefaultNamespace
             PolyNavAgent.maxSpeed = 0f;
             yield return new WaitForSeconds(3f); // 3秒待つ
             IsFrozen = false;
-            PolyNavAgent.maxSpeed = moveSpeed;
+            PolyNavAgent.maxSpeed = MoveSpeed;
             Debug.Log("3秒経過、isReady = true");
 
         }

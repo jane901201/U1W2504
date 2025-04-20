@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TimerFrame;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,8 +23,6 @@ public class Player : ICharacter
     private Rigidbody2D rb;
     private Vector2 movement;
     
-    // Mirror
-    public bool IsControlReversed { get; set; } = false;
     // CD
     private Vector2 lastInputDir = Vector2.zero;
     public Vector2 GetLastInputDirection() => lastInputDir;
@@ -79,6 +76,7 @@ public class Player : ICharacter
     
     private void Start()
     {
+        Id = name;
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
         ScheduleNextRoleSwitch();
@@ -106,12 +104,16 @@ public class Player : ICharacter
     private void FixedUpdate()
     {
         if (IsFrozen) return;
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
     }
 
     public override void TakeDamage(ICharacter attackedCharacter)
     {
-        if (IsInvincible) return;
+        if (IsInvincible)
+        {
+            Debug.Log("无敌");
+            return;
+        }
         base.TakeDamage(attackedCharacter);
         StateChangEvent?.Invoke();
         StartCoroutine(attackedCharacter.WaitAndSetFalse());
