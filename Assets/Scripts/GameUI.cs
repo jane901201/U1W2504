@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -15,15 +16,21 @@ namespace DefaultNamespace
         [SerializeField] private GameObject playerItemPanel;
         [Header("EnemyItem")]
         [SerializeField] private GameObject enemyItemPanel;
-        [Header("PlayerIcon")]
+        [SerializeField] private Image playereffectImage; 
+        [SerializeField] private Image enemyEffectImage; 
         [SerializeField] private Image playerIcon;
         [Header("EnemyIcon")]
         [SerializeField] private Image enemyIcon;
-
-        [FormerlySerializedAs("loveIcon")] [SerializeField] private Sprite girlLoveIcon;
-        [FormerlySerializedAs("grilSadIcon")] [FormerlySerializedAs("sadIcon")] [SerializeField] private Sprite girlSadIcon; 
+        [SerializeField] private Sprite girlLoveIcon;
+        [SerializeField] private Sprite girlSadIcon; 
         [SerializeField] private Sprite boyLoveIcon;
         [SerializeField] private Sprite boySadIcon;
+
+        [Header("StateChange")]
+        [SerializeField] private Image stateChangeImage;
+        [SerializeField] private Sprite playerChaseEnemy;
+        [SerializeField] private Sprite enemyChasePlayer;
+        [SerializeField] private float waitTime = 1f;
         
         private Image playerItemImage;
         private Image enemyItemImage;
@@ -50,6 +57,27 @@ namespace DefaultNamespace
                 enemyHpImages[child.GetSiblingIndex()] = child.gameObject;
             }
         }
+
+        public void SetPlayerChaseEnemyIcon()
+        {
+            stateChangeImage.gameObject.SetActive(true);
+            stateChangeImage.sprite = playerChaseEnemy;
+            StartCoroutine(WaitAndSetNull());
+        }
+
+        public void SetEnemyChasePlayerIcon()
+        {
+            stateChangeImage.gameObject.SetActive(true);
+            stateChangeImage.sprite = enemyChasePlayer;
+            StartCoroutine(WaitAndSetNull());
+        }
+        
+        public virtual IEnumerator WaitAndSetNull()
+        {
+            yield return new WaitForSeconds(waitTime);
+            stateChangeImage.gameObject.SetActive(false);
+        }
+
 
         public void SetPlayerItemIcon(Sprite sprite)
         {

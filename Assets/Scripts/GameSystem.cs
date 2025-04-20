@@ -40,6 +40,7 @@ namespace DefaultNamespace
         private void Start()
         {
             gameState = GameState.PlayerChaseEnemy;
+            gameUI.SetPlayerChaseEnemyIcon();
             player.PlayerStateChangEvent += StateChangEvent;
             player.StateChangEvent += StateChangEvent;
             enemy.StateChangEvent += StateChangEvent;
@@ -122,10 +123,12 @@ namespace DefaultNamespace
             if (gameState == GameState.PlayerChaseEnemy)
             {
                 gameState = GameState.EnemyChasePlayer;
+                gameUI.SetEnemyChasePlayerIcon();
             }
             else if(gameState == GameState.EnemyChasePlayer)
             {
                 gameState = GameState.PlayerChaseEnemy;
+                gameUI.SetPlayerChaseEnemyIcon();
             }
         }
 

@@ -14,6 +14,7 @@ namespace DefaultNamespace
         public float escapeSpeedMultiplier = 2f;
         // ID could be any string, for item timer task
         [SerializeField] private string id;
+        [SerializeField] private Sprite effectIcon; 
         
         public Action StateChangEvent;
         
