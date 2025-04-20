@@ -13,7 +13,7 @@ public class ItemTrigger : MonoBehaviour
         {
             Player player = other.GetComponent<Player>();
             // Item参数
-            item.Inintialize(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
+            item.Inintialize();
             player.AddItem(item);
             Destroy(gameObject);
         }
