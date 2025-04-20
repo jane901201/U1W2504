@@ -23,11 +23,15 @@ namespace DefaultNamespace
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
         
+        public static GameSystem Instance;
+        public Tilemap GetTilemap() => tilemap;
+        public Tilemap GetObstacleTilemap() => obstacleTilemap;
         
         public GameState GameState { get => gameState; set => gameState = value; }
 
         private void Awake()
         {
+            Instance = this;
             gameUI =GameObject.Find("Canvas").GetComponent<GameUI>();
             obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
         }

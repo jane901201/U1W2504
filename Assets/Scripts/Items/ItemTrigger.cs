@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class ItemTrigger : MonoBehaviour
@@ -12,7 +13,7 @@ public class ItemTrigger : MonoBehaviour
         {
             Player player = other.GetComponent<Player>();
             // Item参数
-            item.Inintialize();
+            item.Inintialize(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
             player.AddItem(item);
             Destroy(gameObject);
         }
