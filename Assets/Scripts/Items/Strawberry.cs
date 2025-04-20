@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "Strawberry", menuName = "MyGame/Items")]
+    [CreateAssetMenu(fileName = "Strawberry", menuName = "MyGame/Items/Strawberry")]
     
     // イチゴ
     public class Strawberry : IItem
@@ -13,7 +13,7 @@ namespace DefaultNamespace
         private static float _stopDuration = 2f;      // 鬼役用
         private static float _invincibleDuration = 5f; // 人役用
         
-        [Header("提示文字（UI表示用）")]
+        [Header("提示文字")]
         [SerializeField] private string oniHintMessage = "2秒間足止め成功！";
         [SerializeField] private string humanHintMessage = "5秒間無敵になった！";
 

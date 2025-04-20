@@ -6,7 +6,7 @@ namespace DefaultNamespace
     [CreateAssetMenu(fileName = "Note", menuName = "MyGame/Items/Note")]
     public class Note : IItem
     {
-        [Header("参数")]
+        [Header("各种参数")]
         [SerializeField] private float duration = 5f;
         [SerializeField] private float speedUpFactor = 1.5f;
         [SerializeField] private float slowDownFactor = 0.75f;

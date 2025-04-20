@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "Mirror", menuName = "MyGame/Items")]
+    [CreateAssetMenu(fileName = "Mirror", menuName = "MyGame/Items/Mirror")]
     
     // あいの鏡
     public class Mirror : IItem

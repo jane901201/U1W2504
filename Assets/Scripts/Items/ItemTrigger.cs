@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class ItemTrigger : MonoBehaviour
@@ -11,6 +12,8 @@ public class ItemTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             Player player = other.GetComponent<Player>();
+            // Item参数
+            item.Inintialize();
             player.AddItem(item);
             Destroy(gameObject);
         }

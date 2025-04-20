@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TimerFrame;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
@@ -11,12 +14,29 @@ namespace DefaultNamespace
         [SerializeField] private Enemy enemy;
         [SerializeField] private GameUI gameUI;
         [SerializeField] private Tilemap tilemap;
+        [SerializeField] private Tilemap obstacleTilemap;
         [SerializeField] private float spawnInterval = 5f;
-        private List<Vector3Int> tilePositions = new List<Vector3Int>();
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
-        public GameState GameState { get => gameState; set => gameState = value; }
+        [SerializeField] private SceneManager sceneManager;
+        [SerializeField] private AudioSource audioSource;
         
+        private List<Vector3Int> tilePositions = new List<Vector3Int>();
+        private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
+        
+        public static GameSystem Instance;
+        public Tilemap GetTilemap() => tilemap;
+        public Tilemap GetObstacleTilemap() => obstacleTilemap;
+        
+        public GameState GameState { get => gameState; set => gameState = value; }
+
+        private void Awake()
+        {
+            Instance = this;
+            gameUI = GameObject.Find("Canvas").GetComponent<GameUI>();
+            obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
+        }
+
         private void Start()
         {
             gameState = GameState.PlayerChaseEnemy;
@@ -30,7 +50,7 @@ namespace DefaultNamespace
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
                 {
                     Vector3Int pos = new Vector3Int(x, y, 0);
-                    if (tilemap.HasTile(pos))
+                    if (tilemap.HasTile(pos) && !obstacleTilemap.HasTile(pos))
                     {
                         tilePositions.Add(pos);
                     }
@@ -38,16 +58,8 @@ namespace DefaultNamespace
             }
 
             // 一定時間ごとに生成を開始
-            StartCoroutine(SpawnLoop());
-        }
-        
-        IEnumerator SpawnLoop()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(spawnInterval);
-                SpawnObjectAtRandomPosition();
-            }
+            // StartCoroutine(SpawnLoop());
+            TimerManager.Instance.AddTask("SpawnObjectAtRandomPosition", spawnInterval, SpawnObjectAtRandomPosition, true);
         }
 
         void SpawnObjectAtRandomPosition()
@@ -57,13 +69,25 @@ namespace DefaultNamespace
             int index = Random.Range(0, tilePositions.Count);
             Vector3Int cellPos = tilePositions[index];
             Vector3 worldPos = tilemap.CellToWorld(cellPos) + tilemap.cellSize / 2; // 中心に合わせるため
+            
+            int itemNum = Random.Range(0, objectsToSpawn.Length);
 
-            Instantiate(objectsToSpawn[0], worldPos, Quaternion.identity);
+            Instantiate(objectsToSpawn[itemNum], worldPos, Quaternion.identity);
         }
 
         
         private void Update()
         {
+            if (player.Hp == 0)
+            {
+                GameOver();
+            }
+
+            if (enemy.Hp == 0)
+            {
+                Victory();
+            }
+            
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 player.UseItem();
@@ -96,7 +120,17 @@ namespace DefaultNamespace
             {
                 gameState = GameState.PlayerChaseEnemy;
             }
-        } 
+        }
+
+        private void Victory()
+        {
+            sceneManager.LoadScene("VictoryScene");
+        }
+
+        private void GameOver()
+        {
+            sceneManager.LoadScene("GameOverScene");
+        }
         
     }
 

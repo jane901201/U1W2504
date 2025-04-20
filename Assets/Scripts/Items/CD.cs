@@ -4,15 +4,15 @@ using UnityEngine.Tilemaps;
 namespace DefaultNamespace
 {
     [CreateAssetMenu(fileName = "CD", menuName = "MyGame/Items/CD")]
-    public class CD : IItem
+    public class CD : IItem, IMapTileItem
     {
-        [Header("Tilemap设置")]
-        public Tilemap groundTilemap;
-        public Tilemap obstacleTilemap;
 
         [Header("提示文本")]
         [SerializeField] private string hintText = "障害物を一つ乗り越えた！";
 
+        public Tilemap groundTilemap;
+        public Tilemap obstacleTilemap;
+        
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
             TryLeapOverObstacle(self);
@@ -47,6 +47,12 @@ namespace DefaultNamespace
         private bool HasGround(Vector3Int pos)
         {
             return groundTilemap.GetTile(pos) != null;
+        }
+
+        public void SetTilemaps(Tilemap ground, Tilemap obstacle)
+        {
+            this.groundTilemap = ground;
+            this.obstacleTilemap = obstacle;
         }
     }
 }
