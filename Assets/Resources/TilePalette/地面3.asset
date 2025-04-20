@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: turn3
+  m_Name: "\u5730\u97623"
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 81e2049f5684bc54abeb01995f8a90d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0102b30c8902c245b4c52607aa36ac1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
