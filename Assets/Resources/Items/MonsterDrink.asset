@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2476441f4b42278d00f12717161ec9, type: 3}
   m_Name: MonsterDrink
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f3871a85950a04158804a1b44f91705b, type: 3}
+  groundTilemap: {fileID: 0}
+  obstacleTilemap: {fileID: 0}
   hintText: "\u5F79\u5272\u3092\u5165\u308C\u66FF\u3048\u305F\uFF01"

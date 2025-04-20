@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc8bf3274f54f78b786f6b1343a3208, type: 3}
   m_Name: Chain
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e065fd0c988ac48fbaceefdf28e73f6f, type: 3}
   groundTilemap: {fileID: 0}
   obstacleTilemap: {fileID: 0}
   oniRange: 3

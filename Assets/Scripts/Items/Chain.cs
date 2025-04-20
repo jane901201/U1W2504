@@ -6,9 +6,6 @@ namespace DefaultNamespace
     [CreateAssetMenu(fileName = "Chain", menuName = "MyGame/Items/Chain")]
     public class Chain : IItem
     {
-        [Header("Tilemap设置")]
-        public Tilemap groundTilemap;
-        public Tilemap obstacleTilemap;
 
         [Header("各种参数")]
         [SerializeField] private int oniRange = 3;

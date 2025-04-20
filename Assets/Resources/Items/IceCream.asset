@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598feea4c244b6cb3667437f6903d89, type: 3}
   m_Name: IceCream
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 696022644b90846dabd56baf9267c57f, type: 3}
+  groundTilemap: {fileID: 0}
+  obstacleTilemap: {fileID: 0}
   duration: 30
   oniHint: "30\u79D2\u9593\u3001\u30C0\u30E1\u30FC\u30B8+1\uFF01"
   humanHint: "30\u79D2\u9593\u3001\u9003\u3052\u5207\u308C\u3070\u9B3C\u306B\u30C0\u30E1\u30FC\u30B8\uFF01"

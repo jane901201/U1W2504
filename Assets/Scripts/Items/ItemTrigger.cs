@@ -11,6 +11,8 @@ public class ItemTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             Player player = other.GetComponent<Player>();
+            // Item参数
+            item.Inintialize();
             player.AddItem(item);
             Destroy(gameObject);
         }

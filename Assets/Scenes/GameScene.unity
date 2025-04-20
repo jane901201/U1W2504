@@ -15133,6 +15133,14 @@ PrefabInstance:
       propertyPath: characterState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1893190493407360533, guid: 179e5527d573d204da554529f1a10216, type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893190493407360533, guid: 179e5527d573d204da554529f1a10216, type: 3}
+      propertyPath: 'items.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f68da29e0e9d46e1996c6f1ddb8ad6b, type: 2}
     - target: {fileID: 4223653349431074538, guid: 179e5527d573d204da554529f1a10216, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
