@@ -271,7 +271,7 @@ Canvas:
   m_GameObject: {fileID: 1206718389371183675}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   stateChangeImage: {fileID: 2357025706959115439}
   playerChaseEnemy: {fileID: 21300000, guid: cb005fe32251b4d4ba24f402007b79de, type: 3}
   enemyChasePlayer: {fileID: 21300000, guid: 3ae9132886c3a0849a78b60294b3d59b, type: 3}
+  waitTime: 1
 --- !u!1 &1250487445441013023
 GameObject:
   m_ObjectHideFlags: 0
