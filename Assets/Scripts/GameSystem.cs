@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TimerFrame;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -32,7 +33,7 @@ namespace DefaultNamespace
         private void Awake()
         {
             Instance = this;
-            gameUI =GameObject.Find("Canvas").GetComponent<GameUI>();
+            gameUI = GameObject.Find("Canvas").GetComponent<GameUI>();
             obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
         }
 
@@ -57,16 +58,8 @@ namespace DefaultNamespace
             }
 
             // 一定時間ごとに生成を開始
-            StartCoroutine(SpawnLoop());
-        }
-        
-        IEnumerator SpawnLoop()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(spawnInterval);
-                SpawnObjectAtRandomPosition();
-            }
+            // StartCoroutine(SpawnLoop());
+            TimerManager.Instance.AddTask("SpawnObjectAtRandomPosition", spawnInterval, SpawnObjectAtRandomPosition, true);
         }
 
         void SpawnObjectAtRandomPosition()
