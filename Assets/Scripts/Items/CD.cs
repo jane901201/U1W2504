@@ -31,14 +31,15 @@ namespace DefaultNamespace
             Vector3Int dir = GetCardinalDirection(direction);
             bool jumped = TryLeap(currentCell, dir, player);
 
+            // TODO: 固定Bug：玩家在地图中央向上传送时会向左
             if (!jumped)
             {
                 // 如果跳跃失败，尝试四方向
                 Vector3Int[] directions = {
+                    new Vector3Int(0, -1, 0),  // 上
+                    new Vector3Int(0, 1, 0),  // 下
                     new Vector3Int(1, 0, 0),  // 右
                     new Vector3Int(-1, 0, 0), // 左
-                    new Vector3Int(0, -1, 0),  // 上
-                    new Vector3Int(0, 1, 0)  // 下
                 };
 
                 foreach (var fallbackDir in directions)
@@ -54,14 +55,7 @@ namespace DefaultNamespace
         // 方向单位向量（上下左右）
         private Vector3Int GetCardinalDirection(Vector3 input)
         {
-            if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
-            {
-                return new Vector3Int((int)Mathf.Sign(input.x), 0, 0);
-            }
-            else
-            {
-                return new Vector3Int(0, -(int)Mathf.Sign(input.y), 0);
-            }
+            return new Vector3Int((int)Mathf.Sign(input.x), -(int)Mathf.Sign(input.y), (int)Mathf.Sign(input.z));
         }
 
 

@@ -88,7 +88,6 @@ public class Player : ICharacter
     {
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
-        // TimerManager.Instance.AddTask("PlayerRandomSwitchRoleRandomTimer", );
         ScheduleNextRoleSwitch();
     }
     
