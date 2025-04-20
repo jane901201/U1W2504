@@ -41,5 +41,13 @@ namespace DefaultNamespace
                 });
             }
         }
+
+        public override float GetDuration(ICharacter self)
+        {
+            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
+                return reverseDuration;
+            else
+                return reverseDuration;
+        }
     }
 }

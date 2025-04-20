@@ -16,10 +16,11 @@ namespace DefaultNamespace
         [SerializeField] private GameObject playerItemPanel;
         [Header("EnemyItem")]
         [SerializeField] private GameObject enemyItemPanel;
+        [Header("EffectImage")]
         [SerializeField] private Image playereffectImage; 
         [SerializeField] private Image enemyEffectImage; 
+        [Header("Icon")]
         [SerializeField] private Image playerIcon;
-        [Header("EnemyIcon")]
         [SerializeField] private Image enemyIcon;
         [SerializeField] private Sprite girlLoveIcon;
         [SerializeField] private Sprite girlSadIcon; 
@@ -72,12 +73,13 @@ namespace DefaultNamespace
             StartCoroutine(WaitAndSetNull());
         }
         
-        public virtual IEnumerator WaitAndSetNull()
+        public IEnumerator WaitAndSetNull()
         {
             yield return new WaitForSeconds(waitTime);
             stateChangeImage.gameObject.SetActive(false);
         }
-
+        
+        
 
         public void SetPlayerItemIcon(Sprite sprite)
         {
@@ -107,6 +109,20 @@ namespace DefaultNamespace
             }
         }
 
+        public void SetPlayerEffectImage(Sprite sprite, float duration)
+        {
+            playereffectImage.gameObject.SetActive(true);
+            playereffectImage.sprite = sprite;
+            StartCoroutine(WaitAndSetFalse(duration, playereffectImage.gameObject));
+        } 
+        
+        public void SetEnemyEffectImage(Sprite sprite, float duration)
+        {
+            enemyEffectImage.gameObject.SetActive(true);
+            enemyEffectImage.sprite = sprite;
+            StartCoroutine(WaitAndSetFalse(duration, enemyEffectImage.gameObject));
+        }
+        
         public void SetEnemyHPIcon(int hp)
         {
             for (int i = 0; i < enemyHpImages.Length; i++)
@@ -141,6 +157,12 @@ namespace DefaultNamespace
             {
                 enemyIcon.sprite = boySadIcon;
             }
+        }
+        
+        public IEnumerator WaitAndSetFalse(float waitTime, GameObject gameObject)
+        {
+            yield return new WaitForSeconds(waitTime);
+            gameObject.SetActive(false);
         }
 
     }

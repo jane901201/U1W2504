@@ -341,7 +341,7 @@ MonoBehaviour:
   enemyHPPanel: {fileID: 1532908010408728299}
   playerItemPanel: {fileID: 5269116761352060590}
   enemyItemPanel: {fileID: 7931384386015264422}
-  playereffectImage: {fileID: 0}
+  playereffectImage: {fileID: 5834213711992323562}
   enemyEffectImage: {fileID: 0}
   playerIcon: {fileID: 6468593743919909958}
   enemyIcon: {fileID: 4663949345645527902}
@@ -1198,7 +1198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5535797367096288863
 RectTransform:
   m_ObjectHideFlags: 0

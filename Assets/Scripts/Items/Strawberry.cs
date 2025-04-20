@@ -1,5 +1,4 @@
 using TimerFrame;
-using UnityEditor.UI;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -80,6 +79,14 @@ namespace DefaultNamespace
                     ((Player) self).IsInvincible = false;
                 });
             }
+        }
+
+        public override float GetDuration(ICharacter self)
+        {
+            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
+                return _stopDuration;
+            else
+                return _invincibleDuration;
         }
     }
 }

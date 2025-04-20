@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 999378103368409350, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
+      propertyPath: enemyEffectImage
+      value: 
+      objectReference: {fileID: 1789454217}
     - target: {fileID: 1206718389371183675, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -44,6 +44,7 @@ namespace DefaultNamespace
             player.PlayerStateChangEvent += StateChangEvent;
             player.StateChangEvent += StateChangEvent;
             enemy.StateChangEvent += StateChangEvent;
+            player.ItemEffectEvent += PlayerItemEffectEvent;
             // タイルがある座標をリストアップ
             BoundsInt bounds = tilemap.cellBounds;
             for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -130,6 +131,11 @@ namespace DefaultNamespace
                 gameState = GameState.PlayerChaseEnemy;
                 gameUI.SetPlayerChaseEnemyIcon();
             }
+        }
+
+        private void PlayerItemEffectEvent(Sprite sprite, float duration)
+        {
+            gameUI.SetPlayerEffectImage(sprite, duration);
         }
 
         private void Victory()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -14,18 +15,24 @@ namespace DefaultNamespace
         public float escapeSpeedMultiplier = 2f;
         // ID could be any string, for item timer task
         [SerializeField] private string id;
-        [SerializeField] private Sprite effectIcon; 
+        [SerializeField] protected SpriteRenderer effectIcon; 
+        
+        
+        protected float effectShowTime = 0;
         
         public Action StateChangEvent;
+        public Action<Sprite, float> ItemEffectEvent;
         
         protected bool isFrozen = false;
         public bool IsForzen { get => isFrozen; set => isFrozen = value; }
+        
         
 
         public int Hp { get => hp; set => hp = value; }
         public string Id { get => id; set => id = value; }
         public CharacterState CharacterState { get => characterState; set => characterState = value; }
         public Animator Animator{ get => animator; set => animator = value; }
+        public SpriteRenderer EffectIcon { get => effectIcon; set => effectIcon = value; } 
         
         protected virtual void Awake()
         {
@@ -50,6 +57,15 @@ namespace DefaultNamespace
             yield return new WaitForSeconds(3f); // 3秒待つ
             moveSpeed /= escapeSpeedMultiplier;
         }
+        
+        public IEnumerator ShowEffect(Sprite sprite)
+        {
+            effectIcon.GameObject().SetActive(true);
+            effectIcon.sprite = sprite;
+            yield return new WaitForSeconds(effectShowTime); 
+            effectIcon.GameObject().SetActive(false);
+        }
+
 
     }
 }

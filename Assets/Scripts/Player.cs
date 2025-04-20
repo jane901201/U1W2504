@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TimerFrame;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -154,11 +156,18 @@ public class Player : ICharacter
         Debug.Log(item.name);
         
         item.Use(this, FindTargets());
+        if (item.IsDurationItem)
+        {
+            effectShowTime = item.GetDuration(this);
+            ItemEffectEvent?.Invoke(item.GetEffectIcon(this), item.GetDuration(this));
+            StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
+        }
+        
         items.RemoveAt(0);
 
         GameUI.Instance?.ClearPlayerItemIcon(); // 清除图标
 
-    } 
+    }
     
     // TODO: 锁敌功能
     private ICharacter[] FindTargets()

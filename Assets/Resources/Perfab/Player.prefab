@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6425021990276157238
 Transform:
   m_ObjectHideFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
   moveSpeed: 5
   escapeSpeedMultiplier: 2
   id: 
+  effectIcon: {fileID: 8942496455477166365}
   items:
   - {fileID: 11400000, guid: 8f68da29e0e9d46e1996c6f1ddb8ad6b, type: 2}
   minSwitchTime: 2
