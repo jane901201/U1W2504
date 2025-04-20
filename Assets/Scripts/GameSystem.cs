@@ -89,6 +89,9 @@ namespace DefaultNamespace
                 Victory();
             }
             
+            gameUI.SetPlayerHPIcon(player.Hp);
+            gameUI.SetEnemyHPIcon(enemy.Hp);
+            
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 player.UseItem();
@@ -100,6 +103,8 @@ namespace DefaultNamespace
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
+                gameUI.SetPlayerIcon(player);
+                gameUI.SetEnemyIcon(enemy);
             }
 
             if (gameState == GameState.EnemyChasePlayer)
@@ -108,6 +113,9 @@ namespace DefaultNamespace
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
+                gameUI.SetPlayerIcon(player);
+                gameUI.SetEnemyIcon(enemy);
+                
             }
         }
 

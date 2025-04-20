@@ -192,14 +192,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999378103368409350, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
-      propertyPath: sadIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: d6b87f165eb552644975df68675e50b0, type: 3}
-    - target: {fileID: 999378103368409350, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
-      propertyPath: loveIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: b1d6071e353e22f45a47132f12d14831, type: 3}
     - target: {fileID: 1206718389371183675, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
       propertyPath: m_Name
       value: Canvas
