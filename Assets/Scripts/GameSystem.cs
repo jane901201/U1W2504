@@ -35,6 +35,7 @@ namespace DefaultNamespace
             Instance = this;
             gameUI = GameObject.Find("Canvas").GetComponent<GameUI>();
             obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
+            tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
         }
 
         private void Start()
