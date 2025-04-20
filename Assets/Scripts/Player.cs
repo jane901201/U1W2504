@@ -120,6 +120,8 @@ public class Player : ICharacter
             mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
         }
         
+        Debug.Log(item.name);
+        
         item.Use(this, FindTargets());
         items.RemoveAt(0);
 

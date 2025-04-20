@@ -36,14 +36,12 @@ namespace DefaultNamespace
                 return;
             }
             playerItemImage.sprite = sprite;
-            playerItemImage.enabled = sprite != null;
         }
 
         public void ClearPlayerItemIcon()
         {
             if (playerItemImage == null) return;
             playerItemImage.sprite = null;
-            playerItemImage.enabled = false;
         }
 
     }
