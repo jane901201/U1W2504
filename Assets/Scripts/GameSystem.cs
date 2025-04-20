@@ -18,7 +18,7 @@ namespace DefaultNamespace
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
-        
+        [SerializeField] private AudioSource audioSource;
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();

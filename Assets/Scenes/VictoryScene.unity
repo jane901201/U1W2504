@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 471457468}
   - component: {fileID: 471457467}
   m_Layer: 0
-  m_Name: bgm_menu
+  m_Name: game_victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,8 +467,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fb5d064c6cc2be74893d5c29c8206485, type: 3}
-  m_Resource: {fileID: 8300000, guid: fb5d064c6cc2be74893d5c29c8206485, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5099ce27e7a305d4d907664d7e14798b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5099ce27e7a305d4d907664d7e14798b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
