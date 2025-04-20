@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2429686011400049119}
   - component: {fileID: 2922314471512752367}
+  - component: {fileID: 1760776443237727917}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -45,8 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  enemy: {fileID: 0}
+  gameUI: {fileID: 0}
   tilemap: {fileID: 0}
   spawnInterval: 5
   objectsToSpawn:
   - {fileID: 6233486848424334469, guid: e01a5ac3dc06d384780df5fcd44fb619, type: 3}
   gameState: 0
+  sceneManager: {fileID: 1760776443237727917}
+--- !u!114 &1760776443237727917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234103600705508083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8c9499a1eb1214abbde865a17e4133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
