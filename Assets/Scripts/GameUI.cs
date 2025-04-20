@@ -36,5 +36,15 @@ namespace DefaultNamespace
             playerIcon.enabled = false;
         }
 
+        public void SetPlayerHPIcon(int hp)
+        {
+            
+        }
+
+        public void SetEnemyHPIcon(int hp)
+        {
+            
+        }
+
     }
 }
