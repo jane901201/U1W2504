@@ -14,26 +14,36 @@ namespace DefaultNamespace
         [SerializeField] private GameObject playerItemPanel;
         [Header("EnemyItem")]
         [SerializeField] private GameObject enemyItemPanel;
-
-        [Header("Icon")]
-        [SerializeField] private Image playerIcon;
-        [SerializeField] private Image enemyIcon;
+        
+        private Image playerItemImage;
+        private Image enemyItemImage;
         
         private void Awake()
         {
             Instance = this;
+            if (playerItemPanel != null)
+                playerItemImage = playerItemPanel.GetComponent<Image>();
+
+            if (enemyItemPanel != null)
+                enemyItemImage = enemyItemPanel.GetComponent<Image>();
         }
 
         public void SetPlayerItemIcon(Sprite sprite)
         {
-            playerIcon.sprite = sprite;
-            playerIcon.enabled = sprite != null;
+            if (playerItemImage == null)
+            {
+                Debug.LogError("playerItemImage is null!");
+                return;
+            }
+            playerItemImage.sprite = sprite;
+            playerItemImage.enabled = sprite != null;
         }
 
         public void ClearPlayerItemIcon()
         {
-            playerIcon.sprite = null;
-            playerIcon.enabled = false;
+            if (playerItemImage == null) return;
+            playerItemImage.sprite = null;
+            playerItemImage.enabled = false;
         }
 
     }

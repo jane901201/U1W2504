@@ -101,6 +101,11 @@ public class Player : ICharacter
         {
             items.Add(item);
         }
+        
+        if (item is IMapTileItem mapItem)
+        {
+            mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
+        }
         // 显示图标
         GameUI.Instance?.SetPlayerItemIcon(item.Icon);
     }
@@ -109,6 +114,12 @@ public class Player : ICharacter
     {
         if(items.Count == 0) return;
         var item = items[0];
+        
+        if (item is IMapTileItem mapItem)
+        {
+            mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
+        }
+        
         item.Use(this, FindTargets());
         items.RemoveAt(0);
 

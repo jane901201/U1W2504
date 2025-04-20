@@ -4,9 +4,12 @@ using UnityEngine.Tilemaps;
 namespace DefaultNamespace
 {
     [CreateAssetMenu(fileName = "Chain", menuName = "MyGame/Items/Chain")]
-    public class Chain : IItem
+    public class Chain : IItem, IMapTileItem
     {
 
+        public Tilemap groundTilemap;
+        public Tilemap obstacleTilemap;
+        
         [Header("各种参数")]
         [SerializeField] private int oniRange = 3;
         [SerializeField] private int humanRange = 6;
@@ -85,6 +88,12 @@ namespace DefaultNamespace
         {
             TileBase tile = obstacleTilemap.GetTile(pos);
             return tile != null;
+        }
+
+        public void SetTilemaps(Tilemap ground, Tilemap obstacle)
+        {
+            this.groundTilemap = ground;
+            this.obstacleTilemap = obstacle;
         }
     }
 }
