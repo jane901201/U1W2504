@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4978624378635376358
 Transform:
   m_ObjectHideFlags: 0
@@ -382,6 +382,7 @@ MonoBehaviour:
   moveSpeed: 2
   escapeSpeedMultiplier: 2
   id: 
+  effectIcon: {fileID: 0}
   AIController: {fileID: 0}
   PolyNavAgent: {fileID: 0}
 --- !u!95 &6207038296863499281
