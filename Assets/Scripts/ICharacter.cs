@@ -9,7 +9,6 @@ namespace DefaultNamespace
     {
         [SerializeField] private int hp = 3;
         
-        [SerializeField] private CharacterState characterState;
         [SerializeField] private Animator animator;
         public float moveSpeed = 5f;
         public float escapeSpeedMultiplier = 2f;
@@ -32,13 +31,21 @@ namespace DefaultNamespace
 
         public int Hp { get => hp; set => hp = value; }
         public string Id { get => id; set => id = value; }
-        public CharacterState CharacterState { get => characterState; set => characterState = value; }
+        public CharacterState CharacterState { get; set; }
         public Animator Animator{ get => animator; set => animator = value; }
         public SpriteRenderer EffectIcon { get => effectIcon; set => effectIcon = value; } 
         
         protected virtual void Awake()
         {
-            characterState = new CharacterState();
+            if (CharacterState == null)
+            {
+                CharacterState = new CharacterState();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         public virtual void TakeDamage(ICharacter attackedCharacter)

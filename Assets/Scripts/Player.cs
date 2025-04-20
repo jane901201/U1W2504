@@ -71,6 +71,7 @@ public class Player : ICharacter
             CharacterState.Role = CharacterState.RoleType.Oni;
         else
             CharacterState.Role = CharacterState.RoleType.Human;
+        CharacterState.Emotion = CharacterState.Emotion == CharacterState.EmotionType.Love ? CharacterState.EmotionType.Sad : CharacterState.EmotionType.Love;
         PlayerStateChangEvent?.Invoke();
     }
 

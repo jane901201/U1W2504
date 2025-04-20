@@ -47,13 +47,11 @@ namespace DefaultNamespace
                 {
                     // Enemy freeze function
                     // target.Stop = true;
-                    Debug.Log("冻结敌人");
                     target.IsFrozen = true;
                     TimerManager.Instance.AddTask(taskId, _stopDuration, () =>
                     {
                         // Unfreeze
                         // target.Stop = false;
-                        Debug.Log("解冻敌人");
                         target.IsFrozen = false;
                     });
                 }

@@ -19,21 +19,17 @@ namespace DefaultNamespace
 
         private void SwitchRoles(ICharacter self, ICharacter[] targets)
         {
-            if (targets == null || targets.Length == 0) return;
-
-            ICharacter target = targets[0]; // 只作用于第一个目标
-            var roleSelf = self.CharacterState.Role;
-            var roleTarget = target.CharacterState.Role;
+            ICharacter target = targets[0];
 
             // 自己变为相反角色
-            self.CharacterState.Role = roleSelf == CharacterState.RoleType.Oni
-                ? CharacterState.RoleType.Human
-                : CharacterState.RoleType.Oni;
+            ((Player)self).SwitchRole();
+            ((Player)self).PlayerStateChangEvent?.Invoke();
 
             // 对方也变为相反角色
-            target.CharacterState.Role = roleTarget == CharacterState.RoleType.Oni
-                ? CharacterState.RoleType.Human
-                : CharacterState.RoleType.Oni;
+            target.CharacterState.Role = target.CharacterState.Role == CharacterState.RoleType.Human
+                ? CharacterState.RoleType.Oni
+                : CharacterState.RoleType.Human;
+            target.StateChangEvent?.Invoke();
         }
     }
 }

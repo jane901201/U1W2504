@@ -10,7 +10,7 @@ namespace DefaultNamespace
 {
     public class GameSystem : MonoBehaviour
     {
-        [SerializeField] private Player player;
+        [SerializeField] public Player player;
         [SerializeField] private Enemy enemy;
         [SerializeField] private GameUI gameUI;
         [SerializeField] private Tilemap tilemap;
