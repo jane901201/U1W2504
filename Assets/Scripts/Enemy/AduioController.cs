@@ -15,6 +15,7 @@ public class AduioController : MonoBehaviour
     public static AduioController _Instance;
     public AudioClip LoveBGM;
     public AudioClip HateBGM;
+    public GameObject BG;
 
     [Header("Volume")]
     [Range(0f, 1f)]
@@ -24,7 +25,7 @@ public class AduioController : MonoBehaviour
     [Range(0f, 1f)]
     public float voiceVolumeWhenMainPlay=0.05f;
     [Range(60, 600)]
-    public int GaiLu = 300;
+    public int GaiLv = 300;
     
     void Awake()
     {
@@ -51,13 +52,15 @@ public class AduioController : MonoBehaviour
                 mainSource.clip = LoveBGM;
                 mainSource.loop = true;
                 mainSource.volume = mainVolume;
+                BG.GetComponent<Animator>().SetBool("GameState", true);
                 mainSource.Play();
             }
             else
             {
                 mainSource.clip = HateBGM;
                 mainSource.volume = mainVolume;
-                mainSource.loop = true;    
+                mainSource.loop = true;
+                BG.GetComponent<Animator>().SetBool("GameState", false);
                 mainSource.Play();
             }
         }
@@ -76,10 +79,11 @@ public class AduioController : MonoBehaviour
 
         if (!voiceSource.isPlaying)
         {
-            int index = Random.Range(0, GaiLu);
+            //Random
+            int index = Random.Range(0, GaiLv);
             if (index < 1)
             {
-                voiceSource.clip=voiceAudioManager.PlaySound((EAudioClips)Random.Range(0, 11));
+                voiceSource.clip=voiceAudioManager.PlaySound();
                 voiceSource.Play();
             }
         }

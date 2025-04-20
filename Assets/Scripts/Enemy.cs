@@ -18,6 +18,7 @@ namespace DefaultNamespace
             aiController = GetComponent<AIController>();
             PolyNavAgent = GetComponent<PolyNavAgent>();
         }
+        
 
         public override void TakeDamage(ICharacter character)
         {
