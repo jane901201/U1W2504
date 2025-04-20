@@ -5,14 +5,14 @@ using DefaultNamespace;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class AduioContrller : MonoBehaviour
+public class AduioController : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource mainSource;
     public AudioSource voiceSource;
     public AudioManager voiceAudioManager;
     public GameSystem gameSystem;
-    public static AduioContrller _Instance;
+    public static AduioController _Instance;
     public AudioClip LoveBGM;
     public AudioClip HateBGM;
 

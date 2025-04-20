@@ -72,7 +72,7 @@ public class AIController : MonoBehaviour
     }
     public void ChangeAIState(GameState newGameState)
     {
-        AduioContrller._Instance.PlayBGM();
+        AduioController._Instance.PlayBGM();
         if (newGameState==GameState.EnemyChasePlayer)
         {
             CurrentStateMachine = LoveStateMachine;
