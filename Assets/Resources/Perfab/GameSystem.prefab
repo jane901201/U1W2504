@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2922314471512752367}
   - component: {fileID: 1760776443237727917}
   - component: {fileID: 4959539872377763885}
+  - component: {fileID: 7714644125646117801}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -53,7 +54,13 @@ MonoBehaviour:
   obstacleTilemap: {fileID: 0}
   spawnInterval: 5
   objectsToSpawn:
-  - {fileID: 6233486848424334469, guid: e01a5ac3dc06d384780df5fcd44fb619, type: 3}
+  - {fileID: 270683143490707367, guid: c2eb7b525b82ed8408ffbf60abee9e5e, type: 3}
+  - {fileID: 3665581449629825170, guid: 28dac9ee666672b499e7c41641f33944, type: 3}
+  - {fileID: 770245384568530925, guid: 6c9da5bcc8732fb439f97bf2c2cd05d2, type: 3}
+  - {fileID: 8830357151455379283, guid: caace0554d8cd23489c8cf395fa7ae47, type: 3}
+  - {fileID: 3614195163363919432, guid: a95ad19b8bab2ef46bdde3c1978d88f1, type: 3}
+  - {fileID: 6988218397159156641, guid: 53228f3475292654a89f84041233bae5, type: 3}
+  - {fileID: 8939444410642658739, guid: d7264359440d76d40aedaca860094f22, type: 3}
   gameState: 0
   sceneManager: {fileID: 1760776443237727917}
   audioSource: {fileID: 4959539872377763885}
@@ -166,3 +173,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7714644125646117801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234103600705508083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734cd40a02b945638659f00a7e3f568e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
