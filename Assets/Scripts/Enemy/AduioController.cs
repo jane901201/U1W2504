@@ -47,7 +47,7 @@ public class AduioController : MonoBehaviour
     {
         if (mainSource != null)
         {
-            if (gameSystem.GameState == GameState.EnemyChasePlayer)
+            if (gameSystem.GameState != GameState.EnemyChasePlayer)
             {
                 mainSource.clip = LoveBGM;
                 mainSource.loop = true;

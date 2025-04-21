@@ -11,7 +11,7 @@ public class AudioManager : ScriptableObject
     public AudioClip PlaySound()
     {
        
-        if (GameSystem.Instance.GameState == GameState.EnemyChasePlayer)
+        if (GameSystem.Instance.GameState != GameState.EnemyChasePlayer)
         {
             
             return LoveVoice[(int)Random.Range(0, LoveVoice.Count)];
