@@ -20,19 +20,7 @@ namespace DefaultNamespace
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
-
-            foreach (var target in targets)
-            {
-                Vector3Int selfCell = groundTilemap.WorldToCell(self.transform.position);
-                Vector3Int newCell = FindFreePositionNear(selfCell, oniRange);
-
-                target.transform.position = groundTilemap.GetCellCenterWorld(newCell);
-            }
-        }
-
-        protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
-        {
-
+            
             foreach (var target in targets)
             {
                 Vector3Int selfCell = groundTilemap.WorldToCell(self.transform.position);
@@ -40,6 +28,17 @@ namespace DefaultNamespace
                 Vector3Int farPos = FindFarthestFromTargetButFree(selfCell, targetCell, humanRange);
 
                 target.transform.position = groundTilemap.GetCellCenterWorld(farPos);
+            }
+        }
+
+        protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
+        {
+            foreach (var target in targets)
+            {
+                Vector3Int selfCell = groundTilemap.WorldToCell(self.transform.position);
+                Vector3Int newCell = FindFreePositionNear(selfCell, oniRange);
+
+                target.transform.position = groundTilemap.GetCellCenterWorld(newCell);
             }
         }
 
