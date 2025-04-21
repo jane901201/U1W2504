@@ -39,11 +39,24 @@ namespace DefaultNamespace
             set
             {
                 gameState = value;
+                if (gameState == GameState.EnemyChasePlayer)
+                {
+                    player.CharacterState.Emotion = CharacterState.EmotionType.Sad;
+                    enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;
+                }
+                else
+                {
+                    player.CharacterState.Emotion = CharacterState.EmotionType.Love;
+                    enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
+                }
+                player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
+                enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 Mudeki = true;
                 PlayerTouchTrigger.SetActive(false);
                 EnemyuTouchTrigger.SetActive(false);
+                gameUI?.FlushIcon();
                 StartCoroutine(MukudekiWhenStateChange());
-                StateChangEvent();
+                UnityEngine.Debug.Log($"{gameState}");
             }
         }
 
@@ -67,10 +80,6 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            GameState = GameState.PlayerChaseEnemy;
-            gameUI.SetPlayerChaseEnemyIcon();
-            player.StateChangEvent += StateChangEvent;
-            enemy.StateChangEvent += StateChangEvent;
             player.ItemEffectEvent += PlayerItemEffectEvent;
             // タイルがある座標をリストアップ
             BoundsInt bounds = tilemap.cellBounds;
@@ -89,6 +98,7 @@ namespace DefaultNamespace
             // 一定時間ごとに生成を開始
             // StartCoroutine(SpawnLoop());
             TimerManager.Instance.AddTask("SpawnObjectAtRandomPosition", spawnInterval, SpawnObjectAtRandomPosition, true);
+            GameState = GameState;
         }
         
         void SpawnObjectAtRandomPosition()
@@ -136,45 +146,6 @@ namespace DefaultNamespace
             {
                 Debug = !Debug;
             }
-
-            if (gameState == GameState.EnemyChasePlayer)
-            {
-                player.CharacterState.Emotion = CharacterState.EmotionType.Love;
-                enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
-                player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
-                enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
-                gameUI.SetPlayerIcon(player);
-                gameUI.SetEnemyIcon(enemy);
-                
-
-            }
-            else
-            {
-                player.CharacterState.Emotion = CharacterState.EmotionType.Sad;
-                enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;
-                player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
-                enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
-                gameUI.SetPlayerIcon(player);
-                gameUI.SetEnemyIcon(enemy);
-
-                
-            }
-        }
-
-        private void StateChangEvent()
-        {
-            if (gameState == GameState.PlayerChaseEnemy)
-            {
-                gameState = GameState.EnemyChasePlayer;
-                gameUI.SetEnemyChasePlayerIcon();
-
-            }
-            else if(gameState == GameState.EnemyChasePlayer)
-            {
-                gameState = GameState.PlayerChaseEnemy;
-                gameUI.SetPlayerChaseEnemyIcon();
-
-            }
         }
 
         private void PlayerItemEffectEvent(Sprite sprite, bool active)
@@ -200,7 +171,6 @@ namespace DefaultNamespace
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
             Mudeki = false;
             OpenTrigger();
-
         }
 
         public void OpenTrigger()

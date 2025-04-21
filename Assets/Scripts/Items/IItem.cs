@@ -20,7 +20,7 @@ public abstract class IItem : ScriptableObject
     
     public virtual void Use(ICharacter self, ICharacter[] targets)
     {
-        if (self.CharacterState.Emotion == CharacterState.EmotionType.Sad) UseAsOni(self, targets);
+        if (self.CharacterState.Emotion == CharacterState.EmotionType.Love) UseAsOni(self, targets);
         else UseAsHuman(self, targets);
     }
 
