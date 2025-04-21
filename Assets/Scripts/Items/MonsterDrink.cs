@@ -31,5 +31,10 @@ namespace DefaultNamespace
                 : CharacterState.EmotionType.Love;
             target.StateChangEvent?.Invoke();
         }
+        
+        public override string GetDescription(ICharacter self)
+        {
+            return hintText;
+        }
     }
 }

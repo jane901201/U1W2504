@@ -92,5 +92,11 @@ namespace DefaultNamespace
             else
                 return _invincibleDuration;
         }
+        
+        public override string GetDescription(ICharacter self)
+        {
+            string hintText = self.CharacterState.Emotion == CharacterState.EmotionType.Love ? oniHintMessage : humanHintMessage;
+            return hintText;
+        }
     }
 }

@@ -12,13 +12,14 @@ namespace DefaultNamespace
         [SerializeField] private int hp = 3;
 
         [SerializeField] private Animator animator;
+        [SerializeField] protected Sprite moveStopSprite;
         public float MoveSpeed { get; set; } = 5f;
                 
         
         protected float effectShowTime = 0;
         
         public Action StateChangEvent;
-        public Action<Sprite, float> ItemEffectEvent;
+        public Action<Sprite, bool> ItemEffectEvent;
 
         public float escapeSpeedMultiplier = 2f;
         [SerializeField] protected SpriteRenderer effectIcon; 
@@ -82,7 +83,10 @@ namespace DefaultNamespace
         
         public virtual IEnumerator WaitAndSetFalse()
         {
-            yield return new WaitForSeconds(3f); // 3秒待つ
+            effectIcon.gameObject.SetActive(true);
+            effectIcon.sprite = moveStopSprite;
+            yield return new WaitForSeconds(3f);
+            effectIcon.gameObject.SetActive(false);// 3秒待つ
             IsFrozen = false;
             Debug.Log("3秒経過、isReady = true");
         }
@@ -107,6 +111,7 @@ namespace DefaultNamespace
             if (items.Count == 0)
             {
                 items.Add(item);
+                ItemEffectEvent?.Invoke(item.GetEffectIcon(this), true);
             }
             else
             {
@@ -137,7 +142,6 @@ namespace DefaultNamespace
             if (item.IsDurationItem)
             {
                 effectShowTime = item.GetDuration(this);
-                ItemEffectEvent?.Invoke(item.GetEffectIcon(this), item.GetDuration(this));
                 StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
             }
         

@@ -82,7 +82,7 @@ namespace DefaultNamespace
             // StartCoroutine(SpawnLoop());
             TimerManager.Instance.AddTask("SpawnObjectAtRandomPosition", spawnInterval, SpawnObjectAtRandomPosition, true);
         }
-
+        
         void SpawnObjectAtRandomPosition()
         {
             if (tilePositions.Count == 0) return;
@@ -99,6 +99,9 @@ namespace DefaultNamespace
         
         private void Update()
         {
+            
+            if(player == null || enemy == null) return;
+            
             if (player.Hp == 0)
             {
                 GameOver();
@@ -162,9 +165,9 @@ namespace DefaultNamespace
             }
         }
 
-        private void PlayerItemEffectEvent(Sprite sprite, float duration)
+        private void PlayerItemEffectEvent(Sprite sprite, bool active)
         {
-            gameUI.SetPlayerEffectImage(sprite, duration);
+            gameUI.SetPlayerEffectImage(sprite, active);
         }
 
         private void Victory()

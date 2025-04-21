@@ -104,5 +104,10 @@ namespace DefaultNamespace
         {
             return 0f;
         }
+
+        public override string GetDescription(ICharacter self)
+        {
+            return hintText;
+        }
     }
 }

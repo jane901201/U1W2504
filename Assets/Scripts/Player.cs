@@ -97,7 +97,7 @@ public class Player : ICharacter
             return false;
         }   
         // 显示图标
-        GameUI.Instance?.SetPlayerItemIcon(item.Icon);
+        GameUI.Instance?.SetPlayerItemIcon(item.Icon, item.GetDescription(this));
         
         return true;
     }
@@ -105,6 +105,7 @@ public class Player : ICharacter
     public override void UseItem()
     {
         base.UseItem();
+        ItemEffectEvent?.Invoke(null, false);
         GameUI.Instance?.ClearPlayerItemIcon(); // 清除图标
 
     }

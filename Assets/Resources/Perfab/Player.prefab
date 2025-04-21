@@ -281,14 +281,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818ecfd9b8eaa77429a2bc394f22d83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
-  animator: {fileID: 108660452155680199}
-  moveSpeed: 5
-  escapeSpeedMultiplier: 2
-  id: 
-  effectIcon: {fileID: 8942496455477166365}
   items:
   - {fileID: 11400000, guid: 8f68da29e0e9d46e1996c6f1ddb8ad6b, type: 2}
+  hp: 3
+  animator: {fileID: 108660452155680199}
+  moveStopSprite: {fileID: 21300000, guid: 56a3eff9ca608437bb8392856c267c7d, type: 3}
+  escapeSpeedMultiplier: 2
+  effectIcon: {fileID: 8942496455477166365}
   minSwitchTime: 2
   maxSwitchTime: 10
 --- !u!61 &8719365069673971788

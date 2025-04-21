@@ -37,10 +37,15 @@ public abstract class IItem : ScriptableObject
         
         return 1f;
     }
+    
+    public virtual string GetDescription(ICharacter self)
+    {
+        return "使用できません。";
+    }
 
     public Sprite GetEffectIcon(ICharacter self)
     {
-        return self.CharacterState.Emotion == CharacterState.EmotionType.Sad ? oniEffectIcon : humanEffectIcon; 
+        return self.CharacterState.Emotion == CharacterState.EmotionType.Love ? oniEffectIcon : humanEffectIcon; 
     } 
     
 }

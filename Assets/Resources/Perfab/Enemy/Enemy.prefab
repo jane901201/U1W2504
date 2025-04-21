@@ -377,12 +377,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c042aac9cb948a48020d59bf7b69a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
   hp: 3
   animator: {fileID: 6207038296863499281}
-  moveSpeed: 2
+  moveStopSprite: {fileID: 21300000, guid: 56a3eff9ca608437bb8392856c267c7d, type: 3}
   escapeSpeedMultiplier: 2
-  id: 
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 2694973144710956716}
   AIController: {fileID: 0}
   PolyNavAgent: {fileID: 0}
 --- !u!95 &6207038296863499281

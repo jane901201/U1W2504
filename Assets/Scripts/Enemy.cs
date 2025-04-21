@@ -47,8 +47,11 @@ namespace DefaultNamespace
         
         public override IEnumerator WaitAndSetFalse()
         {
+            effectIcon.gameObject.SetActive(true);
+            effectIcon.sprite = moveStopSprite;
             PolyNavAgent.maxSpeed = 0f;
             yield return new WaitForSeconds(3f); // 3秒待つ
+            effectIcon.gameObject.SetActive(false);
             IsFrozen = false;
             PolyNavAgent.maxSpeed = MoveSpeed;
             Debug.Log("3秒経過、isReady = true");
