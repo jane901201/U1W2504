@@ -81,6 +81,7 @@ public class AIController : MonoBehaviour
         {
             CurrentStateMachine = HateStateMachine;
         }
+        CurrentStateMachine.SwitchState((int)EnemyStateEnum.Idle);
         AduioController._Instance.PlayBGM();
     }
     
