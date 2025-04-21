@@ -13,7 +13,7 @@ namespace DefaultNamespace
 
         [SerializeField] private Animator animator;
         [SerializeField] protected Sprite moveStopSprite;
-        public float MoveSpeed { get; set; } = 5f;
+        [SerializeField] public float MoveSpeed = 5f;
                 
         
         protected float effectShowTime = 0;
