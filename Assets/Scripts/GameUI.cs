@@ -1,7 +1,10 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using TMPro;
+
 
 namespace DefaultNamespace
 {
@@ -14,6 +17,8 @@ namespace DefaultNamespace
         [SerializeField] private GameObject enemyHPPanel;
         [Header("PlayerItem")]
         [SerializeField] private GameObject playerItemPanel;
+        [SerializeField] private TextMeshProUGUI  playerItemDescription;
+        
         [Header("EnemyItem")]
         [SerializeField] private GameObject enemyItemPanel;
         [Header("EffectImage")]
@@ -81,7 +86,7 @@ namespace DefaultNamespace
         
         
 
-        public void SetPlayerItemIcon(Sprite sprite)
+        public void SetPlayerItemIcon(Sprite sprite, string description)
         {
             if (playerItemImage == null)
             {
@@ -89,12 +94,14 @@ namespace DefaultNamespace
                 return;
             }
             playerItemImage.sprite = sprite;
+            playerItemDescription.text = description;
         }
 
         public void ClearPlayerItemIcon()
         {
             if (playerItemImage == null) return;
             playerItemImage.sprite = null;
+            playerItemDescription.text = "";
         }
 
         public void SetPlayerHPIcon(int hp)
@@ -115,7 +122,13 @@ namespace DefaultNamespace
             playereffectImage.gameObject.SetActive(true);
             playereffectImage.sprite = sprite;
             StartCoroutine(WaitAndSetFalse(duration, playereffectImage.gameObject));
-        } 
+        }
+
+        public void SetPlayerEffectImage(Sprite sprite, bool active)
+        {
+            playereffectImage.sprite = sprite;
+            playereffectImage.gameObject.SetActive(active);
+        }
         
         public void SetEnemyEffectImage(Sprite sprite, float duration)
         {

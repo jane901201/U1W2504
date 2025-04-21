@@ -37,6 +37,11 @@ public abstract class IItem : ScriptableObject
         
         return 1f;
     }
+    
+    public virtual string GetDescription(ICharacter self)
+    {
+        return "使用できません。";
+    }
 
     public Sprite GetEffectIcon(ICharacter self)
     {

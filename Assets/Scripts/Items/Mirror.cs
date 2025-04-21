@@ -48,5 +48,11 @@ namespace DefaultNamespace
         {
             return reverseDuration;
         }
+        
+        public override string GetDescription(ICharacter self)
+        {
+            return hintMessage;
+        }
+
     }
 }

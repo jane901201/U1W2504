@@ -72,6 +72,12 @@ namespace DefaultNamespace
         {
             return duration;
         }
+        
+        public override string GetDescription(ICharacter self)
+        {
+            string hintText = self.CharacterState.Emotion == CharacterState.EmotionType.Love ? oniHint : humanHint;
+            return hintText;
+        }
 
     }
 }

@@ -18,7 +18,8 @@ namespace DefaultNamespace
         protected float effectShowTime = 0;
         
         public Action StateChangEvent;
-        public Action<Sprite, float> ItemEffectEvent;
+        public Action<Sprite, bool> ItemEffectEvent;
+        
 
         public float escapeSpeedMultiplier = 2f;
         [SerializeField] protected SpriteRenderer effectIcon; 
@@ -107,6 +108,7 @@ namespace DefaultNamespace
             if (items.Count == 0)
             {
                 items.Add(item);
+                ItemEffectEvent?.Invoke(item.GetEffectIcon(this), true);
             }
             else
             {
@@ -137,7 +139,6 @@ namespace DefaultNamespace
             if (item.IsDurationItem)
             {
                 effectShowTime = item.GetDuration(this);
-                ItemEffectEvent?.Invoke(item.GetEffectIcon(this), item.GetDuration(this));
                 StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
             }
         
