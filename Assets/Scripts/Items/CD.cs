@@ -26,7 +26,6 @@ namespace DefaultNamespace
 
         private void TryLeapOverObstacle(ICharacter self)
         {
-            // TODO: 判断跳没跳出地图
             Vector3 rawDir = self.LastMoveDirection;
             if (rawDir == Vector3.zero) return;
             
@@ -39,7 +38,7 @@ namespace DefaultNamespace
             // Vector3Int currentCell = groundTilemap.WorldToCell(self.transform.position);
             Vector3Int currentCell = groundTilemap.WorldToCell(offsetPos);
             
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 5; i++)
             {
                 Vector3Int landCell = currentCell + cellDir * (i + 1);
                 

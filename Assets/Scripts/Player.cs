@@ -27,7 +27,7 @@ public class Player : ICharacter
         Id = name;
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
-        TimerManager.Instance.AddRepeatingRandomTask("PlayerRandomSwitchRole", 2f, 10f, SwitchState);
+        TimerManager.Instance.AddRepeatingRandomTask(SwitchTaskId, 2f, 10f, SwitchState);
     }
     
 
