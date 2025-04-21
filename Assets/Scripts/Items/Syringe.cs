@@ -14,14 +14,12 @@ namespace DefaultNamespace
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
-            var player = (Player)self;
-
             string taskId = "Syringe_PreventRole_" + self.Id;
-            player.PreventRoleChange = true;
+            self.PreventRoleChange = true;
 
             TimerManager.Instance.AddTask(taskId, duration, () =>
             {
-                player.PreventRoleChange = false;
+                self.PreventRoleChange = false;
             });
         }
 
