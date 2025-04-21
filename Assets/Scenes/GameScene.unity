@@ -1621,6 +1621,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 656799433}
     - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
+      propertyPath: gameState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: spawnInterval
       value: 5
       objectReference: {fileID: 0}
