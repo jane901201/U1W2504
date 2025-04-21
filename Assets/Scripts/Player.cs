@@ -22,32 +22,6 @@ public class Player : ICharacter
     private Rigidbody2D rb;
     private Vector2 movement;
     
-    // CD
-    private Vector2 lastInputDir = Vector2.zero;
-    public Vector2 GetLastInputDirection() => lastInputDir;
-    
-    // IceCream
-    // TODO: Complete logic of catching
-    // void TryCatch(Player target)
-    // {
-    //     int damage = 1;
-    //     if (this.HasIceAttackBuff)
-    //         damage += 1;
-    //     target.Hp -= damage;
-    // }
-    public bool HasIceAttackBuff { get; set; } = false;
-    public bool HasIceEscapeMission { get; set; } = false;
-    
-    // Syringe
-    // TODO: Catch logic
-    // if (player.SyringeHealTaskId != null)
-    // {
-    //     TimerManager.Instance.CancelTask(player.SyringeHealTaskId);
-    //     player.SyringeHealTaskId = null;
-    // }
-    public bool PreventRoleChange { get; set; } = false;
-    public string SyringeHealTaskId { get; set; }
-    
     private void ScheduleNextRoleSwitch()
     {
         if (TimerManager.Instance.HasTask(SwitchTaskId))
@@ -63,6 +37,10 @@ public class Player : ICharacter
     
     public void SwitchEmotion()
     {
+        if (PreventRoleChange)
+        {
+            return;
+        }
         CharacterState.Emotion = CharacterState.Emotion == CharacterState.EmotionType.Love ? CharacterState.EmotionType.Sad : CharacterState.EmotionType.Love;
         PlayerStateChangEvent?.Invoke();
     }
@@ -87,7 +65,7 @@ public class Player : ICharacter
 
         // CD
         if (input != Vector2.zero)
-            lastInputDir = input.normalized;
+            LastMoveDirection = input.normalized;
 
         // Mirror
         if (IsControlReversed)
@@ -102,17 +80,13 @@ public class Player : ICharacter
         rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
     }
 
-    public override void TakeDamage(ICharacter attackedCharacter)
+    public override int Attack(ICharacter targetCharacter)
     {
-        if (IsInvincible)
-        {
-            Debug.Log("无敌");
-            return;
-        }
-        base.TakeDamage(attackedCharacter);
+        int damage = base.Attack(targetCharacter);
         StateChangEvent?.Invoke();
-        StartCoroutine(attackedCharacter.WaitAndSetFalse());
+        StartCoroutine(targetCharacter.WaitAndSetFalse());
         StartCoroutine(MoveSpeedUp());
+        return damage;
     }
     
 

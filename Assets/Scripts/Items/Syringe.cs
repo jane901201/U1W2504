@@ -27,7 +27,6 @@ namespace DefaultNamespace
 
         protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
         {
-            var player = (Player)self;
 
             string taskId = "Syringe_Heal_" + self.Id;
 
@@ -35,14 +34,16 @@ namespace DefaultNamespace
                 TimerManager.Instance.ResetTask(taskId);
             else
             {
+                self.HasSyringeHealTask = true;
                 // 30秒后 +1 HP
                 TimerManager.Instance.AddTask(taskId, duration, () =>
                 {
-                    player.Hp += 1;
+                    if (self.HasSyringeHealTask)
+                    {
+                        self.Hp += 1;
+                    }
+                    self.HasSyringeHealTask = false;
                 });
-
-                // 标记用于被抓时取消
-                player.SyringeHealTaskId = taskId;
             }
         }
         

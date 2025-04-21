@@ -26,54 +26,63 @@ namespace DefaultNamespace
 
         private void TryLeapOverObstacle(ICharacter self)
         {
-            Player player = (Player)self;
-            Vector3 direction = player.GetLastInputDirection();
-            Vector3Int currentCell = groundTilemap.WorldToCell(player.transform.position);
+            // TODO: 判断跳没跳出地图
+            Vector3 rawDir = self.LastMoveDirection;
+            if (rawDir == Vector3.zero) return;
+            
+            Vector3 dir = rawDir.normalized;
+            Vector3Int cellDir = GetDominantCellDirection(dir);
+            Vector3 rawPos = self.GetComponent<Rigidbody2D>().position;
+            
+            Vector3 offsetPos = rawPos + (- (Vector3)cellDir) * 0.3f;
 
-            Vector3Int dir = GetCardinalDirection(direction);
-            bool jumped = TryLeap(currentCell, dir, player);
-
-            // TODO: 固定Bug：玩家在地图中央向上传送时会向左
-            if (!jumped)
+            // Vector3Int currentCell = groundTilemap.WorldToCell(self.transform.position);
+            Vector3Int currentCell = groundTilemap.WorldToCell(offsetPos);
+            
+            for (int i = 1; i < 10; i++)
             {
-                // 如果跳跃失败，尝试四方向
-                Vector3Int[] directions = {
-                    new Vector3Int(0, -1, 0),  // 上
-                    new Vector3Int(0, 1, 0),  // 下
-                    new Vector3Int(1, 0, 0),  // 右
-                    new Vector3Int(-1, 0, 0), // 左
-                };
-
-                foreach (var fallbackDir in directions)
+                Vector3Int landCell = currentCell + cellDir * (i + 1);
+                
+                if (!IsObstacle(landCell))
                 {
-                    if (TryLeap(currentCell, fallbackDir, player))
-                    {
-                        break;
-                    }
+                    Vector3 worldPos = groundTilemap.GetCellCenterWorld(landCell);
+                    self.transform.position = worldPos;
+                    return;
                 }
             }
         }
 
+
         // 方向单位向量（上下左右）
-        private Vector3Int GetCardinalDirection(Vector3 input)
+        private Vector3Int GetDominantCellDirection(Vector3 input)
         {
-            return new Vector3Int((int)Mathf.Sign(input.x), -(int)Mathf.Sign(input.y), (int)Mathf.Sign(input.z));
-        }
+            Vector3Int[] directions = {
+                new Vector3Int(1, 0, 0),   // →
+                new Vector3Int(1, 1, 0),   // ↗
+                new Vector3Int(0, 1, 0),   // ↑
+                new Vector3Int(-1, 1, 0),  // ↖
+                new Vector3Int(-1, 0, 0),  // ←
+                new Vector3Int(-1, -1, 0), // ↙
+                new Vector3Int(0, -1, 0),  // ↓
+                new Vector3Int(1, -1, 0),  // ↘
+            };
 
+            float maxDot = -1f;
+            Vector3Int best = Vector3Int.zero;
 
-        private bool TryLeap(Vector3Int current, Vector3Int dir, Player player)
-        {
-            Vector3Int first = current + dir;
-            Vector3Int landing = current + dir * 2;
-
-            if (IsObstacle(first) && !IsObstacle(landing) && HasGround(landing))
+            foreach (var d in directions)
             {
-                player.transform.position = groundTilemap.GetCellCenterWorld(landing);
-                return true;
+                float dot = Vector3.Dot(input, ((Vector3)d).normalized);
+                if (dot > maxDot)
+                {
+                    maxDot = dot;
+                    best = d;
+                }
             }
 
-            return false;
+            return best;
         }
+
 
         private bool IsObstacle(Vector3Int pos)
         {

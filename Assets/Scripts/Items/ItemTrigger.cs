@@ -22,7 +22,11 @@ public class ItemTrigger : MonoBehaviour
         {
             // TODO: Let enemy use item in the future.
             Enemy enemy = other.GetComponent<Enemy>();
-            
+            // if (enemy.AddItem(item))
+            // {
+            //     enemy.UseItem();
+            //     Destroy(gameObject);
+            // }
             Destroy(gameObject);
         }
     }

@@ -10,7 +10,7 @@ public class CharacterTouchTrigger : MonoBehaviour
 			Player player = GetComponentInParent<Player>();
 	    	Debug.Log(player);
             
-            player.TakeDamage(other.gameObject.GetComponent<Enemy>());
+            player.Attack(other.gameObject.GetComponent<Enemy>());
 
             Debug.Log("Enemy be attacked");
         }
@@ -19,7 +19,7 @@ public class CharacterTouchTrigger : MonoBehaviour
 			Enemy enemy = GetComponentInParent<Enemy>();
 		    Debug.Log(enemy);
             
-            enemy.TakeDamage(other.gameObject.GetComponent<Player>());
+            enemy.Attack(other.gameObject.GetComponent<Player>());
 
             Debug.Log("Player be attacked");
         }

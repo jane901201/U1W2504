@@ -13,22 +13,33 @@ namespace DefaultNamespace
 
         [SerializeField] private Animator animator;
         public float MoveSpeed { get; set; } = 5f;
-
-        public float escapeSpeedMultiplier = 2f;
-        [SerializeField] protected SpriteRenderer effectIcon; 
-        
-        // Mirror
-        public bool IsControlReversed { get; set; } = false;
-        
+                
         
         protected float effectShowTime = 0;
         
         public Action StateChangEvent;
         public Action<Sprite, float> ItemEffectEvent;
+
+        public float escapeSpeedMultiplier = 2f;
+        [SerializeField] protected SpriteRenderer effectIcon; 
+        
+        // CD
+        public Vector2 LastMoveDirection { get; set; } = Vector2.zero;
+
+        // Mirror
+        public bool IsControlReversed { get; set; } = false;
         
         // Strawberry
         public bool IsFrozen { get; set; }
         public bool IsInvincible { get; set; } = false;
+        
+        // IceCream
+        public bool HasIceAttackBuff { get; set; } = false;
+        public bool HasIceEscapeMission { get; set; } = false;
+    
+        // Syringe
+        public bool PreventRoleChange { get; set; } = false;
+        public bool HasSyringeHealTask { get; set; }
 
 
 
@@ -52,9 +63,21 @@ namespace DefaultNamespace
             
         }
 
-        public virtual void TakeDamage(ICharacter attackedCharacter)
+        public virtual int Attack(ICharacter targetCharacter)
         {
-            attackedCharacter.Hp -= 1;
+            if (targetCharacter.IsInvincible)
+            {
+                return 0;
+            }
+            targetCharacter.HasIceEscapeMission = false;
+            targetCharacter.HasSyringeHealTask = false;
+            int damage = 1;
+            if (HasIceAttackBuff)
+            {
+                damage += 1;
+            }
+            targetCharacter.Hp -= damage;
+            return damage;
         }
         
         public virtual IEnumerator WaitAndSetFalse()

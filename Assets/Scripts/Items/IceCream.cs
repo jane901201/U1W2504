@@ -14,29 +14,35 @@ namespace DefaultNamespace
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
-            var player = (Player) self;
-
-            player.HasIceAttackBuff = true;
+            self.HasIceAttackBuff = true;
             string taskId = "IceBuff_Oni_" + self.Id;
 
             TimerManager.Instance.AddTask(taskId, duration, () =>
             {
-                player.HasIceAttackBuff = false;
+                self.HasIceAttackBuff = false;
             });
         }
 
         protected override void UseAsHuman(ICharacter self, ICharacter[] targets)
         {
-            var player = (Player)self;
 
             string taskId = "IceBuff_Human_" + self.Id;
-            player.HasIceEscapeMission = true;
+            self.HasIceEscapeMission = true;
 
             TimerManager.Instance.AddTask(taskId, duration, () =>
             {
-                player.HasIceEscapeMission = false;
+                if (self.HasIceEscapeMission)
+                {
+                    self.HasIceEscapeMission = false;
 
-                player.Hp -= 1;
+                    foreach (var target in targets)
+                    {
+                        // TODO: 这里用Attack还是直接扣体力看需求
+                        // self.Attack(target);
+                        target.Hp -= 1;
+                    }
+                }
+                
             });
         }
         

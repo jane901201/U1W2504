@@ -12,6 +12,9 @@ namespace DefaultNamespace
 
         public PolyNavAgent PolyNavAgent;
 
+        
+        // TODO: 每次移动修改移动方向LastMoveDirection
+        
         protected override void Awake()
         {
             base.Awake();
@@ -21,17 +24,14 @@ namespace DefaultNamespace
         }
         
 
-        public override void TakeDamage(ICharacter character)
+        public override int Attack(ICharacter targetCharacter)
         {
-            if (IsInvincible)
-            {
-                return;
-            }
-            base.TakeDamage(character);
+            int damage = base.Attack(targetCharacter);
             StateChangEvent?.Invoke();
-            character.IsFrozen = true;
-            StartCoroutine(character.WaitAndSetFalse());
+            targetCharacter.IsFrozen = true;
+            StartCoroutine(targetCharacter.WaitAndSetFalse());
             StartCoroutine(MoveSpeedUp());
+            return damage;
         }
 
         public override IEnumerator MoveSpeedUp()
