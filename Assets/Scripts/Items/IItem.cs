@@ -45,7 +45,7 @@ public abstract class IItem : ScriptableObject
 
     public Sprite GetEffectIcon(ICharacter self)
     {
-        return self.CharacterState.Emotion == CharacterState.EmotionType.Sad ? oniEffectIcon : humanEffectIcon; 
+        return self.CharacterState.Emotion == CharacterState.EmotionType.Love ? oniEffectIcon : humanEffectIcon; 
     } 
     
 }
