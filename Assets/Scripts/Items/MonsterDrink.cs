@@ -22,13 +22,13 @@ namespace DefaultNamespace
             ICharacter target = targets[0];
 
             // 自己变为相反角色
-            ((Player)self).SwitchRole();
+            ((Player)self).SwitchEmotion();
             ((Player)self).PlayerStateChangEvent?.Invoke();
 
             // 对方也变为相反角色
-            target.CharacterState.Role = target.CharacterState.Role == CharacterState.RoleType.Human
-                ? CharacterState.RoleType.Oni
-                : CharacterState.RoleType.Human;
+            target.CharacterState.Emotion = target.CharacterState.Emotion == CharacterState.EmotionType.Love
+                ? CharacterState.EmotionType.Sad
+                : CharacterState.EmotionType.Love;
             target.StateChangEvent?.Invoke();
         }
     }

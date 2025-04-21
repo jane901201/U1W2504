@@ -87,7 +87,7 @@ namespace DefaultNamespace
 
         public override float GetDuration(ICharacter self)
         {
-            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
+            if(self.CharacterState.Emotion == CharacterState.EmotionType.Sad)
                 return _stopDuration;
             else
                 return _invincibleDuration;

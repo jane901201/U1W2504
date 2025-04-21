@@ -24,7 +24,7 @@ public abstract class IItem : ScriptableObject
     
     public virtual void Use(ICharacter self, ICharacter[] targets)
     {
-        if (self.CharacterState.Role == CharacterState.RoleType.Oni) UseAsOni(self, targets);
+        if (self.CharacterState.Emotion == CharacterState.EmotionType.Sad) UseAsOni(self, targets);
         else UseAsHuman(self, targets);
     }
 
@@ -44,7 +44,7 @@ public abstract class IItem : ScriptableObject
 
     public Sprite GetEffectIcon(ICharacter self)
     {
-        return self.CharacterState.Role == CharacterState.RoleType.Oni ? oniEffectIcon : humanEffectIcon; 
+        return self.CharacterState.Emotion == CharacterState.EmotionType.Sad ? oniEffectIcon : humanEffectIcon; 
     } 
     
 }

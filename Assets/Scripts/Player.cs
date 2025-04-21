@@ -57,17 +57,13 @@ public class Player : ICharacter
         float nextTime = Random.Range(minSwitchTime, maxSwitchTime);
         TimerManager.Instance.AddTask(SwitchTaskId, nextTime, () =>
         {
-            SwitchRole();              // 切换身份
+            SwitchEmotion();              // 切换身份
             ScheduleNextRoleSwitch();  // 再次安排下一轮
         });
     }
     
-    public void SwitchRole()
+    public void SwitchEmotion()
     {
-        if (CharacterState.Role == CharacterState.RoleType.Human)
-            CharacterState.Role = CharacterState.RoleType.Oni;
-        else
-            CharacterState.Role = CharacterState.RoleType.Human;
         CharacterState.Emotion = CharacterState.Emotion == CharacterState.EmotionType.Love ? CharacterState.EmotionType.Sad : CharacterState.EmotionType.Love;
         PlayerStateChangEvent?.Invoke();
     }

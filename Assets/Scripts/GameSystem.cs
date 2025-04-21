@@ -105,7 +105,7 @@ namespace DefaultNamespace
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // TODO: for test only
-                player.SwitchRole();
+                player.SwitchEmotion();
             }
 
             if (gameState == GameState.PlayerChaseEnemy)
