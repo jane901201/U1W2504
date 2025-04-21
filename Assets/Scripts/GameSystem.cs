@@ -29,7 +29,7 @@ namespace DefaultNamespace
         
         public GameState GameState { get => gameState; set => gameState = value; }
         
-        public ICharacter GetEnemy(Player self)
+        public ICharacter GetEnemy(ICharacter self)
         {
             return self == player ? enemy : player;
         }

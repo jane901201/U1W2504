@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace DefaultNamespace
 {
     public class ICharacter : MonoBehaviour
     {
+        [SerializeField] private List<IItem> items = new List<IItem>();
         [SerializeField] private int hp = 3;
 
         [SerializeField] private Animator animator;
@@ -75,6 +77,53 @@ namespace DefaultNamespace
             effectIcon.sprite = sprite;
             yield return new WaitForSeconds(effectShowTime); 
             effectIcon.GameObject().SetActive(false);
+        }
+
+        public virtual bool AddItem(IItem item)
+        {
+            if (items.Count == 0)
+            {
+                items.Add(item);
+            }
+            else
+            {
+                return false;
+            }
+        
+            if (item is IMapTileItem mapItem)
+            {
+                mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
+            }
+
+            return true;
+        }
+
+        public virtual void UseItem()
+        {
+            if(items.Count == 0) return;
+            var item = items[0];
+        
+            if (item is IMapTileItem mapItem)
+            {
+                mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
+            }
+        
+            Debug.Log(item.name);
+        
+            item.Use(this, FindTargets());
+            if (item.IsDurationItem)
+            {
+                effectShowTime = item.GetDuration(this);
+                ItemEffectEvent?.Invoke(item.GetEffectIcon(this), item.GetDuration(this));
+                StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
+            }
+        
+            items.RemoveAt(0);
+        }
+        
+        public ICharacter[] FindTargets()
+        {
+            return new ICharacter[] { GameSystem.Instance.GetEnemy(this) };
         }
 
 

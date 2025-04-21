@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class Player : ICharacter
 {
     private Vector3Int playerPos;
-    [SerializeField] private List<IItem> items = new List<IItem>();
 
     [Header("角色随机变鬼人时间配置")] 
     [SerializeField] private float minSwitchTime = 2f;
@@ -117,50 +116,23 @@ public class Player : ICharacter
     }
     
 
-    public void AddItem(IItem item)
+    public override bool AddItem(IItem item)
     {
-        if (items.Count < 2)
+        if (!base.AddItem(item))
         {
-            items.Add(item);
-        }
-        
-        if (item is IMapTileItem mapItem)
-        {
-            mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
-        }
+            return false;
+        }   
         // 显示图标
         GameUI.Instance?.SetPlayerItemIcon(item.Icon);
+        
+        return true;
     }
 
-    public void UseItem()
+    public override void UseItem()
     {
-        if(items.Count == 0) return;
-        var item = items[0];
-        
-        if (item is IMapTileItem mapItem)
-        {
-            mapItem.SetTilemaps(GameSystem.Instance.GetTilemap(), GameSystem.Instance.GetObstacleTilemap());
-        }
-        
-        Debug.Log(item.name);
-        
-        item.Use(this, FindTargets());
-        if (item.IsDurationItem)
-        {
-            effectShowTime = item.GetDuration(this);
-            ItemEffectEvent?.Invoke(item.GetEffectIcon(this), item.GetDuration(this));
-            StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
-        }
-        
-        items.RemoveAt(0);
-
+        base.UseItem();
         GameUI.Instance?.ClearPlayerItemIcon(); // 清除图标
 
-    }
-    
-    private ICharacter[] FindTargets()
-    {
-        return new ICharacter[] { GameSystem.Instance.GetEnemy(this) };
     }
 
 }

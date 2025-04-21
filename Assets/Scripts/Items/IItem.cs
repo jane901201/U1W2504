@@ -17,10 +17,6 @@ public abstract class IItem : ScriptableObject
     public Sprite Icon => icon;
 
     public bool IsDurationItem => isDurationItem;
-
-    public void Inintialize()
-    {
-    }
     
     public virtual void Use(ICharacter self, ICharacter[] targets)
     {
