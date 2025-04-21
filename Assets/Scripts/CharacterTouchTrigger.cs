@@ -14,7 +14,8 @@ public class CharacterTouchTrigger : MonoBehaviour
 
             Debug.Log("Enemy be attacked");
         }
-        else if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<Player>().CharacterState.Emotion == CharacterState.EmotionType.Sad)
+        else 
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<Player>().CharacterState.Emotion == CharacterState.EmotionType.Sad)
         {
 			Enemy enemy = GetComponentInParent<Enemy>();
 		    Debug.Log(enemy);

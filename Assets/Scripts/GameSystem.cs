@@ -23,11 +23,25 @@ namespace DefaultNamespace
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
         
+        public GameObject PlayerTouchTrigger;
+        public GameObject EnemyuTouchTrigger;
+
+        public bool Mudeki = false;
+        
         public static GameSystem Instance;
         public Tilemap GetTilemap() => tilemap;
         public Tilemap GetObstacleTilemap() => obstacleTilemap;
         
-        public GameState GameState { get => gameState; set => gameState = value; }
+        public GameState GameState { get => gameState;
+            set
+            {
+                gameState = value;
+                Mudeki = true;
+                PlayerTouchTrigger.SetActive(false);
+                EnemyuTouchTrigger.SetActive(false);
+                StartCoroutine(MukudekiWhenStateChange());
+            }
+        }
         
         public ICharacter GetEnemy(ICharacter self)
         {
@@ -44,7 +58,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            gameState = GameState.PlayerChaseEnemy;
+            GameState = GameState.PlayerChaseEnemy;
             gameUI.SetPlayerChaseEnemyIcon();
             player.PlayerStateChangEvent += StateChangEvent;
             player.StateChangEvent += StateChangEvent;
@@ -93,7 +107,7 @@ namespace DefaultNamespace
             {
                 Victory();
             }
-            
+
             gameUI.SetPlayerHPIcon(player.Hp);
             gameUI.SetEnemyHPIcon(enemy.Hp);
             
@@ -116,6 +130,7 @@ namespace DefaultNamespace
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 gameUI.SetPlayerIcon(player);
                 gameUI.SetEnemyIcon(enemy);
+
             }
 
             if (gameState == GameState.EnemyChasePlayer)
@@ -126,6 +141,7 @@ namespace DefaultNamespace
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 gameUI.SetPlayerIcon(player);
                 gameUI.SetEnemyIcon(enemy);
+
                 
             }
         }
@@ -134,13 +150,15 @@ namespace DefaultNamespace
         {
             if (gameState == GameState.PlayerChaseEnemy)
             {
-                gameState = GameState.EnemyChasePlayer;
+                GameState = GameState.EnemyChasePlayer;
                 gameUI.SetEnemyChasePlayerIcon();
+
             }
             else if(gameState == GameState.EnemyChasePlayer)
             {
-                gameState = GameState.PlayerChaseEnemy;
+                GameState = GameState.PlayerChaseEnemy;
                 gameUI.SetPlayerChaseEnemyIcon();
+
             }
         }
 
@@ -158,7 +176,29 @@ namespace DefaultNamespace
         {
             sceneManager.LoadScene("GameOverScene");
         }
-        
+
+        public IEnumerator MukudekiWhenStateChange()
+        {
+
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+            yield return new WaitForSeconds(3f);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+            Mudeki = false;
+            OpenTrigger();
+
+        }
+
+        public void OpenTrigger()
+        {
+            if (gameState == GameState.PlayerChaseEnemy)
+            {
+                PlayerTouchTrigger.gameObject.SetActive(true);
+            }
+            else
+            {
+                EnemyuTouchTrigger.gameObject.SetActive(true);
+            }
+        }
     }
 
     public enum GameState

@@ -26,6 +26,7 @@ namespace DefaultNamespace
 
         public override int Attack(ICharacter targetCharacter)
         {
+            
             int damage = base.Attack(targetCharacter);
             StateChangEvent?.Invoke();
             targetCharacter.IsFrozen = true;
@@ -36,6 +37,7 @@ namespace DefaultNamespace
 
         public override IEnumerator MoveSpeedUp()
         {
+
             MoveSpeed *= escapeSpeedMultiplier;
             PolyNavAgent.maxSpeed = MoveSpeed;
             yield return new WaitForSeconds(3f); // 3秒待つ
