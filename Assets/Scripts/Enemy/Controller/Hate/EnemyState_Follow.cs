@@ -27,7 +27,7 @@ public class EnemyState_Follow : EnemyState
     
     public override void OnExit()
     {
-            
+        stateMachine.aIController.agent.Stop();    
     }
 
 }

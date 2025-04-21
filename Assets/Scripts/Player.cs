@@ -24,7 +24,7 @@ public class Player : ICharacter
     {
         Id = name;
         rb = GetComponent<Rigidbody2D>();
-        TimerManager.Instance.AddRepeatingRandomTask(SwitchTaskId, 2f, 10f, SwitchState);
+        TimerManager.Instance.AddRepeatingRandomTask(SwitchTaskId, minSwitchTime, maxSwitchTime, SwitchState);
     }
     
 
