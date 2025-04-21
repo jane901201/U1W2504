@@ -55,8 +55,6 @@ public class Player : ICharacter
     public override int Attack(ICharacter targetCharacter)
     {
         int damage = base.Attack(targetCharacter);
-        StateChangEvent?.Invoke();
-        targetCharacter.WaitAndSetFalse();
         MoveSpeedUp();
         return damage;
     }

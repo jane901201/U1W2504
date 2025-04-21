@@ -23,8 +23,6 @@ namespace DefaultNamespace
 
             // 自己变为相反角色
             self.SwitchState();
-            
-            target.StateChangEvent?.Invoke();
         }
         
         public override string GetDescription(ICharacter self)

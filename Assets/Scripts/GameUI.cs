@@ -1,4 +1,5 @@
 using System.Collections;
+using TimerFrame;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -63,28 +64,29 @@ namespace DefaultNamespace
                 enemyHpImages[child.GetSiblingIndex()] = child.gameObject;
             }
         }
+        
+        public void FlushIcon()
+        {
+            GameState nowGameState = GameSystem.Instance.GameState;
 
-        public void SetPlayerChaseEnemyIcon()
-        {
             stateChangeImage.gameObject.SetActive(true);
-            stateChangeImage.sprite = playerChaseEnemy;
-            StartCoroutine(WaitAndSetNull());
+            if (nowGameState == GameState.EnemyChasePlayer)
+            {
+                stateChangeImage.sprite = enemyChasePlayer;
+                playerIcon.sprite = girlSadIcon;
+                enemyIcon.sprite = boyLoveIcon;
+            }
+            else
+            {
+                stateChangeImage.sprite = playerChaseEnemy;
+                playerIcon.sprite = girlLoveIcon;
+                enemyIcon.sprite = boySadIcon;
+            }
+            TimerManager.Instance.AddTask($"{name}_FlushIcon_Wait{waitTime}AndSetNull", waitTime, () =>
+            {
+                stateChangeImage.gameObject.SetActive(false);
+            });
         }
-
-        public void SetEnemyChasePlayerIcon()
-        {
-            stateChangeImage.gameObject.SetActive(true);
-            stateChangeImage.sprite = enemyChasePlayer;
-            StartCoroutine(WaitAndSetNull());
-        }
-        
-        public IEnumerator WaitAndSetNull()
-        {
-            yield return new WaitForSeconds(waitTime);
-            stateChangeImage.gameObject.SetActive(false);
-        }
-        
-        
 
         public void SetPlayerItemIcon(Sprite sprite, string description)
         {
@@ -146,30 +148,6 @@ namespace DefaultNamespace
             for (int i = hp - 1; i >= 0; i--)
             {
                 enemyHpImages[i].SetActive(true);
-            }
-        }
-
-        public void SetPlayerIcon(ICharacter character)
-        {
-            if (character.CharacterState.Emotion == CharacterState.EmotionType.Love)
-            {
-                playerIcon.sprite = girlLoveIcon;
-            }
-            else
-            {
-                playerIcon.sprite = girlSadIcon;
-            }
-        }
-
-        public void SetEnemyIcon(ICharacter character)
-        {
-            if (character.CharacterState.Emotion == CharacterState.EmotionType.Love)
-            {
-                enemyIcon.sprite = boyLoveIcon;
-            }
-            else
-            {
-                enemyIcon.sprite = boySadIcon;
             }
         }
         

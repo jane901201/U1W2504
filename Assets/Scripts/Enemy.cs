@@ -52,21 +52,17 @@ namespace DefaultNamespace
         {
             
             int damage = base.Attack(targetCharacter);
-            StateChangEvent?.Invoke();
-            targetCharacter.IsFrozen = true;
-            targetCharacter.WaitAndSetFalse();
             MoveSpeedUp();
             return damage;
         }
 
         public override void MoveSpeedUp()
         {
-
             MoveSpeed *= escapeSpeedMultiplier;
             PolyNavAgent.maxSpeed = MoveSpeed;
             TimerManager.Instance.AddTask($"{this.name}_MoveSpeedUp_3s", 3f, () =>
             {
-                MoveSpeed /= escapeSpeedMultiplier;
+                MoveSpeed = OriginalMoveSpeed;
                 PolyNavAgent.maxSpeed = MoveSpeed;
             });
         }

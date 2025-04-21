@@ -30,12 +30,10 @@ namespace DefaultNamespace
             {
                 float originalSpeed = self.MoveSpeed;
                 self.MoveSpeed *= speedUpFactor;
-                self.StateChangEvent?.Invoke();
 
                 TimerManager.Instance.AddTask(taskId, duration, () =>
                 {
                     self.MoveSpeed = originalSpeed;
-                    self.StateChangEvent?.Invoke();
                 });
             }
         }
@@ -57,12 +55,10 @@ namespace DefaultNamespace
                 {
                     float originalSpeed = target.MoveSpeed;
                     target.MoveSpeed *= slowDownFactor;
-                    self.StateChangEvent?.Invoke();
 
                     TimerManager.Instance.AddTask(taskId, duration, () =>
                     {
                         target.MoveSpeed = originalSpeed;
-                        self.StateChangEvent?.Invoke();
                     });
                 }
             }
