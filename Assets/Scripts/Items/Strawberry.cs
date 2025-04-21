@@ -9,8 +9,8 @@ namespace DefaultNamespace
     public class Strawberry : IItem
     {
         [Header("持续时间")]
-        private static float _stopDuration = 2f;      // 鬼役用
-        private static float _invincibleDuration = 50f; // 人役用
+        [SerializeField] private float _stopDuration = 2f;      // 鬼役用
+        [SerializeField] private float _invincibleDuration = 5f; // 人役用
         
         [Header("提示文字")]
         [SerializeField] private string oniHintMessage = "2秒間足止め成功！";
@@ -73,13 +73,11 @@ namespace DefaultNamespace
                 // Player attack damage 0 function
                 // int tempDamage = self.Damage;
                 // self.Damage = 0;
-                Debug.Log("无敌开始");
                 self.IsInvincible = true;
                 TimerManager.Instance.AddTask(taskId, _invincibleDuration, () =>
                 {
                     // Restore
                     // self.Damage = tempDamage;
-                    Debug.Log("无敌结束");
                     self.IsInvincible = false;
                 });
             }

@@ -36,10 +36,11 @@ namespace DefaultNamespace
                 {
                     _lastMaxSpeed = PolyNavAgent.maxSpeed;
                 }
+                PolyNavAgent.maxSpeed = 0;
             }
             else
             {
-                PolyNavAgent.maxSpeed = 0;
+                PolyNavAgent.maxSpeed = _lastMaxSpeed;
             }
 
             // CD
