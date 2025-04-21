@@ -15,11 +15,8 @@ namespace DefaultNamespace
         [SerializeField] private Animator animator;
         [SerializeField] protected Sprite moveStopSprite;
         [SerializeField] public float MoveSpeed = 5f;
-                
+        public float OriginalMoveSpeed;
         
-        protected float effectShowTime = 0;
-        
-        public Action StateChangEvent;
         public Action<Sprite, bool> ItemEffectEvent;
 
         public float escapeSpeedMultiplier = 2f;
@@ -63,6 +60,8 @@ namespace DefaultNamespace
                 return;
             }
             
+            OriginalMoveSpeed = MoveSpeed;
+            
         }
 
         public virtual int Attack(ICharacter targetCharacter)
@@ -79,6 +78,9 @@ namespace DefaultNamespace
                 damage += 1;
             }
             targetCharacter.Hp -= damage;
+            targetCharacter.IsFrozen = true;
+            targetCharacter.WaitAndSetFalse();
+            SwitchState();
             return damage;
         }
         
@@ -108,7 +110,7 @@ namespace DefaultNamespace
             MoveSpeed *= escapeSpeedMultiplier;
             TimerManager.Instance.AddTask($"{this.name}_MoveSpeedUp_3s", 3f, () =>
             {
-                MoveSpeed /= escapeSpeedMultiplier;
+                MoveSpeed = OriginalMoveSpeed;
             }); 
         }
         
