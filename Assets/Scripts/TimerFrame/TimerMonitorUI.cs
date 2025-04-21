@@ -10,7 +10,7 @@ namespace TimerFrame
     public class TimerMonitorUI : MonoBehaviour
     {
         [SerializeField] private Text monitorText; // Inspector中绑定
-        [SerializeField] private float refreshInterval = 1f;
+        [SerializeField] private float refreshInterval = 0.01f;
 
         private bool isVisible = true;
 

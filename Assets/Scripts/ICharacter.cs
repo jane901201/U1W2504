@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TimerFrame;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -108,12 +109,14 @@ namespace DefaultNamespace
             MoveSpeed /= escapeSpeedMultiplier;
         }
         
-        public IEnumerator ShowEffect(Sprite sprite)
+        public void ShowEffect(Sprite sprite, float duration)
         {
             effectIcon.GameObject().SetActive(true);
             effectIcon.sprite = sprite;
-            yield return new WaitForSeconds(effectShowTime); 
-            effectIcon.GameObject().SetActive(false);
+            TimerManager.Instance.AddTask($"ShowEffect_{this.name}_{sprite.name}", duration, () =>
+            {
+                effectIcon.GameObject().SetActive(false);
+            });
         }
 
         public virtual bool AddItem(IItem item)
@@ -151,8 +154,7 @@ namespace DefaultNamespace
             item.Use(this, FindTargets());
             if (item.IsDurationItem)
             {
-                effectShowTime = item.GetDuration(this);
-                StartCoroutine(ShowEffect(item.GetEffectIcon(this)));
+                ShowEffect(item.GetEffectIcon(this), item.GetDuration(this));
             }
         
             items.RemoveAt(0);
