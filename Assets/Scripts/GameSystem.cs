@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Map;
 using TimerFrame;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -19,6 +20,7 @@ namespace DefaultNamespace
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
+        [SerializeField] public SmartMapGenerator mapGenerator;
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
@@ -65,6 +67,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
+            mapGenerator.Generate();
             GameState = GameState.PlayerChaseEnemy;
             gameUI.SetPlayerChaseEnemyIcon();
             player.StateChangEvent += StateChangEvent;
