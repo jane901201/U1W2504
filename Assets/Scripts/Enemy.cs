@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using PolyNav;
 using TimerFrame;
@@ -13,6 +14,8 @@ namespace DefaultNamespace
 
         public PolyNavAgent PolyNavAgent;
 
+        private float _lastMaxSpeed;
+
         
         // TODO: 每次移动修改移动方向LastMoveDirection
         
@@ -22,8 +25,27 @@ namespace DefaultNamespace
             Id = name;
             aiController = GetComponent<AIController>();
             PolyNavAgent = GetComponent<PolyNavAgent>();
+            _lastMaxSpeed = PolyNavAgent.maxSpeed;
         }
-        
+
+        private void Update()
+        {
+            if (IsFrozen)
+            {
+                if (PolyNavAgent.maxSpeed != 0)
+                {
+                    _lastMaxSpeed = PolyNavAgent.maxSpeed;
+                }
+            }
+            else
+            {
+                PolyNavAgent.maxSpeed = 0;
+            }
+
+            // CD
+            LastMoveDirection = PolyNavAgent.movingDirection.normalized;
+        }
+
 
         public override int Attack(ICharacter targetCharacter)
         {
