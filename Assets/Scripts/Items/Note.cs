@@ -14,6 +14,8 @@ namespace DefaultNamespace
         [Header("提示文本")]
         [SerializeField] private string oniHint = "5秒間加速した！";
         [SerializeField] private string humanHint = "相手を5秒間減速させた！";
+        
+        private bool isDurationItem => true;
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
@@ -68,10 +70,7 @@ namespace DefaultNamespace
         
         public override float GetDuration(ICharacter self)
         {
-            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
-                return duration;
-            else
-                return duration;
+            return duration;
         }
 
     }

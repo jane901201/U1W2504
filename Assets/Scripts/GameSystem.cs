@@ -15,7 +15,7 @@ namespace DefaultNamespace
         [SerializeField] private GameUI gameUI;
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private Tilemap obstacleTilemap;
-        [SerializeField] private float spawnInterval = 5f;
+        [SerializeField] private float spawnInterval = 0.5f;
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;

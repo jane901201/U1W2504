@@ -105,6 +105,7 @@ namespace DefaultNamespace
             }
             for (int i = hp - 1; i >= 0; i--)
             {
+                // TODO: Out of bounds bug here.
                 playerHpImages[i].SetActive(true);
             }
         }

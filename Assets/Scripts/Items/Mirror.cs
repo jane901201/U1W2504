@@ -11,6 +11,8 @@ namespace DefaultNamespace
         
         [SerializeField] private float reverseDuration = 5f;
         [SerializeField] private string hintMessage = "操作が5秒間反転する！";
+        
+        private bool isDurationItem => true;
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
@@ -44,10 +46,7 @@ namespace DefaultNamespace
 
         public override float GetDuration(ICharacter self)
         {
-            if(self.CharacterState.Role == CharacterState.RoleType.Oni)
-                return reverseDuration;
-            else
-                return reverseDuration;
+            return reverseDuration;
         }
     }
 }

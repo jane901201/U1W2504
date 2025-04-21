@@ -15,6 +15,8 @@ namespace DefaultNamespace
         [SerializeField] private int humanRange = 6;
         [SerializeField] private string oniHint = "相手を近くに引き寄せた！";
         [SerializeField] private string humanHint = "相手を遠くに押し出した！";
+        
+        private bool isDurationItem => false;
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)
         {
@@ -95,5 +97,12 @@ namespace DefaultNamespace
             this.groundTilemap = ground;
             this.obstacleTilemap = obstacle;
         }
+
+        public override float GetDuration(ICharacter self)
+        {
+            return 0f;
+        }
+        
+        
     }
 }

@@ -15,6 +15,8 @@ namespace DefaultNamespace
         [Header("提示文字")]
         [SerializeField] private string oniHintMessage = "2秒間足止め成功！";
         [SerializeField] private string humanHintMessage = "5秒間無敵になった！";
+        
+        private bool isDurationItem => true;
 
         
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)

@@ -8,6 +8,8 @@ namespace DefaultNamespace
     {
         [Header("提示文本")]
         [SerializeField] private string hintText = "障害物を一つ乗り越えた！";
+        
+        private bool isDurationItem => false;
 
         public Tilemap groundTilemap;
         public Tilemap obstacleTilemap;
@@ -87,6 +89,11 @@ namespace DefaultNamespace
         {
             this.groundTilemap = ground;
             this.obstacleTilemap = obstacle;
+        }
+
+        public override float GetDuration(ICharacter self)
+        {
+            return 0f;
         }
     }
 }
