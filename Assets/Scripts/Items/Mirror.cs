@@ -26,7 +26,6 @@ namespace DefaultNamespace
 
         private void あいの鏡(ICharacter self)
         {
-            Player player = (Player) self;
 
             string taskId = "MirrorReverse_" + self.Id;
 
@@ -36,10 +35,10 @@ namespace DefaultNamespace
             }
             else
             {
-                player.IsControlReversed = true;
+                self.IsControlReversed = true;
                 TimerManager.Instance.AddTask(taskId, reverseDuration, () =>
                 {
-                    player.IsControlReversed = false;
+                    self.IsControlReversed = false;
                 });
             }
         }
