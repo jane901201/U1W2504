@@ -92,21 +92,24 @@ namespace DefaultNamespace
             GameSystem.Instance.SwitchGameState();
         }
         
-        public virtual IEnumerator WaitAndSetFalse()
+        public virtual void WaitAndSetFalse()
         {
             effectIcon.gameObject.SetActive(true);
             effectIcon.sprite = moveStopSprite;
-            yield return new WaitForSeconds(3f);
-            effectIcon.gameObject.SetActive(false);// 3秒待つ
-            IsFrozen = false;
-            Debug.Log("3秒経過、isReady = true");
+            TimerManager.Instance.AddTask($"{this.name}_WaitAndSetFalse_3s", 3f, () =>
+            {
+                effectIcon.gameObject.SetActive(false); // 3秒待つ
+                IsFrozen = false;
+            });
         }
 
-        public virtual IEnumerator MoveSpeedUp()
+        public virtual void MoveSpeedUp()
         {
             MoveSpeed *= escapeSpeedMultiplier;
-            yield return new WaitForSeconds(3f); // 3秒待つ
-            MoveSpeed /= escapeSpeedMultiplier;
+            TimerManager.Instance.AddTask($"{this.name}_MoveSpeedUp_3s", 3f, () =>
+            {
+                MoveSpeed /= escapeSpeedMultiplier;
+            }); 
         }
         
         public void ShowEffect(Sprite sprite, float duration)

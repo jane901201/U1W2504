@@ -1,5 +1,6 @@
 using System.Collections;
 using PolyNav;
+using TimerFrame;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -30,32 +31,34 @@ namespace DefaultNamespace
             int damage = base.Attack(targetCharacter);
             StateChangEvent?.Invoke();
             targetCharacter.IsFrozen = true;
-            StartCoroutine(targetCharacter.WaitAndSetFalse());
-            StartCoroutine(MoveSpeedUp());
+            targetCharacter.WaitAndSetFalse();
+            MoveSpeedUp();
             return damage;
         }
 
-        public override IEnumerator MoveSpeedUp()
+        public override void MoveSpeedUp()
         {
 
             MoveSpeed *= escapeSpeedMultiplier;
             PolyNavAgent.maxSpeed = MoveSpeed;
-            yield return new WaitForSeconds(3f); // 3秒待つ
-            MoveSpeed /= escapeSpeedMultiplier;
-            PolyNavAgent.maxSpeed = MoveSpeed;
+            TimerManager.Instance.AddTask($"{this.name}_MoveSpeedUp_3s", 3f, () =>
+            {
+                MoveSpeed /= escapeSpeedMultiplier;
+                PolyNavAgent.maxSpeed = MoveSpeed;
+            });
         }
         
-        public override IEnumerator WaitAndSetFalse()
+        public override void WaitAndSetFalse()
         {
             effectIcon.gameObject.SetActive(true);
             effectIcon.sprite = moveStopSprite;
             PolyNavAgent.maxSpeed = 0f;
-            yield return new WaitForSeconds(3f); // 3秒待つ
-            effectIcon.gameObject.SetActive(false);
-            IsFrozen = false;
-            PolyNavAgent.maxSpeed = MoveSpeed;
-            Debug.Log("3秒経過、isReady = true");
-
+            TimerManager.Instance.AddTask($"{this.name}_WaitAndSetFalse_3s", 3f, () =>
+            {
+                effectIcon.gameObject.SetActive(false);
+                IsFrozen = false;
+                PolyNavAgent.maxSpeed = MoveSpeed;
+            });
         }
     }
 }

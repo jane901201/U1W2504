@@ -20,14 +20,12 @@ public class ItemTrigger : MonoBehaviour
         }
         if (other.tag == "Enemy")
         {
-            // TODO: Let enemy use item in the future.
             Enemy enemy = other.GetComponent<Enemy>();
-            // if (enemy.AddItem(item))
-            // {
-            //     enemy.UseItem();
-            //     Destroy(gameObject);
-            // }
-            Destroy(gameObject);
+            if (enemy.AddItem(item))
+            {
+                enemy.UseItem();
+                Destroy(gameObject);
+            }
         }
     }
 }

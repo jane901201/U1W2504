@@ -59,8 +59,8 @@ public class Player : ICharacter
     {
         int damage = base.Attack(targetCharacter);
         StateChangEvent?.Invoke();
-        StartCoroutine(targetCharacter.WaitAndSetFalse());
-        StartCoroutine(MoveSpeedUp());
+        targetCharacter.WaitAndSetFalse();
+        MoveSpeedUp();
         return damage;
     }
     
