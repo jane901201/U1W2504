@@ -14,36 +14,11 @@ public class Player : ICharacter
     [SerializeField] private float minSwitchTime = 2f;
     [SerializeField] private float maxSwitchTime = 10f;
     private const string SwitchTaskId = "PlayerRandomSwitchRole";
-
-    public Action PlayerStateChangEvent;
     
     private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
     private Rigidbody2D rb;
     private Vector2 movement;
-    
-    private void ScheduleNextRoleSwitch()
-    {
-        if (TimerManager.Instance.HasTask(SwitchTaskId))
-            TimerManager.Instance.RemoveTask(SwitchTaskId);
-
-        float nextTime = Random.Range(minSwitchTime, maxSwitchTime);
-        TimerManager.Instance.AddTask(SwitchTaskId, nextTime, () =>
-        {
-            SwitchEmotion();              // 切换身份
-            ScheduleNextRoleSwitch();  // 再次安排下一轮
-        });
-    }
-    
-    public void SwitchEmotion()
-    {
-        if (PreventRoleChange)
-        {
-            return;
-        }
-        CharacterState.Emotion = CharacterState.Emotion == CharacterState.EmotionType.Love ? CharacterState.EmotionType.Sad : CharacterState.EmotionType.Love;
-        PlayerStateChangEvent?.Invoke();
-    }
 
 
     
@@ -52,7 +27,7 @@ public class Player : ICharacter
         Id = name;
         rb = GetComponent<Rigidbody2D>();
         playerPos = new Vector3Int(0, 0, 0);
-        ScheduleNextRoleSwitch();
+        TimerManager.Instance.AddRepeatingRandomTask("PlayerRandomSwitchRole", 2f, 10f, SwitchState);
     }
     
 

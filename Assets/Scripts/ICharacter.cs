@@ -81,6 +81,16 @@ namespace DefaultNamespace
             return damage;
         }
         
+        public void SwitchState()
+        {
+            if (PreventRoleChange)
+            {
+                return;
+            }
+
+            GameSystem.Instance.SwitchGameState();
+        }
+        
         public virtual IEnumerator WaitAndSetFalse()
         {
             effectIcon.gameObject.SetActive(true);

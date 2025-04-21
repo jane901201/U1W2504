@@ -7,9 +7,7 @@ namespace DefaultNamespace
     {
         public override void Use(ICharacter self, ICharacter[] targets)
         {
-            Player player = (Player) self;
-            player.PlayerStateChangEvent?.Invoke();
-            player.CharacterState.Emotion = player.CharacterState.Emotion == CharacterState.EmotionType.Love ? CharacterState.EmotionType.Sad : CharacterState.EmotionType.Love;
+            self.SwitchState();
         }
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)

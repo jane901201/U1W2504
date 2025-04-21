@@ -86,6 +86,33 @@ namespace TimerFrame
             };
         }
         
+        public void AddRepeatingRandomTask(string name, float minDelay, float maxDelay, Action callback)
+        {
+            RemoveTask(name); 
+
+            void ScheduleNext()
+            {
+                float next = UnityEngine.Random.Range(minDelay, maxDelay);
+
+                AddTask(name, next, () =>
+                {
+                    callback?.Invoke();
+
+                    // 延迟一帧后再注册下一轮
+                    Instance.StartCoroutine(DelayNextRound(name, minDelay, maxDelay, callback));
+                });
+            }
+
+            ScheduleNext(); 
+        }
+
+        private IEnumerator DelayNextRound(string name, float min, float max, Action cb)
+        {
+            yield return null;
+            AddRepeatingRandomTask(name, min, max, cb);
+        }
+
+        
         public bool ResetTask(string name)
         {
             if (taskDict.TryGetValue(name, out var task))

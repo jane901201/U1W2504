@@ -22,13 +22,8 @@ namespace DefaultNamespace
             ICharacter target = targets[0];
 
             // 自己变为相反角色
-            ((Player)self).SwitchEmotion();
-            ((Player)self).PlayerStateChangEvent?.Invoke();
-
-            // 对方也变为相反角色
-            target.CharacterState.Emotion = target.CharacterState.Emotion == CharacterState.EmotionType.Love
-                ? CharacterState.EmotionType.Sad
-                : CharacterState.EmotionType.Love;
+            self.SwitchState();
+            
             target.StateChangEvent?.Invoke();
         }
         

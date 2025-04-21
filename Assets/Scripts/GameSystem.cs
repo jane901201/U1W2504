@@ -42,6 +42,11 @@ namespace DefaultNamespace
                 StartCoroutine(MukudekiWhenStateChange());
             }
         }
+
+        public void SwitchGameState()
+        {
+            GameState = (GameState == GameState.EnemyChasePlayer ? GameState.PlayerChaseEnemy : GameState.EnemyChasePlayer);
+        }
         
         public ICharacter GetEnemy(ICharacter self)
         {
@@ -60,7 +65,6 @@ namespace DefaultNamespace
         {
             GameState = GameState.PlayerChaseEnemy;
             gameUI.SetPlayerChaseEnemyIcon();
-            player.PlayerStateChangEvent += StateChangEvent;
             player.StateChangEvent += StateChangEvent;
             enemy.StateChangEvent += StateChangEvent;
             player.ItemEffectEvent += PlayerItemEffectEvent;
@@ -122,7 +126,7 @@ namespace DefaultNamespace
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // TODO: for test only
-                player.SwitchEmotion();
+                player.SwitchState();
             }
 
             if (gameState == GameState.PlayerChaseEnemy)
