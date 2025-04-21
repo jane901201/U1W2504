@@ -137,7 +137,7 @@ namespace DefaultNamespace
                 Debug = !Debug;
             }
 
-            if (gameState == GameState.PlayerChaseEnemy)
+            if (gameState == GameState.EnemyChasePlayer)
             {
                 player.CharacterState.Emotion = CharacterState.EmotionType.Love;
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
@@ -148,8 +148,7 @@ namespace DefaultNamespace
                 
 
             }
-
-            if (gameState == GameState.EnemyChasePlayer)
+            else
             {
                 player.CharacterState.Emotion = CharacterState.EmotionType.Sad;
                 enemy.CharacterState.Emotion = CharacterState.EmotionType.Love;

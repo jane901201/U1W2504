@@ -7,7 +7,7 @@ namespace DefaultNamespace
     {
         public override void Use(ICharacter self, ICharacter[] targets)
         {
-            self.SwitchState();
+            //self.SwitchState();
         }
 
         protected override void UseAsOni(ICharacter self, ICharacter[] targets)

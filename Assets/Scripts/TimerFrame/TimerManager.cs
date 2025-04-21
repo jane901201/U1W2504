@@ -86,7 +86,7 @@ namespace TimerFrame
             };
         }
         
-        public void AddRepeatingRandomTask(string name, float minDelay, float maxDelay, Action callback)
+        public void AddRepeatingRandomTask(string name, float minDelay, float maxDelay, Action callback, TimerUnit unit = TimerUnit.Second)
         {
             RemoveTask(name); 
 
@@ -99,17 +99,17 @@ namespace TimerFrame
                     callback?.Invoke();
 
                     // 延迟一帧后再注册下一轮
-                    Instance.StartCoroutine(DelayNextRound(name, minDelay, maxDelay, callback));
-                });
+                    Instance.StartCoroutine(DelayNextRound(name, minDelay, maxDelay, callback, unit));
+                }, false, unit);
             }
 
             ScheduleNext(); 
         }
 
-        private IEnumerator DelayNextRound(string name, float min, float max, Action cb)
+        private IEnumerator DelayNextRound(string name, float min, float max, Action cb, TimerUnit unit = TimerUnit.Second)
         {
             yield return null;
-            AddRepeatingRandomTask(name, min, max, cb);
+            AddRepeatingRandomTask(name, min, max, cb, unit);
         }
 
         
