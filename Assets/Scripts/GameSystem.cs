@@ -16,6 +16,7 @@ namespace DefaultNamespace
         [SerializeField] private Tilemap tilemap;
         [SerializeField] private Tilemap obstacleTilemap;
         [SerializeField] private float spawnInterval = 0.5f;
+        [SerializeField] private int MudekiTime = 3;
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
@@ -42,7 +43,7 @@ namespace DefaultNamespace
                 PlayerTouchTrigger.SetActive(false);
                 EnemyuTouchTrigger.SetActive(false);
                 StartCoroutine(MukudekiWhenStateChange());
-                UnityEngine.Debug.Log(gameState);
+                StateChangEvent();
             }
         }
 
@@ -165,13 +166,13 @@ namespace DefaultNamespace
         {
             if (gameState == GameState.PlayerChaseEnemy)
             {
-                GameState = GameState.EnemyChasePlayer;
+                gameState = GameState.EnemyChasePlayer;
                 gameUI.SetEnemyChasePlayerIcon();
 
             }
             else if(gameState == GameState.EnemyChasePlayer)
             {
-                GameState = GameState.PlayerChaseEnemy;
+                gameState = GameState.PlayerChaseEnemy;
                 gameUI.SetPlayerChaseEnemyIcon();
 
             }
@@ -196,7 +197,7 @@ namespace DefaultNamespace
         {
 
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(MudekiTime);
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
             Mudeki = false;
             OpenTrigger();
