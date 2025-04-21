@@ -12,6 +12,7 @@ namespace DefaultNamespace
         [SerializeField] private int hp = 3;
 
         [SerializeField] private Animator animator;
+        [SerializeField] protected Sprite moveStopSprite;
         public float MoveSpeed { get; set; } = 5f;
                 
         
@@ -19,7 +20,6 @@ namespace DefaultNamespace
         
         public Action StateChangEvent;
         public Action<Sprite, bool> ItemEffectEvent;
-        
 
         public float escapeSpeedMultiplier = 2f;
         [SerializeField] protected SpriteRenderer effectIcon; 
@@ -83,7 +83,10 @@ namespace DefaultNamespace
         
         public virtual IEnumerator WaitAndSetFalse()
         {
-            yield return new WaitForSeconds(3f); // 3秒待つ
+            effectIcon.gameObject.SetActive(true);
+            effectIcon.sprite = moveStopSprite;
+            yield return new WaitForSeconds(3f);
+            effectIcon.gameObject.SetActive(false);// 3秒待つ
             IsFrozen = false;
             Debug.Log("3秒経過、isReady = true");
         }
