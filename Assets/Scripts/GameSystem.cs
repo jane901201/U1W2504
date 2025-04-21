@@ -42,6 +42,7 @@ namespace DefaultNamespace
                 PlayerTouchTrigger.SetActive(false);
                 EnemyuTouchTrigger.SetActive(false);
                 StartCoroutine(MukudekiWhenStateChange());
+                UnityEngine.Debug.Log(gameState);
             }
         }
 
@@ -143,6 +144,7 @@ namespace DefaultNamespace
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 gameUI.SetPlayerIcon(player);
                 gameUI.SetEnemyIcon(enemy);
+                
 
             }
 
