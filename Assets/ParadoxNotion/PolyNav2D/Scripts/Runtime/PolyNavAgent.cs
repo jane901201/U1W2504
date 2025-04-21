@@ -12,6 +12,9 @@ namespace PolyNav
     public class PolyNavAgent : MonoBehaviour
     {
 
+        [Header("调试与特殊移动")]
+        public bool reverse = false;
+        
         ///<summary>The target PolyNav2D map this agent is assigned to.</summary>
         [SerializeField]
         private PolyNavMap _map = null;
@@ -266,9 +269,11 @@ namespace PolyNav
 
             var targetVelocity = currentVelocity;
             // calculate velocities
-            if ( remainingDistance < slowingDistance ) {
-                targetVelocity += Arrive(nextPoint);
-            } else { targetVelocity += Seek(nextPoint); }
+            if (remainingDistance < slowingDistance) {
+                targetVelocity += reverse ? -Arrive(nextPoint) : Arrive(nextPoint);
+            } else {
+                targetVelocity += reverse ? -Seek(nextPoint) : Seek(nextPoint);
+            }
 
             //move the agent
             currentVelocity = Vector2.MoveTowards(currentVelocity, targetVelocity, maxForce * Time.deltaTime);

@@ -15,9 +15,6 @@ namespace DefaultNamespace
         public PolyNavAgent PolyNavAgent;
 
         private float _lastMaxSpeed;
-
-        
-        // TODO: 每次移动修改移动方向LastMoveDirection
         
         protected override void Awake()
         {
@@ -41,6 +38,16 @@ namespace DefaultNamespace
             else
             {
                 PolyNavAgent.maxSpeed = _lastMaxSpeed;
+            }
+
+            if (IsControlReversed && !TimerManager.Instance.HasTask($"{name}_AIReversed"))
+            {
+                PolyNavAgent.reverse = true;
+                TimerManager.Instance.AddTask($"{name}_AIReversed", 1f, () =>
+                {
+                    IsControlReversed = false;
+                    PolyNavAgent.reverse = false;
+                });
             }
 
             // CD

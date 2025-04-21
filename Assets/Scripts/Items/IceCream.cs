@@ -37,8 +37,6 @@ namespace DefaultNamespace
 
                     foreach (var target in targets)
                     {
-                        // TODO: 这里用Attack还是直接扣体力看需求
-                        // self.Attack(target);
                         target.Hp -= 1;
                     }
                 }
