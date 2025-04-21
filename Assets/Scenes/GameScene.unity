@@ -1048,11 +1048,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 272739002824768515, guid: 6862d4056e4a45648977daf67c610e82, type: 3}
   m_PrefabInstance: {fileID: 62009357}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &336960965 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4394799292964162959, guid: 179e5527d573d204da554529f1a10216, type: 3}
-  m_PrefabInstance: {fileID: 1931408721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &379448616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1640,11 +1635,11 @@ PrefabInstance:
     - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: EnemyuTouchTrigger
       value: 
-      objectReference: {fileID: 1624885802}
+      objectReference: {fileID: 0}
     - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: PlayerTouchTrigger
       value: 
-      objectReference: {fileID: 336960965}
+      objectReference: {fileID: 0}
     - target: {fileID: 2922314471512752367, guid: 79277ca5bc0003a4d80ef5430d61a3f8, type: 3}
       propertyPath: objectsToSpawn.Array.size
       value: 9
@@ -15663,11 +15658,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1624885802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3229292284065414264, guid: 4bcbe7fb2c90008418ae816722fd4b3e, type: 3}
-  m_PrefabInstance: {fileID: 169065878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691310940
 GameObject:
   m_ObjectHideFlags: 0

@@ -212,8 +212,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4978624378635376358}
   - {fileID: 8245491589974732351}
+  - {fileID: 4978624378635376358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2590784663677640210
@@ -381,6 +381,8 @@ MonoBehaviour:
   hp: 3
   animator: {fileID: 6207038296863499281}
   moveStopSprite: {fileID: 21300000, guid: 56a3eff9ca608437bb8392856c267c7d, type: 3}
+  MoveSpeed: 5
+  OriginalMoveSpeed: 0
   escapeSpeedMultiplier: 2
   effectIcon: {fileID: 2694973144710956716}
   AIController: {fileID: 0}

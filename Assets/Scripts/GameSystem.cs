@@ -27,7 +27,7 @@ namespace DefaultNamespace
         public bool Debug { get; set; } = false;
 
         public GameObject PlayerTouchTrigger;
-        public GameObject EnemyuTouchTrigger;
+        public GameObject EnemyTouchTrigger;
 
         public bool Mudeki = false;
         
@@ -53,7 +53,7 @@ namespace DefaultNamespace
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 Mudeki = true;
                 PlayerTouchTrigger.SetActive(false);
-                EnemyuTouchTrigger.SetActive(false);
+                EnemyTouchTrigger.SetActive(false);
                 gameUI?.FlushIcon();
                 StartCoroutine(MukudekiWhenStateChange());
                 UnityEngine.Debug.Log($"{gameState}");
@@ -76,6 +76,9 @@ namespace DefaultNamespace
             gameUI = GameObject.Find("Canvas").GetComponent<GameUI>();
             obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
             tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
+            PlayerTouchTrigger=GameObject.Find("Player").transform.GetChild(0).gameObject;
+            print(GameObject.Find("Player").transform.GetChild(0).gameObject);
+            EnemyTouchTrigger =GameObject.Find("Enemy").transform.GetChild(0).gameObject;
         }
 
         private void Start()
@@ -181,7 +184,7 @@ namespace DefaultNamespace
             }
             else
             {
-                EnemyuTouchTrigger.gameObject.SetActive(true);
+                EnemyTouchTrigger.gameObject.SetActive(true);
             }
         }
     }
