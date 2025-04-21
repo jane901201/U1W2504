@@ -22,7 +22,9 @@ namespace DefaultNamespace
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
-        
+
+        public bool Debug { get; set; } = false;
+
         public GameObject PlayerTouchTrigger;
         public GameObject EnemyuTouchTrigger;
 
@@ -125,8 +127,12 @@ namespace DefaultNamespace
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                // TODO: for test only
-                player.SwitchState();
+                if (Debug) { player.SwitchState(); }
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Debug = !Debug;
             }
 
             if (gameState == GameState.PlayerChaseEnemy)

@@ -128,5 +128,29 @@ namespace TimerFrame
         public bool RemoveTask(string name) => taskDict.TryRemove(name, out _);
 
         public void ClearAllTasks() => taskDict.Clear();
+        
+        public void DebugLogAllTasks()
+        {
+            Debug.Log("[TimerMonitor] 当前所有定时任务：");
+
+            foreach (var kvp in taskDict)
+            {
+                string name = kvp.Key;
+                TimerTask task = kvp.Value;
+
+                float progress = Mathf.Clamp01((float)(1.0 - task.TimeLeft / task.TotalTime));
+                int blocks = Mathf.RoundToInt(progress * 10);
+                string bar = new string('▇', blocks) + new string('▁', 10 - blocks);
+
+                Debug.Log($"🔹 {name}：{bar} ({task.TimeLeft:F1}s / {task.TotalTime:F1}s)");
+            }
+        }
+        
+        public IReadOnlyDictionary<string, TimerTask> GetAllTasks()
+        {
+            return taskDict;
+        }
+
+
     }
 }
