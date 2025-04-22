@@ -16,7 +16,6 @@ namespace TimerFrame
         {
             if (Instance != null) Destroy(gameObject);
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             StartCoroutine(TimerWheel());
         }
 

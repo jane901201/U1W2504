@@ -74,12 +74,12 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            if (Instance != null) Destroy(gameObject);
             Instance = this;
             gameUI = GameObject.Find("Canvas").GetComponent<GameUI>();
             obstacleTilemap = GameObject.Find("ObstaclesTilemap").GetComponent<Tilemap>();
             tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
             PlayerTouchTrigger=GameObject.Find("Player").transform.GetChild(0).gameObject;
-            print(GameObject.Find("Player").transform.GetChild(0).gameObject);
             EnemyTouchTrigger =GameObject.Find("Enemy").transform.GetChild(0).gameObject;
         }
 

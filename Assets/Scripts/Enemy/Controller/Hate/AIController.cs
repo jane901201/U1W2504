@@ -21,7 +21,7 @@ public class AIController : MonoBehaviour
 
     private void Start()
     {
-        GameSystem=GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        GameSystem=GameSystem.Instance;
 
         //Love
         LoveStateMachine = new(this);
