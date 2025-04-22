@@ -13,6 +13,7 @@ namespace DefaultNamespace
         [SerializeField] private int hp = 3;
 
         [SerializeField] private Animator animator;
+        [SerializeField] private Animator effectAnimator;
         [SerializeField] protected Sprite moveStopSprite;
         [SerializeField] public float MoveSpeed = 5f;
         public float OriginalMoveSpeed;
@@ -47,6 +48,7 @@ namespace DefaultNamespace
         public string Id { get; set; }
         public CharacterState CharacterState { get; set; }
         public Animator Animator{ get => animator; set => animator = value; }
+        public Animator EffectAnimator{ get => effectAnimator; set => effectAnimator = value; }
         public SpriteRenderer EffectIcon { get => effectIcon; set => effectIcon = value; } 
         
         protected virtual void Awake()

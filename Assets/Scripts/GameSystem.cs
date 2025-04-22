@@ -50,6 +50,8 @@ namespace DefaultNamespace
                     enemy.CharacterState.Emotion = CharacterState.EmotionType.Sad;
                 }
                 player.Animator.SetInteger("CharacterState", (int)player.CharacterState.Emotion);
+                player.EffectAnimator.SetBool("IsLove",GameState!=GameState.EnemyChasePlayer?true:false);
+                enemy.EffectAnimator.SetBool("IsLove",GameState==GameState.EnemyChasePlayer?true:false);
                 enemy.Animator.SetInteger("CharacterState", (int)enemy.CharacterState.Emotion);
                 Mudeki = true;
                 PlayerTouchTrigger.SetActive(false);
