@@ -42,8 +42,8 @@ namespace DefaultNamespace
         private Image playerItemImage;
         private Image enemyItemImage;
         
-        private GameObject[] playerHpImages = new GameObject[3];
-        private GameObject[] enemyHpImages = new GameObject[3];
+        private GameObject[] playerHpImages = new GameObject[5];
+        private GameObject[] enemyHpImages = new GameObject[5];
 
         private void Awake()
         {
@@ -53,17 +53,22 @@ namespace DefaultNamespace
 
             if (enemyItemPanel != null)
                 enemyItemImage = enemyItemPanel.GetComponent<Image>();
+        }
 
+        private void Start()
+        {
             foreach (Transform child in playerHPPanel.transform)
             {
                 playerHpImages[child.GetSiblingIndex()] = child.gameObject;
             }
+            
+            Debug.Log(playerHpImages.Length);
 
             foreach (Transform child in enemyHPPanel.transform)
             {
                 enemyHpImages[child.GetSiblingIndex()] = child.gameObject;
             }
-        }
+        } 
         
         public void FlushIcon()
         {
@@ -108,6 +113,7 @@ namespace DefaultNamespace
 
         public void SetPlayerHPIcon(int hp)
         {
+            //Debug.Log("Player HP : " + hp);
             for (int i = 0; i < playerHpImages.Length; i++)
             {
                 playerHpImages[i].SetActive(false);

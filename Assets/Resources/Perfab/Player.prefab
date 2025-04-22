@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  hp: 3
+  hp: 5
   animator: {fileID: 108660452155680199}
   effectAnimator: {fileID: 1030087021979098475}
   moveStopSprite: {fileID: 21300000, guid: 56a3eff9ca608437bb8392856c267c7d, type: 3}

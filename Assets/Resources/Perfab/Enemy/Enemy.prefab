@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverse: 0
   _map: {fileID: 0}
   maxSpeed: 2
   maxForce: 5
@@ -378,8 +379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  hp: 3
+  hp: 5
   animator: {fileID: 6207038296863499281}
+  effectAnimator: {fileID: 0}
   moveStopSprite: {fileID: 21300000, guid: 56a3eff9ca608437bb8392856c267c7d, type: 3}
   MoveSpeed: 5
   OriginalMoveSpeed: 0
