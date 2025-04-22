@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\uFF1ATina\u3001Evyde\u3001\u606F\r\n\r\u30C7\u30B6\u30A4\u30CA\u30FC\uFF1A\u306B\u3083\u3082\u3001\u5F69\u4E43\u3001\u30B3\u30A6\u30B3\u30A6\r\n\r\u30D7\u30E9\u30F3\u30CA\u30FC\uFF1A\u304B\u3093\u3001ZY\u3001Udon_kaku\r\n\r\u30B5\u30A6\u30F3\u30C9\uFF1A\u30B3\u30A6\u3001Udon_kaku"
+  m_text: "\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\uFF1ATina\u3001Evyde\u3001\u606F\r\n\r\u30C7\u30B6\u30A4\u30CA\u30FC\uFF1A\u306B\u3083\u3082\u3001\u5F69\u4E43\u3001KOKOSHU\r\n\r\u30D7\u30E9\u30F3\u30CA\u30FC\uFF1A\u304B\u3093\u3001ZY\u3001Udon_kaku\r\n\r\u30B5\u30A6\u30F3\u30C9\uFF1A\u30B3\u30A6\u3001Udon_kaku"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e5c81061856bce41b34e088a7d3bf1a, type: 2}
   m_sharedMaterial: {fileID: -6863973604125777949, guid: 7e5c81061856bce41b34e088a7d3bf1a, type: 2}
