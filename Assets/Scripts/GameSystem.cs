@@ -137,7 +137,7 @@ namespace DefaultNamespace
             gameUI.SetPlayerHPIcon(player.Hp);
             gameUI.SetEnemyHPIcon(enemy.Hp);
             
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 player.UseItem();
             }
