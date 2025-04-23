@@ -86,14 +86,14 @@ namespace DefaultNamespace
             return damage;
         }
         
-        public void SwitchState()
+        public void SwitchState(string source="default")
         {
             if (PreventRoleChange)
             {
                 return;
             }
 
-            GameSystem.Instance.SwitchGameState();
+            GameSystem.Instance.SwitchGameState(source);
         }
         
         public virtual void WaitAndSetFalse()

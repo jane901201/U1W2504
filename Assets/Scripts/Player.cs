@@ -8,11 +8,6 @@ using Random = UnityEngine.Random;
 
 public class Player : ICharacter
 {
-    [Header("角色随机变鬼人时间配置")] 
-    [SerializeField] private float minSwitchTime = 2f;
-    [SerializeField] private float maxSwitchTime = 10f;
-    private const string SwitchTaskId = "PlayerRandomSwitchRole";
-    
     private float moveCooldown = 0.2f; 
     private float lastMoveTime = 0f;
     private Rigidbody2D rb;
@@ -24,7 +19,6 @@ public class Player : ICharacter
     {
         Id = name;
         rb = GetComponent<Rigidbody2D>();
-        TimerManager.Instance.AddRepeatingRandomTask(SwitchTaskId, minSwitchTime, maxSwitchTime, SwitchState);
     }
     
 

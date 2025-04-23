@@ -20,6 +20,10 @@ namespace DefaultNamespace
         [SerializeField] private GameObject[] objectsToSpawn;
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
+        [Header("角色随机变鬼人时间配置")] 
+        [SerializeField] private float minSwitchTime = 2f;
+        [SerializeField] private float maxSwitchTime = 10f;
+        private const string SwitchTaskId = "RandomSwitchRole";
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
         private List<Vector3Int> obstaclePositions = new List<Vector3Int>();
@@ -62,8 +66,12 @@ namespace DefaultNamespace
             }
         }
 
-        public void SwitchGameState()
+        public void SwitchGameState(string source="default")
         {
+            if (source == "default")
+            {
+                TimerManager.Instance.ResetTask(SwitchTaskId);
+            }
             GameState = (GameState == GameState.EnemyChasePlayer ? GameState.PlayerChaseEnemy : GameState.EnemyChasePlayer);
         }
         
@@ -103,6 +111,13 @@ namespace DefaultNamespace
             // 一定時間ごとに生成を開始
             // StartCoroutine(SpawnLoop());
             TimerManager.Instance.AddTask("SpawnObjectAtRandomPosition", spawnInterval, SpawnObjectAtRandomPosition, true);
+            TimerManager.Instance.AddRepeatingRandomTask(SwitchTaskId, minSwitchTime, maxSwitchTime, () =>
+            {
+                if (!player.PreventRoleChange && !enemy.PreventRoleChange)
+                {
+                    SwitchGameState(SwitchTaskId);
+                }
+            });
             GameState = GameState;
         }
         
