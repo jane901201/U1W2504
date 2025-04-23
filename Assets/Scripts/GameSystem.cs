@@ -21,8 +21,8 @@ namespace DefaultNamespace
         [SerializeField] private GameState gameState;
         [SerializeField] private SceneManager sceneManager;
         [Header("角色随机变鬼人时间配置")] 
-        [SerializeField] private float minSwitchTime = 2f;
-        [SerializeField] private float maxSwitchTime = 10f;
+        [SerializeField] private float minSwitchTime = 35f;
+        [SerializeField] private float maxSwitchTime = 40f;
         private const string SwitchTaskId = "RandomSwitchRole";
         
         private List<Vector3Int> tilePositions = new List<Vector3Int>();
